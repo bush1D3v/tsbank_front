@@ -1,0 +1,19 @@
+$bg: #3178c6;
+$text: #eee;
+$black: #000;
+$input: #f7e9fbb3;
+$primary: #112069;
+$secondary: #01aecc;
+$accent: #613fd1;
+$error: #e70008;
+
+:root {
+  --bg: #{$bg};
+  --text: #{$text};
+  --black: #{$black};
+  --input: #{$input};
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --accent: #{$accent};
+  --error: #{$error};
+}

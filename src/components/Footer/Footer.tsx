@@ -7,6 +7,7 @@ export function Footer(): ReactElement {
         Feito com 💖 por <a
           className="font-bold underline cursor-pointer hover:text-darkBlue transition-all"
           href="https://linktr.ee/bush1D3v"
+          target="_blank"
         >
           bush1D3v
         </a>

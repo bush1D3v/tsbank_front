@@ -96,7 +96,7 @@ export default function Login(): ReactElement {
           {isLoading ? "Logging in..." : "Login"}
         </S.Button>
       </div>
-      <span className="my-8 underline text-lg hover:text-accent transition-colors ">
+      <span className="my-8 underline text-lg hover:text-darkBlue transition-colors ">
         <Link to={REGISTER}>Don't have an account? Create one here.</Link>
       </span>
     </S.FormWrapper>

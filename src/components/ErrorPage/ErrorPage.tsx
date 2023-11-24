@@ -18,7 +18,8 @@ export default function ErrorPage(): ReactElement {
       <Link to={HOME}>
         <button
           type="button"
-          className="rounded-3xl bg-secondary text-lg md:text-xl py-4 md:py-5 lg:py-6 px-8 md:px-10 lg:px-12 font-bold hover:text-accent transition-all"
+          className="rounded-3xl bg-secondary text-lg md:text-xl py-4 md:py-5
+          lg:py-6 px-8 md:px-10 lg:px-12 font-bold hover:text-accent transition-all"
         >
           Return to home page
         </button>

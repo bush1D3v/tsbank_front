@@ -1,19 +1,31 @@
-$bg: #3178c6;
-$text: #eee;
-$black: #000;
-$input: #f7e9fbb3;
+$blue-base: #3178c6;
+$dark-blue:#1d4971;
+$light-blue: #4c8dcf;
+$saturated-blue: #0066b2;
+$desaturated-blue: #5394d4;
 $primary: #112069;
 $secondary: #01aecc;
 $accent: #613fd1;
+$black: #000;
+$white: #eee;
 $error: #e70008;
+$input: #f7e9fbb3;
+$dark-gray: #666666;
+$light-gray: #cccccc;
 
 :root {
-  --bg: #{$bg};
-  --text: #{$text};
-  --black: #{$black};
-  --input: #{$input};
+  --blue-base: #{$blue-base};
+  --dark-blue: #{$dark-blue};
+  --light-blue: #{$light-blue};
+  --saturated-blue: #{$saturated-blue};
+  --desaturated-blue: #{$desaturated-blue};
   --primary: #{$primary};
   --secondary: #{$secondary};
   --accent: #{$accent};
+  --black: #{$black};
+  --white: #{$white};
   --error: #{$error};
+  --input: #{$input};
+  --dark-gray: #{$dark-gray};
+  --light-gray: #{$light-gray};
 }

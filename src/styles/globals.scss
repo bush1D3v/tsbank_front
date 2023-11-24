@@ -4,8 +4,8 @@
 @import "tailwindcss/utilities";
 
 body {
-  background: $bg;
-  color: $text;
+  background: $blue-base;
+  color: $white;
 }
 
 * {
@@ -13,12 +13,10 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background-color: $primary;
-  border-radius: 10px;
   width: 8px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: $bg;
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
+  background-color: $secondary;
 }

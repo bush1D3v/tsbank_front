@@ -1,6 +1,8 @@
 import {
+  ABOUT,
   HOME,
   LOGIN,
+  PROFILE,
   REGISTER,
   ROOT
 } from "./routePaths";
@@ -18,5 +20,7 @@ export {
   ROOT,
   API_URL_BASE,
   LOGIN_ENDPOINT,
-  REGISTER_ENDPOINT
+  REGISTER_ENDPOINT,
+  PROFILE,
+  ABOUT
 };

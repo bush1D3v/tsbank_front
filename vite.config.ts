@@ -9,6 +9,6 @@ export default defineConfig({
     host: "localhost",
   },
   optimizeDeps: {
-    include: [ "react", "react-dom", "react-router-dom" ],
+    include: [ "react", "react-dom", "react-router-dom", "react-icons" ],
   },
 });

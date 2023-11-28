@@ -10,7 +10,8 @@ import {
 import {
   API_URL_BASE,
   LOGIN_ENDPOINT,
-  REGISTER_ENDPOINT
+  REGISTER_ENDPOINT,
+  PROFILE_ENDPOINT
 } from "./api";
 
 export {
@@ -22,5 +23,6 @@ export {
   LOGIN_ENDPOINT,
   REGISTER_ENDPOINT,
   PROFILE,
-  ABOUT
+  ABOUT,
+  PROFILE_ENDPOINT
 };

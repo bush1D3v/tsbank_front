@@ -2,18 +2,22 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { PrivateRoutes } from "../helpers";
 import {
-  ROOT,
-  HOME,
-  REGISTER,
-  LOGIN
-} from "../utils";
-import {
   ErrorPage,
   Layout
 } from "../components";
 import {
+  ROOT,
+  HOME,
+  REGISTER,
+  LOGIN,
+  ABOUT,
+  PROFILE
+} from "../utils";
+import {
   Home,
-  Register
+  Register,
+  About,
+  Profile
 } from "../pages";
 
 const router = createBrowserRouter([
@@ -31,7 +35,15 @@ const router = createBrowserRouter([
           {
             path: HOME,
             element: <Home />
-          }
+          },
+          {
+            path: ABOUT,
+            element: <About />
+          },
+          {
+            path: PROFILE,
+            element: <Profile />
+          },
         ]
       },
     ]

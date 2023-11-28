@@ -3,13 +3,18 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+* {
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+}
+
 body {
   background: $blue-base;
   color: $white;
 }
 
-* {
-  font-family: Inter, sans-serif;
+img {
+  pointer-events: none;
 }
 
 ::-webkit-scrollbar {
@@ -19,4 +24,9 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: $secondary;
+}
+
+::selection {
+  background: $secondary;
+  color: $primary;
 }

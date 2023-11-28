@@ -2,15 +2,19 @@ import { type ReactElement, createContext, useState } from "react";
 
 import { type User } from "../types";
 
-const userInfo = localStorage.getItem("l_storage.user_info");
+const userInfo = localStorage.getItem("userInfo");
 
 interface ProviderProp {
   children: React.ReactNode;
 }
 
 const initialUser: User = {
-  id: "",
-  name: ""
+  id: 0,
+  name: "",
+  balance: 0,
+  cpf: "00000000000",
+  email: "exemplo@email.com",
+  phone: "21123456789"
 };
 
 const prevUserInfo = (): User => {

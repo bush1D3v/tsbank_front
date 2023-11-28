@@ -22,8 +22,6 @@ export default async function handleRegisterSubmit(
       phone: userData.phone
     });
 
-    console.log(response);
-
     if (response.status === 201) {
       return {
         success: true,

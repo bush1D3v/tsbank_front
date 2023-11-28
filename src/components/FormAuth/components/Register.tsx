@@ -124,8 +124,8 @@ export default function Register(): ReactElement {
           {isLoading ? "Creating..." : "Create Account"}
         </S.Button>
       </div>
-      <span className="my-8 underline text-lg hover:text-darkBlue transition-colors">
-        <Link to={LOGIN}>Already have an account? Log in here.</Link>
+      <span className="text-lg">
+        Already have an account? <Link to={LOGIN}><u className="hover:text-darkBlue transition-colors">Sign in.</u></Link>
       </span>
     </S.FormWrapper>
   );

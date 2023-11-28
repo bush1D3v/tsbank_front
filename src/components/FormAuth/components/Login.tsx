@@ -50,7 +50,7 @@ export default function Login(): ReactElement {
     if (result.success && result.user !== undefined) {
       setUserData(result.user);
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("l_storage.user_info", JSON.stringify(result.user));
+      localStorage.setItem("userInfo", JSON.stringify(result.user));
       setIsUserLoggedIn(true);
 
       setIsLoading(false);
@@ -96,8 +96,8 @@ export default function Login(): ReactElement {
           {isLoading ? "Logging in..." : "Login"}
         </S.Button>
       </div>
-      <span className="my-8 underline text-lg hover:text-darkBlue transition-colors ">
-        <Link to={REGISTER}>Don't have an account? Create one here.</Link>
+      <span className="text-lg">
+        Don't have an account? <Link to={REGISTER}><u className="hover:text-darkBlue transition-colors">Sign up.</u></Link>
       </span>
     </S.FormWrapper>
   );

@@ -21,8 +21,6 @@ export default async function handleLoginSubmit(
       password: userData.password,
     });
 
-    console.log(response);
-
     if (response.status === 200) {
       return {
         success: true,

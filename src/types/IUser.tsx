@@ -1,6 +1,8 @@
 export interface User {
-  created_at?: number;
-  id: string;
+  id: number;
+  cpf: string;
   name: string;
-  password?: string;
+  email: string;
+  phone: string;
+  balance: number;
 }

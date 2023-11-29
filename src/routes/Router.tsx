@@ -23,7 +23,7 @@ import {
 const router = createBrowserRouter([
   {
     path: ROOT,
-    element: <Navigate to={HOME} replace />,
+    element: <Navigate to={LOGIN} replace />,
     errorElement: <ErrorPage />,
   },
   {

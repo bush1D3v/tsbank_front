@@ -20,7 +20,7 @@ export function Form(): ReactElement {
   };
 
   return (
-    <main className="h-screen flex items-center justify-evenly flex-col">
+    <main className="h-[100dvh] flex items-center justify-center flex-col">
       {handleFormType(pathname)}
     </main>
   );

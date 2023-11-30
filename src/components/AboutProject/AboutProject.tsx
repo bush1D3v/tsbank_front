@@ -34,7 +34,7 @@ export default function AboutProject(): ReactElement {
           <img src={lpDevelopmentTeam} alt="Development Team" />
           <Paragraph
             text="Experience banking <em>like never before</em> with TSBank, where innovation and simplicity
-            converge to create a financial experience tailored to you." />
+            converge to create a financial experience adapted to you." />
         </article>
       </section>
       <hr className="p-[1px] bg-saturedBlue border-white border-2 w-10/12 rounded-2xl" />

@@ -1,4 +1,4 @@
-import tsbankLogo from "../../assets/images/tsbank-no-bg.svg";
+import tsbankLogo from "../../assets/images/tsbank-no-bg.png";
 import { type ReactElement } from "react";
 
 export default function Hero(): ReactElement {
@@ -8,8 +8,8 @@ export default function Hero(): ReactElement {
         <img src={tsbankLogo} alt="Tsbank logo" />
       </a>
       <p className="font-bold text-2xl text-justify md:text-center px-2 md:px-4 xl:px-50">
-        Olá! Ficamos felizes que você esteja curioso para conhecer o projeto TSBank! 😄 <br />
-        Enquanto a sua primeira página ainda não é criada, sinta-se a vontade para clicar na imagem, você será redirecionado ao repositório do nosso servidor! 🌐
+        Hello! We are happy that you are curious to learn about the TSBank project! 😄 <br />
+        Although your first page is not created yet, feel free to click on the image, you will be redirected to our server repository! 🌐
       </p>
     </section>
   );

@@ -22,6 +22,10 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as transações e
    <img align='center' height='50' width='70' title='JavaScript' alt='javascript' src='https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg' />
 </div>
 
+## 🏗 Estrutura e Arquitetura
+
+O projeto segue os princípios da **arquitetura limpa** e leva em consideração os princípios do **SOLID**. O código foi organizado de acordo com os princípios de **modularidade**, **reutilização** e **responsabilidade única**.
+
 # 🖋️ Contribuindo para a TSBank 
 
 Agradecemos pelo seu interesse em contribuir para a **TSBank**. Sua ajuda é **valiosa** para melhorar e **expandir** nossa aplicação. Abaixo estão as **diretrizes** e os **passos** para contribuir com nosso projeto.

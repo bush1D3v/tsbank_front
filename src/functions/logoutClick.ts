@@ -5,6 +5,7 @@ export default function logoutClick(to: string) {
   const navigation = useNavigate();
 
   const makeLogout = () => {
+    localStorage.removeItem("userInfo");
     navigation(to);
     localStorage.setItem("isLoggedIn", "false");
     window.location.reload();

@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
-import { ProfilePage } from "../components";
+import { MainProfile } from "../components";
 
 export default function Profile(): ReactElement {
-  return <ProfilePage />;
+  return <MainProfile />;
 }

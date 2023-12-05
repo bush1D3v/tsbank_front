@@ -3,12 +3,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 
-import { LOGIN } from "../../../utils/routePaths";
+import { LOGIN } from "../../../utils";
 import { type registerProps, schemaRegisterForm } from "./schemas";
 import { handleRegisterSubmit } from "./functions";
-import * as S from "./styleds";
+import * as S from "../../Styleds";
 import Modal from "../../Modal";
-
 
 export default function Register(): ReactElement {
   const [ error, setError ] = useState<string>("");

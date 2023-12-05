@@ -1,3 +1,3 @@
-import { UserDataProvider } from "./userData.tsx";
+import { UserDataProvider, UserDataContext } from "./userData.tsx";
 
-export { UserDataProvider };
+export { UserDataProvider, UserDataContext };

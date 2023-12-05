@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import Hero from "./Hero";
 import Layout from "./Layout";
 import AboutProject from "./AboutProject";
-import ProfilePage from "./ProfilePage";
+import MainProfile from "./ProfilePage";
 
 export {
   ErrorPage,
@@ -13,5 +13,5 @@ export {
   Hero,
   Layout,
   AboutProject,
-  ProfilePage
+  MainProfile
 };

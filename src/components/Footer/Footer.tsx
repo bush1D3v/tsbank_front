@@ -8,9 +8,9 @@ function scrollToTop() {
   });
 }
 
-export function Footer(): ReactElement {
+export default function Footer(): ReactElement {
   return (
-    <footer className="text-sm bg-saturedBlue flex h-[9dvh] justify-between py-2 px-4 relative">
+    <footer className="text-sm bg-saturatedBlue flex h-[9dvh] justify-between py-2 px-4 relative">
       <span className="md:text-xl my-auto">TSBank <br /> Corporation &copy;</span>
       <p className="absolute left-20 right-20 md:static md:mr-[10dvw] lg:mr-[7dvw] xl:mr-[4dvw] md:text-xl md:my-auto text-center">
         Make with 💖 <br /> by <a

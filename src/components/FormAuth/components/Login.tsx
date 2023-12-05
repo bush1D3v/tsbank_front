@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 
-import { HOME, REGISTER } from "../../../utils/routePaths";
+import { HOME, REGISTER } from "../../../utils";
 import { type loginProps, schemaLoginForm } from "./schemas";
 import { handleLoginSubmit } from "./functions";
-import { UserDataContext } from "../../../contexts/userData";
-import * as S from "./styleds";
+import { UserDataContext } from "../../../contexts";
+import * as S from "../../Styleds";
 import Modal from "../../Modal";
 
 export default function Login(): ReactElement {

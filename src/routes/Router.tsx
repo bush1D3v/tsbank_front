@@ -11,7 +11,13 @@ import {
   REGISTER,
   LOGIN,
   ABOUT,
-  PROFILE
+  PROFILE,
+  EDIT,
+  EDIT_ALL,
+  EDIT_EMAIL,
+  EDIT_PASSWORD,
+  EDIT_PHONE,
+  DELETE_USER
 } from "../utils";
 import {
   Home,
@@ -42,6 +48,34 @@ const router = createBrowserRouter([
           },
           {
             path: PROFILE,
+            element: <Profile />,
+          },
+          {
+            path: EDIT,
+            element: <Profile />
+          },
+          {
+            path: EDIT_ALL,
+            element: <Profile />
+          },
+          {
+            path: EDIT_EMAIL,
+            element: <Profile />
+          },
+          {
+            path: EDIT_PASSWORD,
+            element: <Profile />
+          },
+          {
+            path: EDIT_PHONE,
+            element: <Profile />
+          },
+          {
+            path: EDIT_ALL,
+            element: <Profile />
+          },
+          {
+            path: DELETE_USER,
             element: <Profile />
           },
         ]

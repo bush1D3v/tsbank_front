@@ -1,11 +1,10 @@
 import { type ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 
-import Register from "./components/Register";
-import Login from "./components/Login";
+import { Login, Register } from "./components";
 import { LOGIN, REGISTER } from "../../utils";
 
-export function Form(): ReactElement {
+export default function Form(): ReactElement {
   const { pathname } = useLocation();
 
   const handleFormType = (currPath: string): ReactElement => {

@@ -2,7 +2,7 @@ import { type ReactElement, createContext, useState } from "react";
 
 import { type User } from "../types";
 
-const userInfo = localStorage.getItem("userInfo");
+const userInfo = sessionStorage.getItem("userInfo");
 
 interface ProviderProp {
   children: React.ReactNode;
@@ -39,7 +39,7 @@ export const UserDataContext = createContext<{
 
 export const UserDataProvider = ({ children }: ProviderProp): ReactElement => {
   const [ userData, setUserData ] = useState(prevUserInfo);
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
   const [ isUserLoggedIn, setIsUserLoggedIn ] = useState<boolean>(isLoggedIn);
 
   return (

@@ -46,7 +46,7 @@ export default function Home(): ReactElement {
       setIsLoading(false);
     } else if (errorData) {
       setHistoryData(JSON.parse(errorData));
-      fetchData();
+      setIsLoading(false);
     } else {
       fetchData();
     }

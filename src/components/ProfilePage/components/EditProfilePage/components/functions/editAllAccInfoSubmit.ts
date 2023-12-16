@@ -1,11 +1,11 @@
 import axios from "axios";
-import { editAllAccInfoProps } from "../schemas";
+import { type editAllAccInfoProps } from "../schemas";
 import { User } from "../../../../../../types";
 import { API_URL_BASE, UPDATE_ENDPOINT } from "../../../../../../utils";
 import {
   handleError,
   jsonUserParser,
-  localStorageStringfy
+  sessionStorageStringify
 } from "../../../../../../functions";
 
 interface editAllAccInfoResponseProps {
@@ -19,7 +19,7 @@ export default async function editAllAccInfoSubmit(
 ): Promise<editAllAccInfoResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(localStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
   try {
     const response = await axios.put(`${API_URL_BASE}${UPDATE_ENDPOINT}`,
@@ -37,12 +37,12 @@ export default async function editAllAccInfoSubmit(
     );
 
     if (response.status === 201) {
-      localStorageStringfy({
+      sessionStorageStringify({
         param: "phone",
         token,
         newValue: userData.new_phone
       });
-      localStorageStringfy({
+      sessionStorageStringify({
         param: "email",
         token,
         newValue: userData.new_email
@@ -55,7 +55,7 @@ export default async function editAllAccInfoSubmit(
     } else {
       return {
         success: false,
-        message: "An error occurred while email exchange.",
+        message: "An error occurred while datas exchange.",
       };
     }
   } catch (error) {

@@ -72,7 +72,7 @@ export default function CardCreate(): ReactElement {
         <S.InputField
           type="text"
           placeholder="Cardholder Name"
-          pattern="^[a-zA-Z]+(\s[a-zA-Z]+)*$"
+          pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
           {...register("userData.cardholder_name")}
         />
         <div className="flex gap-7">

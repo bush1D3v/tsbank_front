@@ -1,6 +1,6 @@
 import axios from "axios";
+import { type deleteAccProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
-import { deleteAccProps } from "../schemas";
 import { API_URL_BASE, DELETE_USER_ENDPOINT } from "../../../../../../utils";
 
 interface deleteAccResponseProps {
@@ -13,7 +13,7 @@ export default async function deleteAccSubmit(
 ): Promise<deleteAccResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(localStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
   try {
     const response = await axios.delete(`${API_URL_BASE}${DELETE_USER_ENDPOINT}`, {
@@ -24,7 +24,7 @@ export default async function deleteAccSubmit(
     });
 
     if (response.status === 200) {
-      localStorage.removeItem("userInfo");
+      sessionStorage.removeItem("userInfo");
       return {
         success: true,
         message: response.data

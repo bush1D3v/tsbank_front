@@ -36,7 +36,7 @@ export default function MainProfile(): ReactElement {
   };
 
   return (
-    <main className="h-[82dvh] flex items-center justify-center flex-col">
+    <main className="h-[82dvh] flex items-center px-2 justify-center flex-col">
       {handleFormType(pathname)}
     </main>
   );

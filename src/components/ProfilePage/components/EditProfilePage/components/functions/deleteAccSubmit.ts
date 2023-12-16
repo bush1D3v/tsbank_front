@@ -24,7 +24,7 @@ export default async function deleteAccSubmit(
     });
 
     if (response.status === 200) {
-      sessionStorage.removeItem("userInfo");
+      sessionStorage.clear();
       return {
         success: true,
         message: response.data

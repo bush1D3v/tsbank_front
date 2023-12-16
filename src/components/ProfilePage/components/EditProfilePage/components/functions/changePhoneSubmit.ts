@@ -1,10 +1,10 @@
 import axios from "axios";
-import { changePhoneProps } from "../schemas";
+import { type changePhoneProps } from "../schemas";
 import { API_URL_BASE, UPDATE_PHONE_ENDPOINT } from "../../../../../../utils";
 import {
   handleError,
   jsonUserParser,
-  localStorageStringfy
+  sessionStorageStringify
 } from "../../../../../../functions";
 
 interface changePhoneResponseProps {
@@ -17,7 +17,7 @@ export default async function changePhoneSubmit(
 ): Promise<changePhoneResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(localStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
   try {
     const response = await axios.patch(`${API_URL_BASE}${UPDATE_PHONE_ENDPOINT}`,
@@ -33,7 +33,7 @@ export default async function changePhoneSubmit(
     );
 
     if (response.status === 201) {
-      localStorageStringfy({
+      sessionStorageStringify({
         param: "phone",
         token,
         newValue: userData.new_phone

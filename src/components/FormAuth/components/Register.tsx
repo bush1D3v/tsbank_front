@@ -71,7 +71,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="text"
           placeholder="Name"
-          pattern="^[a-zA-Z]+(?:\s[a-zA-Z]+)*$"
+          pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
           {...register("userData.name")}
         />
         {errors.userData?.email?.message != null && (

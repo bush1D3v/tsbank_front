@@ -7,7 +7,7 @@ import { Anchor, Paragraph } from "./components";
 
 export default function AboutProject(): ReactElement {
   return (
-    <div className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto text-center">
+    <main className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto text-center">
       <article className="lg:flex lg:items-center lg:w-full lg:justify-around">
         <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl">Welcome to <br /> TSBank! 🏦💵</h1>
         <img src={lpWelcome} alt="Welcome Image" />
@@ -64,6 +64,6 @@ export default function AboutProject(): ReactElement {
           </p>
         </article>
       </section>
-    </div>
+    </main>
   );
 }

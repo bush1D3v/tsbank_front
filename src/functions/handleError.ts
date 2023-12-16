@@ -10,7 +10,9 @@ export default function handleError(error: AxiosError | unknown) {
       "message" in axiosError.response.data &&
       typeof axiosError.response.data.message === "string"
     ) {
-      const returnedError = `Error ${axiosError.response.status}: ` + axiosError.response.data.message.charAt(0).toUpperCase() + axiosError.response.data.message.slice(1);
+      const returnedError = `Error ${axiosError.response.status}: ` +
+        axiosError.response.data.message.charAt(0).toUpperCase() +
+        axiosError.response.data.message.slice(1) + ".";
       return {
         success: false,
         message: returnedError,

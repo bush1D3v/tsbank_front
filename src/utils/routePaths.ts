@@ -1,7 +1,15 @@
 export const ROOT: string = "/";
-export const HOME: string = "/home";
 export const LOGIN: string = "/login";
 export const REGISTER: string = "/register";
+export const HOME: string = "/home";
+export const WITHDRAW = "/withdraw";
+export const DEPOSIT = "/deposit";
+export const PIX = "/pix";
+export const CARD = "/card";
+export const CREDIT_PAYMENT = "/card/payment";
+export const CARD_UPDATE = "/card/update";
+export const CARD_TRANSACTION = "/card/transaction";
+export const CARD_CREATE = "/card/create";
 export const ABOUT: string = "/about";
 export const PROFILE: string = "/profile";
 export const EDIT: string = "/profile/edit";

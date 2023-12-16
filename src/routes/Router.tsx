@@ -17,7 +17,15 @@ import {
   EDIT_EMAIL,
   EDIT_PASSWORD,
   EDIT_PHONE,
-  DELETE_USER
+  DELETE_USER,
+  PIX,
+  WITHDRAW,
+  DEPOSIT,
+  CARD,
+  CARD_CREATE,
+  CREDIT_PAYMENT,
+  CARD_UPDATE,
+  CARD_TRANSACTION
 } from "../utils";
 import {
   Home,
@@ -40,6 +48,42 @@ const router = createBrowserRouter([
         children: [
           {
             path: HOME,
+            element: <Home />
+          },
+          {
+            path: WITHDRAW,
+            element: <Home />
+          },
+          {
+            path: DEPOSIT,
+            element: <Home />
+          },
+          {
+            path: CARD,
+            element: <Home />
+          },
+          {
+            path: CARD_CREATE,
+            element: <Home />
+          },
+          {
+            path: CREDIT_PAYMENT,
+            element: <Home />
+          },
+          {
+            path: CARD_UPDATE,
+            element: <Home />
+          },
+          {
+            path: CARD_UPDATE,
+            element: <Home />
+          },
+          {
+            path: CARD_TRANSACTION,
+            element: <Home />
+          },
+          {
+            path: PIX,
             element: <Home />
           },
           {

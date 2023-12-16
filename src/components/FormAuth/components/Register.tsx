@@ -71,6 +71,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="text"
           placeholder="Name"
+          pattern="^[a-zA-Z]+(?:\s[a-zA-Z]+)*$"
           {...register("userData.name")}
         />
         {errors.userData?.email?.message != null && (
@@ -93,6 +94,7 @@ export default function Register(): ReactElement {
             <S.InputField
               type="text"
               placeholder="Cpf"
+              pattern="^[0-9]+$"
               {...register("userData.cpf")}
             />
           </div>
@@ -105,6 +107,7 @@ export default function Register(): ReactElement {
             <S.InputField
               type="text"
               placeholder="Phone"
+              pattern="^[0-9]+$"
               {...register("userData.phone")}
             />
           </div>

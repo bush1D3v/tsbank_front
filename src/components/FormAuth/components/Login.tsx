@@ -49,8 +49,8 @@ export default function Login(): ReactElement {
 
     if (result.success && result.user !== undefined) {
       setUserData(result.user);
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userInfo", JSON.stringify(result.user));
+      sessionStorage.setItem("isLoggedIn", "true");
+      sessionStorage.setItem("userInfo", JSON.stringify(result.user));
       setIsUserLoggedIn(true);
 
       setIsLoading(false);

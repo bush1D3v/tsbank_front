@@ -75,7 +75,7 @@ export default function EditAllAccInfo(): ReactElement {
         <div className="flex gap-7">
           <div className="flex w-[100%] flex-col">
             {errors.userData?.new_password?.message != null && (
-              <span className="text-error -mb-7 -mt-2 text-left">
+              <span className="text-error text-left">
                 {errors.userData?.new_password?.message}
               </span>
             )}
@@ -87,7 +87,7 @@ export default function EditAllAccInfo(): ReactElement {
           </div>
           <div className="flex w-[100%] flex-col">
             {errors.userData?.new_phone?.message != null && (
-              <span className="text-error -mb-7 -mt-2 text-left">
+              <span className="text-error text-left">
                 {errors.userData?.new_phone?.message}
               </span>
             )}

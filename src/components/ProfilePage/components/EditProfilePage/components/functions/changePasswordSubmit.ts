@@ -1,5 +1,5 @@
 import axios from "axios";
-import { changePasswordProps } from "../schemas";
+import { type changePasswordProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
 import { API_URL_BASE, UPDATE_PASSWORD_ENDPOINT } from "../../../../../../utils";
 
@@ -13,7 +13,7 @@ export default async function changePasswordSubmit(
 ): Promise<changePasswordResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(localStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
   try {
     const response = await axios.patch(`${API_URL_BASE}${UPDATE_PASSWORD_ENDPOINT}`,

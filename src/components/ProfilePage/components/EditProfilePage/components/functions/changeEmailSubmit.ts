@@ -1,10 +1,10 @@
 import axios from "axios";
-import { changeEmailProps } from "../schemas";
+import { type changeEmailProps } from "../schemas";
 import { API_URL_BASE, UPDATE_EMAIL_ENDPOINT } from "../../../../../../utils";
 import {
   handleError,
   jsonUserParser,
-  localStorageStringfy
+  sessionStorageStringify
 } from "../../../../../../functions";
 
 interface changeEmailResponseProps {
@@ -17,7 +17,7 @@ export default async function changeEmailSubmit(
 ): Promise<changeEmailResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(localStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
   try {
     const response = await axios.patch(`${API_URL_BASE}${UPDATE_EMAIL_ENDPOINT}`,
@@ -32,7 +32,7 @@ export default async function changeEmailSubmit(
       });
 
     if (response.status === 201) {
-      localStorageStringfy({
+      sessionStorageStringify({
         param: "email",
         token,
         newValue: userData.new_email

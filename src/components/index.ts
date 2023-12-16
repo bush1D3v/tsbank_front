@@ -1,7 +1,6 @@
 import ErrorPage from "./ErrorPage";
 import Form from "./FormAuth";
-import Modal from "./Modal";
-import Hero from "./Hero";
+import MainHome from "./Home";
 import Layout from "./Layout";
 import AboutProject from "./AboutProject";
 import MainProfile from "./ProfilePage";
@@ -9,8 +8,7 @@ import MainProfile from "./ProfilePage";
 export {
   ErrorPage,
   Form,
-  Modal,
-  Hero,
+  MainHome,
   Layout,
   AboutProject,
   MainProfile

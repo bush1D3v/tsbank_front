@@ -1,7 +1,7 @@
 import { UserData } from "../types";
 
-export default function jsonUserParser(localStorageItem: string | null): UserData {
-  const jsonData: UserData = localStorageItem ? JSON.parse(localStorageItem) : {
+export default function jsonUserParser(sessionStorageItem: string | null): UserData {
+  const jsonData: UserData = sessionStorageItem ? JSON.parse(sessionStorageItem) : {
     user: {
       balance: 0,
       cpf: "00000000000",

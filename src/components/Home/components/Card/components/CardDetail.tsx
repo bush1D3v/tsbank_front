@@ -45,7 +45,7 @@ export default function CardDetail(): ReactElement {
       setIsLoading(false);
     } else if (errorData) {
       setCardData(JSON.parse(errorData));
-      fetchData();
+      setIsLoading(false);
     } else {
       fetchData();
     }

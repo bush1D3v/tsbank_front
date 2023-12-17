@@ -98,7 +98,7 @@ export default function CardDetail(): ReactElement {
             buttonBg="bg-saturatedBlue hover:bg-transparent"
             func={handleLinkClick(CARD_CREATE)}
             param={CARD_CREATE}
-            text="CARD CREATE"
+            text="CREATE CARD"
           />
         </li>
         <li className="flex w-full">

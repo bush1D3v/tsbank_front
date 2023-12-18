@@ -5,7 +5,8 @@ import {
   Withdraw,
   Deposit,
   MainCard,
-  Pix
+  Pix,
+  TransactionDetail
 } from "./components";
 import {
   HOME,
@@ -16,13 +17,17 @@ import {
   CREDIT_PAYMENT,
   CARD_TRANSACTION,
   CARD_UPDATE,
-  CARD_CREATE
+  CARD_CREATE,
 } from "../../utils";
 
 export default function MainHome(): ReactElement {
   const { pathname } = useLocation();
 
   const handleFormType = (currPath: string): ReactElement => {
+    if (currPath.startsWith("/transaction/")) {
+      return <TransactionDetail />;
+    }
+
     switch (currPath) {
       case HOME:
         return <Home />;

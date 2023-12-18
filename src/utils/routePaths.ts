@@ -18,3 +18,4 @@ export const EDIT_EMAIL: string = "/profile/edit/email";
 export const EDIT_PASSWORD: string = "/profile/edit/password";
 export const EDIT_PHONE: string = "/profile/edit/phone";
 export const DELETE_USER = "/profile/edit/delete";
+export const DETAIL_TRANSACTION = "/transaction/:id";

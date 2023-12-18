@@ -5,6 +5,10 @@ import logoutClick from "./logoutClick";
 import eventClick from "./eventClick";
 import sessionStorageStringify from "./sessionStorageStringify";
 import balanceStringify from "./balanceStringify";
+import balanceFormat from "./balanceFormat";
+import errorReplace from "./errorReplace";
+import createHash from "./createHash";
+import decryptHash from "./decryptHash";
 
 export {
   handleError,
@@ -13,5 +17,9 @@ export {
   logoutClick,
   eventClick,
   sessionStorageStringify,
-  balanceStringify
+  balanceStringify,
+  balanceFormat,
+  errorReplace,
+  createHash,
+  decryptHash
 };

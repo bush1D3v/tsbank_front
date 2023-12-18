@@ -30,7 +30,6 @@ export async function detailTransactionSubmit(id: string): Promise<SummaryRespon
     );
 
     if (response.status === 200) {
-      sessionStorage.setItem("historyTest", JSON.stringify(response.data));
       return {
         success: true,
         message: response.data

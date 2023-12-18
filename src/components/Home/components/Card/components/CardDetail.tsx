@@ -1,6 +1,6 @@
 import { useState, type ReactElement, useEffect } from "react";
 import AnchorLink from "../../../../AnchorLink";
-import { handleLinkClick } from "../../../../../functions";
+import { errorReplace, handleLinkClick } from "../../../../../functions";
 import Loading from "../../../../Loading";
 import {
   cardDetailSubmit,
@@ -52,19 +52,27 @@ export default function CardDetail(): ReactElement {
   }, []);
 
   return (
-    <section className="flex flex-col text-center items-center gap-14 justify-center lg:w-11/12 xl:w-9/12">
+    <section className="flex flex-col text-center items-center max-h-[82dvh] gap-4
+    md:gap-8 lg:gap-12 xl:gap-16 justify-center lg:w-11/12 xl:w-9/12 py-2">
       {isLoading ? (
         <Loading />
       ) : (
         <>
           {typeof cardData === "string" ? (
-            <div className="text-center">
-              <p>{cardData}</p>
-            </div>
+            <p className="px-4 text-center text-lg md:text-xl lg:text-2xl">{errorReplace(cardData)}</p>
           ) : (
-            <ul className="flex gap-4">
+            <ul
+              className="pr-1 flex flex-col gap-4 md:gap-6 lg:gap-4 w-full
+              max-h-[50dvh] overflow-y-scroll lg:w-3/5 xl:w-2/4"
+            >
               {cardData.map((transaction, index) => (
-                <li key={index}>
+                <li
+                  className="group relative text-center flex flex-col gap-2 md:gap-4
+                  justify-center items-center bg-saturatedBlue rounded-2xl p-4
+                  md:text-xl lg:text-2xl cursor-pointer hover:bg-darkBlue border-2
+                  border-darkBlue transition-all delay-75 ease-in-out"
+                  key={index}
+                >
                   <>
                     {transaction.credit && (
                       <>
@@ -92,7 +100,7 @@ export default function CardDetail(): ReactElement {
           )}
         </>
       )}
-      <ul className="flex flex-col lg:flex-row gap-8 w-10/12 lg:w-full">
+      <ul className="flex flex-col lg:flex-row w-10/12 lg:w-full gap-5 md:gap-6 lg:gap-8">
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"

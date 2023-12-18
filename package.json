@@ -21,14 +21,19 @@
     "postcss",
     "node",
     "dotenv",
-    "stylelint"
+    "stylelint",
+    "sass",
+    "ts-node",
+    "crypto-js"
   ],
   "author": "Victor José Lopes Navarro",
   "license": "MIT",
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
+    "@types/crypto-js": "^4.2.1",
     "@types/styled-components": "^5.1.30",
     "axios": "^1.6.2",
+    "crypto-js": "^4.2.0",
     "parrotenv": "^1.7.0",
     "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
@@ -51,7 +56,6 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "dotenv": "^16.3.1",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.1.1",

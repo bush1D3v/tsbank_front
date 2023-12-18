@@ -16,3 +16,4 @@ export const CARD_UPDATE_ENDPOINT = "card";
 export const CARD_TRANSACTION_ENDPOINT = "transaction/card";
 export const CREDIT_PAYMENT_ENDPOINT = "card/pay";
 export const HISTORY_ENDPOINT = "history";
+export const DETAIL_TRANSACTION_ENDPOINT = "transaction";

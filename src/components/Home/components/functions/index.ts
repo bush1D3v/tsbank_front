@@ -6,6 +6,11 @@ import {
   type HistoryData,
   type HistoryResponseProps
 } from "./getHistory";
+import {
+  detailTransactionSubmit,
+  type SummaryData,
+  type SummaryResponseProps
+} from "./detailTransactionSubmit";
 
 export {
   depositSubmit,
@@ -13,5 +18,8 @@ export {
   withdrawSubmit,
   getHistory,
   type HistoryData,
-  type HistoryResponseProps
+  type HistoryResponseProps,
+  detailTransactionSubmit,
+  type SummaryData,
+  type SummaryResponseProps
 };

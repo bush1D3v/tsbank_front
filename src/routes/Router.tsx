@@ -25,7 +25,8 @@ import {
   CARD_CREATE,
   CREDIT_PAYMENT,
   CARD_UPDATE,
-  CARD_TRANSACTION
+  CARD_TRANSACTION,
+  DETAIL_TRANSACTION
 } from "../utils";
 import {
   Home,
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         children: [
           {
             path: HOME,
+            element: <Home />
+          },
+          {
+            path: DETAIL_TRANSACTION,
             element: <Home />
           },
           {

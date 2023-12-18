@@ -1,7 +1,18 @@
 import AnchorLink from "../../AnchorLink";
-import { useState, type ReactElement, useEffect } from "react";
-import { BsCashCoin } from "react-icons/bs";
-import { handleLinkClick, jsonUserParser } from "../../../functions";
+import Loading from "../../Loading";
+import { GiMoneyStack } from "react-icons/gi";
+import {
+  useState,
+  type ReactElement,
+  useEffect
+} from "react";
+import {
+  handleLinkClick,
+  jsonUserParser,
+  balanceFormat,
+  errorReplace,
+  createHash,
+} from "../../../functions";
 import {
   getHistory,
   type HistoryData,
@@ -13,7 +24,7 @@ import {
   PIX,
   WITHDRAW
 } from "../../../utils";
-import Loading from "../../Loading";
+import { useNavigate } from "react-router-dom";
 
 export default function Home(): ReactElement {
   const [ historyData, setHistoryData ] = useState<HistoryData[]>([]);
@@ -52,26 +63,24 @@ export default function Home(): ReactElement {
     }
   }, []);
 
+  const navigation = useNavigate();
+
+  const navigate = (to: string) => {
+    navigation(to);
+  };
+
   const { user } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
-  const digits = user.balance.toString().split(".");
-
-  let cents: string;
-
-  if (digits[ 1 ]) {
-    cents = digits[ 1 ].length === 2 ? digits[ 1 ] : digits[ 1 ] + 0;
-  } else {
-    cents = "00";
-  }
+  const balance = balanceFormat(user.balance);
 
   return (
-    <section className="flex flex-col items-center gap-14 justify-center lg:w-7/12">
-      <h1 className="text-xl md:text-2xl lg:text-3l xl:text-4xl font-bold">Hello {user.name}👋</h1>
+    <section className="flex flex-col items-center justify-center gap-8 md:gap-14 lg:w-7/12">
+      <h1 className="text-xl md:text-2xl lg:text-3l xl:text-4xl font-bold text-center">Hello <br /> {user.name}👋</h1>
       <div className="flex gap-4 justify-center w-full">
-        <BsCashCoin className="w-10 h-10 md:w-12 md:h-12 lg:w-15 lg:h-15" />
-        <p className="text-2xl md:text-3xl lg:text-4xl">{digits[ 0 ]}.{cents} $</p>
+        <GiMoneyStack className="w-10 h-10 md:w-12 md:h-12 lg:w-15 lg:h-15" />
+        <p className="text-2xl md:text-3xl lg:text-4xl">{balance}</p>
       </div>
-      <ul className="flex flex-col lg:flex-row gap-8 w-11/12">
+      <ul className="flex flex-col lg:flex-row gap-5 md:gap-6 lg:gap-8 w-11/12">
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
@@ -109,16 +118,31 @@ export default function Home(): ReactElement {
         <Loading />
       ) : (
         <>
+          <p className="md:-mt-8 -mb-6 md:-mb-12 text-lg md:text-xl lg:text-2xl font-bold">&#x25BC; HISTORY &#x25BC;</p>
           {typeof historyData === "string" ? (
-            <div className="text-center">
-              <p>{historyData}</p>
-            </div>
+            <p className="px-4 text-center text-lg md:text-xl lg:text-2xl">{errorReplace(historyData)}</p>
           ) : (
-            <ul className="flex flex-col gap-4">
+            <ul
+              className="pr-1 flex flex-col gap-4 md:gap-6 lg:gap-4 w-full max-h-[18dvh]
+              md:max-h-[19dvh] overflow-y-scroll lg:w-3/5 xl:w-2/4"
+            >
               {[ ...historyData ].reverse().map((history, index) => (
-                <li className="text-center" key={index}>
-                  <p>{history.description}</p>
-                  <p>{history.date}</p>
+                <li
+                  className="group relative text-center flex gap-2 md:gap-4 justify-center
+                  items-center bg-saturatedBlue rounded-2xl p-4 md:text-xl
+                  lg:text-2xl cursor-pointer hover:bg-darkBlue border-2 border-darkBlue
+                  transition-all delay-75 ease-in-out"
+                  key={index}
+                  onClick={() => navigate(`/transaction/${createHash(history.id.toString())}`)}
+                >
+                  <p className="font-bold capitalize">{history.description}</p>
+                  <p className="text-base md:text-lg lg:text-xl">{history.date}</p>
+                  <span
+                    className="absolute pr-2 right-0 text-secondary text-lg md:text-xl
+                    group-hover:text-desaturatedBlue transition-all delay-75 ease-in-out"
+                  >
+                    &gt;
+                  </span>
                 </li>
               ))}
             </ul>

@@ -13,7 +13,7 @@ export default {
         secondary: "var(--secondary)",
         accent: "var(--accent)",
         black: "var(--black)",
-        text: "var(--white)",
+        white: "var(--white)",
         error: "var(--error)",
         input: "var(--input)",
         darkGray: "var(--dark-gray)",

@@ -138,7 +138,7 @@ export default function Home(): ReactElement {
                   <p className="font-bold capitalize">{history.description}</p>
                   <p className="text-base md:text-lg lg:text-xl">{history.date}</p>
                   <span
-                    className="absolute pr-2 right-0 text-secondary text-lg md:text-xl
+                    className="absolute pr-2 right-0 text-whiteBlue text-lg md:text-xl
                     group-hover:text-desaturatedBlue transition-all delay-75 ease-in-out"
                   >
                     &gt;

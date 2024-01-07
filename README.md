@@ -11,7 +11,7 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as transações e
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 
-<div>
+<div align='center'>
    <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
    <img align='center' height='54' width='68' title='React' alt='react' src='https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg' />
    <img align='center' height='54' width='68' title='Vite' alt='vite' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/46570ed3-6e92-4ad2-b09b-d235cd142b3f' />

@@ -66,6 +66,12 @@ ou
 yarn install
 ```
 
+ou
+
+```
+pnpm install
+```
+
 ### 🆕 Criando uma Branch
 
 Antes de iniciar qualquer trabalho, crie uma branch separada para a sua contribuição. Use um nome descritivo para a sua branch:
@@ -90,6 +96,12 @@ ou
 
 ```
 yarn test
+```
+
+ou
+
+```
+pnpm test
 ```
 
 ### 📝 Documentando

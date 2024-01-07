@@ -23,10 +23,10 @@ img {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: $secondary;
+  background-color: $white-blue;
 }
 
 ::selection {
-  background: $secondary;
-  color: $primary;
+  background: $white-blue;
+  color: $black-blue;
 }

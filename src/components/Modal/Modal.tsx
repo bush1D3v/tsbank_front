@@ -28,7 +28,7 @@ export default function Modal({
           <p className="text-white mb-3 text-2xl">{description}</p>
           <button
             type="button"
-            className="text-white px-7 py-2 bg-secondary font-bold rounded-[10px] text-xl hover:text-accent transition-colors"
+            className="text-white px-7 py-2 bg-whiteBlue font-bold rounded-[10px] text-xl hover:text-purple transition-colors"
             onClick={() => {
               setOpen(!isOpen);
             }}

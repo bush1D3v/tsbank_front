@@ -49,7 +49,7 @@ export default function EditProfilePage(): ReactElement {
           func={handleLinkClick(DELETE_USER)}
           param={DELETE_USER}
           text="DELETE ACCOUNT"
-          buttonBg="bg-primary hover:bg-error"
+          buttonBg="bg-blackBlue hover:bg-error"
         />
       </li>
     </ul>

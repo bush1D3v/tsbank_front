@@ -38,7 +38,7 @@ export default function ProfilePage(): ReactElement {
             func={logoutClick(LOGIN)}
             param={LOGIN}
             text="LOGOUT"
-            buttonBg="bg-primary hover:bg-error"
+            buttonBg="bg-blackBlue hover:bg-error"
           />
         </li>
       </ul>

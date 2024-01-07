@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: var(--secondary);
+  background-color: var(--white-blue);
   font-weight: 700;
   padding: 1rem 0;
   min-width: 100%;
@@ -11,7 +11,7 @@ export const Button = styled.button`
   transition: all 400ms;
 
   &:hover {
-    color: var(--accent);
+    color: var(--purple);
   }
 
   & {

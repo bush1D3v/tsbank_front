@@ -9,11 +9,11 @@ export const InputField = styled.input`
   color: var(--black);
 
   &::placeholder {
-    color: var(--primary);
+    color: var(--black-blue);
   }
 
   &:focus {
-    border: solid 3px var(--primary);
+    border: solid 3px var(--black-blue);
   }
 
   &:disabled {

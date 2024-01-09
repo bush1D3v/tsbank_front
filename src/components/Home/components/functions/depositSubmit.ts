@@ -2,7 +2,6 @@ import axios from "axios";
 
 import { depositProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../functions";
-import { API_URL_BASE, DEPOSIT_ENDPOINT } from "../../../../utils";
 import { getHistory } from ".";
 
 interface depositResponseProps {
@@ -17,8 +16,13 @@ export default async function depositSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_DEPOSIT_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.post(`${API_URL_BASE}${DEPOSIT_ENDPOINT}`,
+    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_DEPOSIT_ENDPOINT}`,
       {
         email: userData.email,
         value: userData.value,

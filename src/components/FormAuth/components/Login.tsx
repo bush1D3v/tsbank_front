@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 
-import { HOME, REGISTER } from "../../../utils";
 import { type loginProps, schemaLoginForm } from "./schemas";
 import { handleLoginSubmit } from "./functions";
 import { UserDataContext } from "../../../contexts";
@@ -16,6 +15,11 @@ export default function Login(): ReactElement {
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
   const [ isSuccess, setIsSuccess ] = useState<boolean>(true);
+
+  const {
+    VITE_REACT_APP_REGISTER,
+    VITE_REACT_APP_HOME
+  } = import.meta.env;
 
   const navigate = useNavigate();
 
@@ -55,7 +59,7 @@ export default function Login(): ReactElement {
 
       setIsLoading(false);
 
-      navigate(HOME);
+      navigate(VITE_REACT_APP_HOME);
     }
   };
 
@@ -97,7 +101,7 @@ export default function Login(): ReactElement {
         </S.Button>
       </div>
       <span className="text-lg">
-        Don't have an account? <Link to={REGISTER}><u className="hover:text-darkBlue transition-colors">Sign up.</u></Link>
+        Don't have an account? <Link to={VITE_REACT_APP_REGISTER}><u className="hover:text-darkBlue transition-colors">Sign up</u></Link>
       </span>
     </S.FormWrapper>
   );

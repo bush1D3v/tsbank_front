@@ -1,11 +1,14 @@
 import { type ReactElement } from "react";
 import { Link, useRouteError } from "react-router-dom";
-import { HOME } from "../../utils/routePaths";
 
 export default function ErrorPage(): ReactElement {
   const error = useRouteError() as { status: number };
 
   const { status } = error;
+
+  const {
+    VITE_REACT_APP_HOME
+  } = import.meta.env;
 
   return (
     <main className="w-screen h-screen flex flex-col items-center justify-center gap-8 text-center">
@@ -15,7 +18,7 @@ export default function ErrorPage(): ReactElement {
         In the meantime, check out our amazing resources! 🚀🌟
       </p>
       <p className="text-6xl md:text-7xl lg:text-8xl font-bold">{status}</p>
-      <Link to={HOME}>
+      <Link to={VITE_REACT_APP_HOME}>
         <button
           type="button"
           className="rounded-3xl bg-whiteBlue text-lg md:text-xl py-4 md:py-5

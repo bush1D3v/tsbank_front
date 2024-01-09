@@ -55,7 +55,7 @@ export default function AboutProject(): ReactElement {
             </p>
           </article>
         </section>
-      </div>
+      </div>     
     </main>
   );
 }

@@ -1,34 +1,35 @@
 import { type ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 import { MainEditProfile, ProfilePage } from "./components";
-import {
-  PROFILE,
-  EDIT,
-  EDIT_ALL,
-  EDIT_EMAIL,
-  EDIT_PASSWORD,
-  EDIT_PHONE,
-  DELETE_USER
-} from "../../utils";
 
 export default function MainProfile(): ReactElement {
   const { pathname } = useLocation();
 
+  const {
+    VITE_REACT_APP_PROFILE,
+    VITE_REACT_APP_DELETE_USER,
+    VITE_REACT_APP_UPDATE_PHONE,
+    VITE_REACT_APP_UPDATE_EMAIL,
+    VITE_REACT_APP_UPDATE_PASSWORD,
+    VITE_REACT_APP_UPDATE_ALL,
+    VITE_REACT_APP_UPDATE
+  } = import.meta.env;
+
   const handleFormType = (currPath: string): ReactElement => {
     switch (currPath) {
-      case PROFILE:
+      case VITE_REACT_APP_PROFILE:
         return <ProfilePage />;
-      case EDIT:
+      case VITE_REACT_APP_UPDATE:
         return <MainEditProfile />;
-      case EDIT_ALL:
+      case VITE_REACT_APP_UPDATE_ALL:
         return <MainEditProfile />;
-      case EDIT_EMAIL:
+      case VITE_REACT_APP_UPDATE_EMAIL:
         return <MainEditProfile />;
-      case EDIT_PASSWORD:
+      case VITE_REACT_APP_UPDATE_PASSWORD:
         return <MainEditProfile />;
-      case EDIT_PHONE:
+      case VITE_REACT_APP_UPDATE_PHONE:
         return <MainEditProfile />;
-      case DELETE_USER:
+      case VITE_REACT_APP_DELETE_USER:
         return <MainEditProfile />;
       default:
         return <ProfilePage />;

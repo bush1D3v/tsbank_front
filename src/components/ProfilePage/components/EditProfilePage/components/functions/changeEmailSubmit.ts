@@ -1,6 +1,5 @@
 import axios from "axios";
 import { type changeEmailProps } from "../schemas";
-import { API_URL_BASE, UPDATE_EMAIL_ENDPOINT } from "../../../../../../utils";
 import {
   handleError,
   jsonUserParser,
@@ -19,8 +18,13 @@ export default async function changeEmailSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_UPDATE_EMAIL_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.patch(`${API_URL_BASE}${UPDATE_EMAIL_ENDPOINT}`,
+    const response = await axios.patch(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_UPDATE_EMAIL_ENDPOINT}`,
       {
         new_email: userData.new_email,
         password: userData.password,

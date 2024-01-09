@@ -1,12 +1,11 @@
 import { lpWelcome } from "../../assets/images";
 import Loading from "../Loading";
-import { Anchor } from "./components";
+import { Anchor, ArticleList } from "./components";
 import {
   ReactElement,
   useEffect,
   useState
 } from "react";
-import ArticleList from "./components/ArticleList/ArticleList";
 
 export default function AboutProject(): ReactElement {
   const [ isLoading, setIsLoading ] = useState(true);

@@ -1,4 +1,4 @@
-import Paragraph from "./Paragraph";
 import Anchor from "./Anchor";
+import ArticleList from "./ArticleList";
 
-export { Paragraph, Anchor };
+export { Anchor, ArticleList };

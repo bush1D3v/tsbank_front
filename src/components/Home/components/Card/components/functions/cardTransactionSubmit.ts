@@ -2,7 +2,6 @@ import axios from "axios";
 
 import { type cardTransactionProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
-import { API_URL_BASE, CARD_TRANSACTION_ENDPOINT } from "../../../../../../utils";
 import { cardDetailSubmit } from ".";
 import { getHistory } from "../../../functions";
 
@@ -18,8 +17,13 @@ export default async function cardTransactionSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_CARD_TRANSACTION_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.post(`${API_URL_BASE}${CARD_TRANSACTION_ENDPOINT}`,
+    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_CARD_TRANSACTION_ENDPOINT}`,
       {
         password: userData.password,
         card_type: userData.card_type,

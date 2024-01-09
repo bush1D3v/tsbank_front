@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 
-import { LOGIN } from "../../../utils";
 import { type registerProps, schemaRegisterForm } from "./schemas";
 import { handleRegisterSubmit } from "./functions";
 import * as S from "../../Styleds";
@@ -13,6 +12,11 @@ export default function Register(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+
+  const {
+    VITE_REACT_APP_LOGIN
+  } = import.meta.env;
+
   const navigate = useNavigate();
 
   const {
@@ -44,7 +48,7 @@ export default function Register(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(LOGIN);
+      navigate(VITE_REACT_APP_LOGIN);
     }
   };
 
@@ -127,7 +131,7 @@ export default function Register(): ReactElement {
         </S.Button>
       </div>
       <span className="text-lg">
-        Already have an account? <Link to={LOGIN}><u className="hover:text-darkBlue transition-colors">Sign in.</u></Link>
+        Already have an account? <Link to={VITE_REACT_APP_LOGIN}><u className="hover:text-darkBlue transition-colors">Sign in</u></Link>
       </span>
     </S.FormWrapper>
   );

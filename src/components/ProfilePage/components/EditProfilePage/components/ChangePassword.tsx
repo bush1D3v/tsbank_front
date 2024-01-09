@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
-import { LOGIN } from "../../../../../utils";
 import { type changePasswordProps, changePasswordSchema } from "./schemas";
 import { changePasswordSubmit } from "./functions";
 import * as S from "../../../../Styleds";
@@ -13,6 +12,11 @@ export default function ChangePassword(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+
+  const {
+    VITE_REACT_APP_LOGIN
+  } = import.meta.env;
+
   const navigate = useNavigate();
 
   const {
@@ -41,7 +45,7 @@ export default function ChangePassword(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(LOGIN);
+      navigate(VITE_REACT_APP_LOGIN);
     }
   };
 

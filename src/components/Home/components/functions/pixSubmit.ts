@@ -2,7 +2,6 @@ import axios from "axios";
 
 import { pixProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../functions";
-import { API_URL_BASE, PIX_ENDPOINT } from "../../../../utils";
 import { getHistory } from ".";
 
 interface pixResponseProps {
@@ -17,8 +16,13 @@ export default async function pixSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_PIX_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.post(`${API_URL_BASE}${PIX_ENDPOINT}`,
+    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_PIX_ENDPOINT}`,
       {
         cpf: userData.cpf,
         value: userData.value,

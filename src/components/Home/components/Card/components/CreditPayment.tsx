@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
-import { CARD } from "../../../../../utils";
 import { balanceStringify, jsonUserParser } from "../../../../../functions";
 import { type creditPaymentProps, creditPaymentSchema } from "./schemas";
 import { creditPaymentSubmit } from "./functions";
@@ -14,6 +13,11 @@ export default function CreditPayment(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+
+  const {
+    VITE_REACT_APP_CARD
+  } = import.meta.env;
+
   const navigate = useNavigate();
 
   const {
@@ -49,7 +53,7 @@ export default function CreditPayment(): ReactElement {
         arithmeticOperator: "-"
       });
       setIsLoading(false);
-      navigate(CARD);
+      navigate(VITE_REACT_APP_CARD);
     }
   };
 

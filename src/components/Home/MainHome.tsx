@@ -8,20 +8,21 @@ import {
   Pix,
   TransactionDetail
 } from "./components";
-import {
-  HOME,
-  WITHDRAW,
-  DEPOSIT,
-  CARD,
-  PIX,
-  CREDIT_PAYMENT,
-  CARD_TRANSACTION,
-  CARD_UPDATE,
-  CARD_CREATE,
-} from "../../utils";
 
 export default function MainHome(): ReactElement {
   const { pathname } = useLocation();
+
+  const {
+    VITE_REACT_APP_HOME,
+    VITE_REACT_APP_WITHDRAW,
+    VITE_REACT_APP_DEPOSIT,
+    VITE_REACT_APP_PIX,
+    VITE_REACT_APP_CREDIT_PAYMENT,
+    VITE_REACT_APP_CARD_UPDATE,
+    VITE_REACT_APP_CARD,
+    VITE_REACT_APP_CARD_TRANSACTION,
+    VITE_REACT_APP_CARD_CREATE
+  } = import.meta.env;
 
   const handleFormType = (currPath: string): ReactElement => {
     if (currPath.startsWith("/transaction/")) {
@@ -29,23 +30,23 @@ export default function MainHome(): ReactElement {
     }
 
     switch (currPath) {
-      case HOME:
+      case VITE_REACT_APP_HOME:
         return <Home />;
-      case WITHDRAW:
+      case VITE_REACT_APP_WITHDRAW:
         return <Withdraw />;
-      case DEPOSIT:
+      case VITE_REACT_APP_DEPOSIT:
         return <Deposit />;
-      case PIX:
+      case VITE_REACT_APP_PIX:
         return <Pix />;
-      case CARD:
+      case VITE_REACT_APP_CARD:
         return <MainCard />;
-      case CREDIT_PAYMENT:
+      case VITE_REACT_APP_CREDIT_PAYMENT:
         return <MainCard />;
-      case CARD_TRANSACTION:
+      case VITE_REACT_APP_CARD_TRANSACTION:
         return <MainCard />;
-      case CARD_UPDATE:
+      case VITE_REACT_APP_CARD_UPDATE:
         return <MainCard />;
-      case CARD_CREATE:
+      case VITE_REACT_APP_CARD_CREATE:
         return <MainCard />;
       default:
         return <Home />;

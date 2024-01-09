@@ -7,16 +7,17 @@ import {
   type CardDetailResponseProps,
   type CardData
 } from "./functions";
-import {
-  CARD_CREATE,
-  CREDIT_PAYMENT,
-  CARD_TRANSACTION,
-  CARD_UPDATE
-} from "../../../../../utils";
 
 export default function CardDetail(): ReactElement {
   const [ cardData, setCardData ] = useState<CardData[]>([]);
   const [ isLoading, setIsLoading ] = useState(true);
+
+  const {
+    VITE_REACT_APP_CREDIT_PAYMENT,
+    VITE_REACT_APP_CARD_UPDATE,
+    VITE_REACT_APP_CARD_TRANSACTION,
+    VITE_REACT_APP_CARD_CREATE
+  } = import.meta.env;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,32 +105,32 @@ export default function CardDetail(): ReactElement {
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(CARD_CREATE)}
-            param={CARD_CREATE}
+            func={handleLinkClick(VITE_REACT_APP_CARD_CREATE)}
+            param={VITE_REACT_APP_CARD_CREATE}
             text="CREATE CARD"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(CARD_UPDATE)}
-            param={CARD_UPDATE}
+            func={handleLinkClick(VITE_REACT_APP_CARD_UPDATE)}
+            param={VITE_REACT_APP_CARD_UPDATE}
             text="UPDATE PASSWORD"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(CARD_TRANSACTION)}
-            param={CARD_TRANSACTION}
+            func={handleLinkClick(VITE_REACT_APP_CARD_TRANSACTION)}
+            param={VITE_REACT_APP_CARD_TRANSACTION}
             text="CARD TRANSACTION"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(CREDIT_PAYMENT)}
-            param={CREDIT_PAYMENT}
+            func={handleLinkClick(VITE_REACT_APP_CREDIT_PAYMENT)}
+            param={VITE_REACT_APP_CREDIT_PAYMENT}
             text="CREDIT PAYMENT"
           />
         </li>

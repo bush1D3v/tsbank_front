@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
-import { LOGIN } from "../../../../../utils";
 import { type editAllAccInfoProps, editAllAccInfoSchema } from "./schemas";
 import { editAllAccInfSubmit } from "./functions";
 import * as S from "../../../../Styleds";
@@ -14,6 +13,10 @@ export default function EditAllAccInfo(): ReactElement {
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const {
+    VITE_REACT_APP_LOGIN
+  } = import.meta.env;
 
   const {
     handleSubmit,
@@ -43,7 +46,7 @@ export default function EditAllAccInfo(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(LOGIN);
+      navigate(VITE_REACT_APP_LOGIN);
     }
   };
 

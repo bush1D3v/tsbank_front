@@ -15,7 +15,7 @@ export default function AboutProject(): ReactElement {
         <article className="lg:flex lg:items-center lg:w-full lg:justify-around">
           <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl">Welcome to <br /> TSBank! 🏦💵</h1>
           <img src={lpWelcome} alt="Welcome Image" loading="eager" onLoad={handleImageLoad} />
-          {isImageLoaded ? null : <p className="w-[500px] h-[500px]">Carregando imagem...</p>}
+          {isImageLoaded ? null : <p className="w-[100dvw] h-[100dvw] md:w-[500px] md:h-[500px]">Carregando imagem...</p>}
         </article>
         <section className="-mt-4 flex flex-col items-center text-lg">
           <h2 className="mb-8 md:mb-12 font-bold text-xl md:text-4xl lg:text-5xl">What is TSBank? 🤔</h2>
@@ -55,7 +55,7 @@ export default function AboutProject(): ReactElement {
             </p>
           </article>
         </section>
-      </div>     
+      </div>
     </main>
   );
 }

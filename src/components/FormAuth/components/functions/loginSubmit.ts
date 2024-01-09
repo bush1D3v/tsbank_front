@@ -1,5 +1,4 @@
 import axios from "axios";
-import { API_URL_BASE, LOGIN_ENDPOINT } from "../../../../utils";
 import { type loginProps } from "../schemas";
 import { type User } from "../../../../types";
 import { handleError } from "../../../../functions";
@@ -15,11 +14,17 @@ export default async function handleLoginSubmit(
 ): Promise<loginResponseProps> {
   const { userData } = data;
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_LOGIN_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.post(`${API_URL_BASE}${LOGIN_ENDPOINT}`, {
-      email: userData.email,
-      password: userData.password,
-    });
+    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_LOGIN_ENDPOINT}`,
+      {
+        email: userData.email,
+        password: userData.password,
+      });
 
     if (response.status === 200) {
       return {

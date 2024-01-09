@@ -1,7 +1,6 @@
 import axios from "axios";
 
 import { handleError, jsonUserParser } from "../../../../functions";
-import { API_URL_BASE, HISTORY_ENDPOINT } from "../../../../utils";
 
 export interface HistoryData {
   id: number;
@@ -20,8 +19,13 @@ export interface HistoryResponseProps {
 export async function getHistory(): Promise<HistoryResponseProps> {
   const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_HISTORY_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.get(`${API_URL_BASE}${HISTORY_ENDPOINT}`,
+    const response = await axios.get(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_HISTORY_ENDPOINT}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

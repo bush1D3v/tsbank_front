@@ -1,7 +1,6 @@
 import axios from "axios";
 import { type editAllAccInfoProps } from "../schemas";
 import { User } from "../../../../../../types";
-import { API_URL_BASE, UPDATE_ENDPOINT } from "../../../../../../utils";
 import {
   handleError,
   jsonUserParser,
@@ -21,8 +20,13 @@ export default async function editAllAccInfoSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
 
+  const {
+    VITE_REACT_APP_API_BASE_URL,
+    VITE_REACT_APP_UPDATE_ALL_ENDPOINT
+  } = import.meta.env;
+
   try {
-    const response = await axios.put(`${API_URL_BASE}${UPDATE_ENDPOINT}`,
+    const response = await axios.put(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_UPDATE_ALL_ENDPOINT}`,
       {
         new_email: userData.new_email,
         new_phone: userData.new_phone,

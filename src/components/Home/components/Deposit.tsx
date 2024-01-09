@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
-import { HOME } from "../../../utils";
 import { depositSubmit } from "./functions";
 import { type depositProps, depositSchema } from "./schemas";
 import { balanceStringify, jsonUserParser } from "../../../functions";
@@ -14,6 +13,11 @@ export default function Deposit(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
+
+  const {
+    VITE_REACT_APP_HOME
+  } = import.meta.env;
+
   const navigate = useNavigate();
 
   const {
@@ -52,7 +56,7 @@ export default function Deposit(): ReactElement {
         });
       }
       setIsLoading(false);
-      navigate(HOME);
+      navigate(VITE_REACT_APP_HOME);
     }
   };
 

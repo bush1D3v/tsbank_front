@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { CgProfile } from "react-icons/cg";
-import { LOGIN, EDIT } from "../../../utils";
 import { TableRow } from ".";
 import {
   handleLinkClick,
@@ -13,6 +12,11 @@ export default function ProfilePage(): ReactElement {
   const stringUserData = sessionStorage.getItem("userInfo");
 
   const jsonUserData = jsonUserParser(stringUserData);
+
+  const {
+    VITE_REACT_APP_LOGIN,
+    VITE_REACT_APP_UPDATE
+  } = import.meta.env;
 
   return (
     <div className="flex justify-center items-center h-[82dvh] flex-col gap-10 md:gap-14 lg:gap-20 p-2">
@@ -27,16 +31,16 @@ export default function ProfilePage(): ReactElement {
       <ul className="flex gap-8 w-full px-2">
         <li className="flex w-full">
           <AnchorLink
-            func={handleLinkClick(EDIT)}
-            param={EDIT}
+            func={handleLinkClick(VITE_REACT_APP_UPDATE)}
+            param={VITE_REACT_APP_UPDATE}
             text="EDIT PROFILE"
             buttonBg="bg-saturatedBlue hover:bg-transparent"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
-            func={logoutClick(LOGIN)}
-            param={LOGIN}
+            func={logoutClick(VITE_REACT_APP_LOGIN)}
+            param={VITE_REACT_APP_LOGIN}
             text="LOGOUT"
             buttonBg="bg-blackBlue hover:bg-error"
           />

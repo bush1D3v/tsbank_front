@@ -2,16 +2,20 @@ import { type ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 
 import { Login, Register } from "./components";
-import { LOGIN, REGISTER } from "../../utils";
 
 export default function Form(): ReactElement {
   const { pathname } = useLocation();
 
+  const {
+    VITE_REACT_APP_REGISTER,
+    VITE_REACT_APP_LOGIN
+  } = import.meta.env;
+
   const handleFormType = (currPath: string): ReactElement => {
     switch (currPath) {
-      case REGISTER:
+      case VITE_REACT_APP_REGISTER:
         return <Register />;
-      case LOGIN:
+      case VITE_REACT_APP_LOGIN:
         return <Login />;
       default:
         return <Login />;

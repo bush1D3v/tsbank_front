@@ -18,17 +18,18 @@ import {
   type HistoryData,
   type HistoryResponseProps
 } from "./functions";
-import {
-  CARD,
-  DEPOSIT,
-  PIX,
-  WITHDRAW
-} from "../../../utils";
 import { useNavigate } from "react-router-dom";
 
 export default function Home(): ReactElement {
   const [ historyData, setHistoryData ] = useState<HistoryData[]>([]);
   const [ isLoading, setIsLoading ] = useState(true);
+
+  const {
+    VITE_REACT_APP_WITHDRAW,
+    VITE_REACT_APP_DEPOSIT,
+    VITE_REACT_APP_PIX,
+    VITE_REACT_APP_CARD
+  } = import.meta.env;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,32 +85,32 @@ export default function Home(): ReactElement {
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(WITHDRAW)}
-            param={WITHDRAW}
+            func={handleLinkClick(VITE_REACT_APP_WITHDRAW)}
+            param={VITE_REACT_APP_WITHDRAW}
             text="WITHDRAW"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(DEPOSIT)}
-            param={DEPOSIT}
+            func={handleLinkClick(VITE_REACT_APP_DEPOSIT)}
+            param={VITE_REACT_APP_DEPOSIT}
             text="DEPOSIT"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(CARD)}
-            param={CARD}
+            func={handleLinkClick(VITE_REACT_APP_CARD)}
+            param={VITE_REACT_APP_CARD}
             text="CARD"
           />
         </li>
         <li className="flex w-full">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(PIX)}
-            param={PIX}
+            func={handleLinkClick(VITE_REACT_APP_PIX)}
+            param={VITE_REACT_APP_PIX}
             text="PIX"
           />
         </li>

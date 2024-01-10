@@ -49,6 +49,10 @@ export default function Home(): ReactElement {
       }
     };
 
+    window.onbeforeunload = function () {
+      sessionStorage.removeItem("historyData");
+    };
+
     const cachedData = sessionStorage.getItem("historyData");
     const errorData = sessionStorage.getItem("historyError");
 

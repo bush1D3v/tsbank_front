@@ -36,7 +36,7 @@ export default function AboutProject(): ReactElement {
           {isImageLoading ? (
             <>
               <img src={lpWelcome} alt="Welcome Image" loading="eager" onLoad={handleImageLoad} />
-              {isImageLoading ? null : <Skeleton />}
+              {isImageLoading ? <div className="p-4 w-[98dvw] h-[90dvw] md:w-[450px] md:h-[450px] my-5"></div> : <Skeleton />}
             </>
           ) : (
             <Skeleton />

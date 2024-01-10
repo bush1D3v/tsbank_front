@@ -1,47 +1,21 @@
 import { lpWelcome } from "../../assets/images";
-import { Anchor, ArticleList, Skeleton } from "./components";
-import {
-  ReactElement,
-  useEffect,
-  useState
-} from "react";
+import ImageSkeletonLoader from "../ImageSkeletonLoader";
+import { Anchor, ArticleList } from "./components";
+import { type ReactElement } from "react";
 
 export default function AboutProject(): ReactElement {
-  const [ isSkeletonNotLoading, setIsSkeletonNotLoading ] = useState(false);
-  const [ isImageLoading, setIsImageLoading ] = useState(false);
-
-  const handleImageLoad = () => {
-    setIsImageLoading(true);
-  };
-
-  useEffect(() => {
-    const loading = sessionStorage.getItem("firstImageLoaded");
-
-    if (loading !== null) {
-      setIsSkeletonNotLoading(true);
-    } else {
-      const timeout = setTimeout(() => {
-        setIsSkeletonNotLoading(true);
-        sessionStorage.setItem("firstImageLoaded", "true");
-      }, 500);
-
-      return () => clearTimeout(timeout);
-    }
-  }, []);
 
   return (
     <main className="min-h-[82dvh] flex flex-col gap-4 text-center">
       <div className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto">
         <article className="lg:flex lg:items-center lg:w-full lg:justify-around">
           <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl">Welcome to <br /> TSBank! 🏦💵</h1>
-          {isSkeletonNotLoading ? (
-            <>
-              <img src={lpWelcome} alt="Welcome Image" loading="eager" onLoad={handleImageLoad} />
-              {isImageLoading ? null : <Skeleton />}
-            </>
-          ) : (
-            <Skeleton />
-          )}
+          <ImageSkeletonLoader
+            src={lpWelcome}
+            alt={"Welcome Image"}
+            loading={"eager"}
+            sessionStorageItem={"aboutImageLoaded"}
+          />
         </article>
         <section className="-mt-4 flex flex-col items-center text-lg">
           <h2 className="mb-8 md:mb-12 font-bold text-xl md:text-4xl lg:text-5xl">What is TSBank? 🤔</h2>

@@ -7,6 +7,7 @@ import {
 } from "react";
 
 export default function AboutProject(): ReactElement {
+  const [ isSkeletonNotLoading, setIsSkeletonNotLoading ] = useState(false);
   const [ isImageLoading, setIsImageLoading ] = useState(false);
 
   const handleImageLoad = () => {
@@ -17,10 +18,10 @@ export default function AboutProject(): ReactElement {
     const loading = sessionStorage.getItem("firstImageLoaded");
 
     if (loading !== null) {
-      setIsImageLoading(true);
+      setIsSkeletonNotLoading(true);
     } else {
       const timeout = setTimeout(() => {
-        setIsImageLoading(true);
+        setIsSkeletonNotLoading(true);
         sessionStorage.setItem("firstImageLoaded", "true");
       }, 500);
 
@@ -33,10 +34,10 @@ export default function AboutProject(): ReactElement {
       <div className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto">
         <article className="lg:flex lg:items-center lg:w-full lg:justify-around">
           <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl">Welcome to <br /> TSBank! 🏦💵</h1>
-          {isImageLoading ? (
+          {isSkeletonNotLoading ? (
             <>
               <img src={lpWelcome} alt="Welcome Image" loading="eager" onLoad={handleImageLoad} />
-              {isImageLoading ? null : <div className="p-4 w-[98dvw] h-[90dvw] md:w-[450px] md:h-[450px] my-5"></div>}
+              {isImageLoading ? null : <Skeleton />}
             </>
           ) : (
             <Skeleton />

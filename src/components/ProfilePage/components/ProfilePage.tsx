@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { CgProfile } from "react-icons/cg";
 import { TableRow } from ".";
 import {

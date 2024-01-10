@@ -1,5 +1,6 @@
 import { type ReactElement } from "react";
 import { Paragraph } from "./components";
+import ImageSkeletonLoader from "../../../../../ImageSkeletonLoader";
 
 interface ArticleProps {
   text: string;
@@ -18,7 +19,12 @@ export default function Article({
 
   return (
     <article className={className}>
-      <img src={image} alt={imageAlt} loading="lazy" />
+      <ImageSkeletonLoader
+        src={image}
+        alt={imageAlt}
+        loading={"lazy"}
+        sessionStorageItem={"aboutImageLoaded"}
+      />
       <Paragraph
         text={text} />
     </article>

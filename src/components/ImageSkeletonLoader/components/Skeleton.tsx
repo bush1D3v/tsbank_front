@@ -2,7 +2,7 @@ import { type ReactElement } from "react";
 
 export default function Skeleton(): ReactElement {
   return (
-    <div className="border p-4 rounded shadow-2xl w-[98dvw] h-[90dvw] md:w-[450px] md:h-[450px] my-5">
+    <div className="border p-4 rounded shadow-2xl w-[98dvw] h-[90dvw] md:min-w-[450px] md:max-w-[450px] md:h-[450px] my-5">
       <div className="relative h-full mb-4 flex justify-center items-center bg-gray-300 animate-pulse">
         <svg
           className="w-10 h-10 text-gray-600"

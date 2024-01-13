@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  Home,
+  InitialPage,
   Withdraw,
   Deposit,
   MainCard,
@@ -31,7 +31,7 @@ export default function MainHome(): ReactElement {
 
     switch (currPath) {
       case VITE_REACT_APP_HOME:
-        return <Home />;
+        return <InitialPage />;
       case VITE_REACT_APP_WITHDRAW:
         return <Withdraw />;
       case VITE_REACT_APP_DEPOSIT:
@@ -49,7 +49,7 @@ export default function MainHome(): ReactElement {
       case VITE_REACT_APP_CARD_CREATE:
         return <MainCard />;
       default:
-        return <Home />;
+        return <InitialPage />;
     }
   };
 

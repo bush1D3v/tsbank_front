@@ -42,8 +42,14 @@ export default function ImageSkeletonLoader({
 
   return (
     <>
-      <img src={src} alt={alt} loading={loading} onLoad={handleImageLoad} />
-      {isImageLoading && isSkeletonNotLoading ? null : <Skeleton />}
+      {isSkeletonNotLoading ? (
+        <>
+          <img src={src} alt={alt} loading={loading} onLoad={handleImageLoad} />
+          {isImageLoading ? null : <Skeleton />}
+        </>
+      ) : (
+        <Skeleton />
+      )}
     </>
   );
 }

@@ -1,12 +1,12 @@
 import MainCard from "./Card";
 import Deposit from "./Deposit";
-import Home from "./Home";
+import InitialPage from "./InitialPage";
 import Pix from "./Pix";
 import Withdraw from "./Withdraw";
 import TransactionDetail from "./TransactionDetail";
 
 export {
-  Home,
+  InitialPage,
   MainCard,
   Deposit,
   Pix,

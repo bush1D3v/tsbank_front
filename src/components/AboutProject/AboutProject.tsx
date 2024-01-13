@@ -6,7 +6,7 @@ import { type ReactElement } from "react";
 export default function AboutProject(): ReactElement {
 
   return (
-    <main className="min-h-[82dvh] flex flex-col gap-4 text-center">
+    <main className="min-h-[82dvh] flex flex-col gap-4 text-center animate-fade-down animate-duration-1000 animate-ease-in-out">
       <div className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto">
         <article className="lg:flex lg:items-center lg:w-full lg:justify-around">
           <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl">Welcome to <br /> TSBank! 🏦💵</h1>

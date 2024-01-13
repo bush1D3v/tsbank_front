@@ -54,7 +54,7 @@ export default function MainHome(): ReactElement {
   };
 
   return (
-    <main className="min-h-[82dvh] justify-center items-center flex flex-col">
+    <main className="min-h-[82dvh] justify-center items-center flex flex-col animate-fade-down animate-duration-700 animate-ease-in-out">
       {handleFormType(pathname)}
     </main>
   );

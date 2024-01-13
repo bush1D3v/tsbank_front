@@ -23,7 +23,7 @@ export default function Form(): ReactElement {
   };
 
   return (
-    <main className="h-[100dvh] flex items-center justify-center flex-col">
+    <main className="h-[100dvh] flex items-center justify-center flex-col animate-fade-down animate-duration-700 animate-ease-in-out">
       {handleFormType(pathname)}
     </main>
   );

@@ -25,8 +25,7 @@ export default function Article({
         loading={"lazy"}
         sessionStorageItem={"aboutImageLoaded"}
       />
-      <Paragraph
-        text={text} />
+      <Paragraph text={text} />
     </article>
   );
 }

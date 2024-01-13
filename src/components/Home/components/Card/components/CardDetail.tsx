@@ -64,7 +64,7 @@ export default function CardDetail(): ReactElement {
           ) : (
             <ul
               className="pr-1 flex flex-col gap-4 md:gap-6 lg:gap-4 w-full
-              max-h-[50dvh] overflow-y-scroll lg:w-3/5 xl:w-2/4"
+              max-h-[50dvh] overflow-y-scroll lg:w-3/5 xl:w-2/4 animate-fade-down animate-duration-1000 animate-ease-in-out"
             >
               {cardData.map((transaction, index) => (
                 <li

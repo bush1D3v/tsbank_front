@@ -41,8 +41,8 @@ export default function MainEditProfile(): ReactElement {
   };
 
   return (
-    <>
+    <div className="animate-fade animate-duration-500 animate-ease-in-out w-full h-full flex items-center justify-center">
       {handleFormType(pathname)}
-    </>
+    </div>
   );
 }

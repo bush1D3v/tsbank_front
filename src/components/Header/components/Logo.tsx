@@ -1,5 +1,5 @@
 import { type ReactElement } from "react";
-import { BsBank } from "react-icons/bs";
+import { logo } from "../../../assets/images";
 import { handleLinkClick } from "../../../functions";
 
 export default function Logo(): ReactElement {
@@ -10,9 +10,8 @@ export default function Logo(): ReactElement {
   return (
     <a
       onClick={handleLinkClick(VITE_REACT_APP_HOME)}
-      className="bank h-100% cursor-pointer text-5xl md:text-7xl lg:text-6xl hover:text-darkBlue
-      transition-all delay-75 relative">
-      <BsBank />
+      className="cursor-pointer transition-all delay-75 relative h-full hover:opacity-50">
+      <img src={logo} alt="tsbank logo" className="h-full w-full" />
     </a>
   );
 }

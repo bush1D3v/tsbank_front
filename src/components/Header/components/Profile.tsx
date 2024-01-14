@@ -10,9 +10,8 @@ export default function Profile(): ReactElement {
   return (
     <a
       onClick={handleLinkClick(VITE_REACT_APP_PROFILE)}
-      className="bank h-100% cursor-pointer text-5xl md:text-7xl lg:text-6xl hover:text-darkBlue
-      transition-all delay-75 relative">
-      <CgProfile />
+      className="cursor-pointer transition-all delay-75 relative h-full hover:opacity-50">
+      <CgProfile className="h-full w-full" />
     </a>
   );
 }

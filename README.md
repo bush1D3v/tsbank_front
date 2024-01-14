@@ -26,12 +26,33 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as transações e
    <img align='center' height='58' width='80' title='Tailwindcss-animated' alt='tailwindcss-animated' src='https://github.com/bush1D3v/my_portfolio_html/assets/133554156/364156ca-f265-4478-bcc3-4a12830c46a7' /> &nbsp;
    <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp; &nbsp;
    <img align='center' height='49' width='59' title='Zod' alt='zod' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/5a769805-23e2-4f8b-904d-034b25a982a6' /> &nbsp; &nbsp;
-   <img align='center' height='49' width='49' title='Crypto-js' alt='crypto-js' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/303e55f6-c252-479d-9ce9-37cb33b07a12' />
+   <img align='center' height='49' width='49' title='Crypto-js' alt='crypto-js' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/303e55f6-c252-479d-9ce9-37cb33b07a12' /> &nbsp; &nbsp;
+    <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' />
 </div>
 
 ## 🏗 Estrutura e Arquitetura
 
 O projeto segue os princípios da **arquitetura limpa** e leva em consideração os princípios do **SOLID**. O código foi organizado de acordo com os princípios de **modularidade**, **reutilização** e **responsabilidade única**.
+
+## 📃 Documentação da Aplicação
+
+A seguir, temos o comando necessário para se utilizar no seu ambiente de desenvolvimento após clonagem do repositório e instalação das dependências com seu Package Manager, onde fará com que você tenha acesso a documentação no Storybook, disponibilizada normalmente em http://localhost:6006 <br>
+
+```
+npm storybook
+```
+
+ou
+
+```
+yarn storybook
+```
+
+ou
+
+```
+pnpm storybook
+```
 
 # 🖋️ Contribuindo para o TSBank
 

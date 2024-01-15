@@ -9,6 +9,7 @@ export const FormWrapper = styled.form`
   text-align: center;
   background-color: var(--background);
   border-radius: 40px;
+  gap: 20px;
 
   & {
     @media (min-width: 768px) {

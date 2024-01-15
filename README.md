@@ -36,23 +36,7 @@ O projeto segue os princípios da **arquitetura limpa** e leva em consideração
 
 ## 📃 Documentação da Aplicação
 
-A seguir, temos o comando necessário para se utilizar no seu ambiente de desenvolvimento após clonagem do repositório e instalação das dependências com seu Package Manager, onde fará com que você tenha acesso a documentação no Storybook, disponibilizada normalmente em http://localhost:6006 <br>
-
-```
-npm storybook
-```
-
-ou
-
-```
-yarn storybook
-```
-
-ou
-
-```
-pnpm storybook
-```
+A seguir, temos o link da documentação Front-end feita a partir do Storybook: https://tsbank-storybook.vercel.app/
 
 # 🖋️ Contribuindo para o TSBank
 

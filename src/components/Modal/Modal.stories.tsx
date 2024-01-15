@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Modal>;
 export const Default: Story = {
   args: {
     isOpen: true,
-    setOpen: () => { window.alert("The modal has been closed!"); },
+    setOpen: () => { },
     title: "Something went wrong!",
     description: "Error 401: Invalid email and/or password.",
     btnMessage: "Try again"

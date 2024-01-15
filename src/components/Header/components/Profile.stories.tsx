@@ -8,7 +8,7 @@ const meta: Meta<typeof Profile> = {
   decorators: [
     withRouter,
     (Story) => (
-      <div className="flex items-center justify-center text-9xl">
+      <div className="h-[100dvh] p-[25dvw]">
         <Story />
       </div>
     )

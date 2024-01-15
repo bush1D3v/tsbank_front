@@ -1,4 +1,4 @@
-import { type StorybookConfig } from '@storybook/react-vite';
+import { type StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   "stories": [
@@ -8,9 +8,14 @@ const config: StorybookConfig = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
-    "storybook-addon-react-router-v6"
+    "storybook-addon-react-router-v6",
+    {
+      name: "@storybook/addon-knobs",
+      options: {
+        panelPosition: "right",
+      },
+    },
   ],
   "framework": {
     "name": "@storybook/react-vite",

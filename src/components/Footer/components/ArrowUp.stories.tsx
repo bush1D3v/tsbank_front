@@ -6,7 +6,7 @@ const meta: Meta<typeof ArrowUp> = {
   component: ArrowUp,
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center">
+      <div className="h-[100dvh] py-[50dvh] px-[50dvw]">
         <Story />
       </div>
     )

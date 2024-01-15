@@ -6,7 +6,7 @@ const meta: Meta<typeof CopyrightText> = {
   component: CopyrightText,
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center">
+      <div className="flex h-[100dvh] items-center justify-center">
         <Story />
       </div>
     )

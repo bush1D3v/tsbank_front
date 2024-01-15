@@ -19,7 +19,7 @@ type Story = StoryObj<typeof AnchorLink>;
 
 export const Default: Story = {
   args: {
-    func: () => { window.alert("The anchor link button has been clicked!"); },
+    func: () => { },
     text: "Button",
     param: "test",
     buttonBg: "bg-saturatedBlue hover:bg-transparent"

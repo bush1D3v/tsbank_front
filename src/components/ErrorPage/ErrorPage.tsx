@@ -1,10 +1,16 @@
 import { type ReactElement } from "react";
 import { Link, useRouteError } from "react-router-dom";
 
-export default function ErrorPage(): ReactElement {
-  const error = useRouteError() as { status: number };
+/* Interface criada para exibir componente na documentação, sem forçar um valor
+aleatório diretamente no componente, adicionando algo como "|| { status: 404 }" */
+type ErrorPageProps = {
+  error?: { status: number };
+};
 
-  const { status } = error;
+export default function ErrorPage({ error }: ErrorPageProps): ReactElement {
+  const routeError = useRouteError() as { status: number };
+
+  const { status } = error || routeError;
 
   const {
     VITE_REACT_APP_HOME

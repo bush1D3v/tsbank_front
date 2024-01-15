@@ -8,7 +8,7 @@ const meta: Meta<typeof NavLinks> = {
   decorators: [
     withRouter,
     (Story) => (
-      <div className="flex items-center justify-center">
+      <div className="h-[100dvh] flex items-center justify-center py-[50dvh]">
         <Story />
       </div>
     )

@@ -1,4 +1,4 @@
-import EditProfilePage from "./EditProfilePage.tsx";
+import EditProfilePage from "./EditProfilePage";
 import EditAllAccInfo from "./EditAllAccInfo";
 import DeleteAcc from "./DeleteAcc";
 import ChangeEmail from "./ChangeEmail";

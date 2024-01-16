@@ -3,7 +3,7 @@ import Profile from "./Profile";
 import { withRouter } from "storybook-addon-react-router-v6";
 
 const meta: Meta<typeof Profile> = {
-  title: "Components/Header/Profile",
+  title: "Layout/Header/Profile",
   component: Profile,
   decorators: [
     withRouter,

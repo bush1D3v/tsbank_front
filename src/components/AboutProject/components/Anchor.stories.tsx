@@ -3,7 +3,7 @@ import Anchor from "./Anchor";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Anchor> = {
-  title: "Pages/AboutProject/Anchor",
+  title: "Pages/AboutProjectPage/Anchor",
   component: Anchor,
   decorators: [
     withRouter,

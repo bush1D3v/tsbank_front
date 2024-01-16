@@ -15,7 +15,7 @@ export default async function creditPaymentSubmit(
 ): Promise<creditPaymentResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,
@@ -36,7 +36,7 @@ export default async function creditPaymentSubmit(
 
     if (response.status === 201) {
       const detailResponse = await cardDetailSubmit();
-      sessionStorage.setItem("cardsInfo", JSON.stringify(detailResponse.message));
+      sessionStorage.setItem("cardsData", JSON.stringify(detailResponse.message));
 
       const transactionsDetailResponse = await getHistory();
       sessionStorage.setItem("historyData", JSON.stringify(transactionsDetailResponse.message));

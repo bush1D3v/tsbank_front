@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import CopyrightText from "./CopyrightText";
 
 const meta: Meta<typeof CopyrightText> = {
-  title: "Components/Footer/CopyrightText",
+  title: "Layout/Footer/CopyrightText",
   component: CopyrightText,
   decorators: [
     (Story) => (

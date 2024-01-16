@@ -14,15 +14,14 @@ export default meta;
 
 export const Default = () =>
   <div className="m-auto max-w-[500px]">
-    <ProfilePage>
-    </ProfilePage>
+    <ProfilePage />
   </div>;
 
 export const WithHeaderAndFooter = () =>
   <>
     <Header />
     <div className="m-auto max-w-[500px]">
-      <ProfilePage></ProfilePage>
+      <ProfilePage />
     </div>
     <Footer />
   </>;

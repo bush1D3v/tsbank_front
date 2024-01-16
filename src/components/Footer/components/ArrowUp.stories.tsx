@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import ArrowUp from "./ArrowUp";
 
 const meta: Meta<typeof ArrowUp> = {
-  title: "Components/Footer/ArrowUp",
+  title: "Layout/Footer/ArrowUp",
   component: ArrowUp,
   decorators: [
     (Story) => (

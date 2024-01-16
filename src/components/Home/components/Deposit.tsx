@@ -46,7 +46,7 @@ export default function Deposit(): ReactElement {
       setIsLoading(false);
       setIsModalOpen(!isModalOpen);
     } else {
-      const { user, token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+      const { user, token } = jsonUserParser(sessionStorage.getItem("userData"));
       if (data.userData.email === user.email) {
         balanceStringify({
           token,

@@ -46,7 +46,7 @@ export default function CardTransaction(): ReactElement {
       setIsLoading(false);
       setIsModalOpen(!isModalOpen);
     } else {
-      const { user, token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+      const { user, token } = jsonUserParser(sessionStorage.getItem("userData"));
       if (data.userData.card_type === "debit") {
         balanceStringify({
           token,

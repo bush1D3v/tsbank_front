@@ -66,7 +66,7 @@ export default function InitialPage(): ReactElement {
     navigation(to);
   };
 
-  const { user } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { user } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const balance = balanceFormat(user.balance);
 

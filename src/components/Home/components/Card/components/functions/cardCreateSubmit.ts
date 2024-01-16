@@ -14,7 +14,7 @@ export default async function cardCreateSubmit(
 ): Promise<cardCreateResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,
@@ -39,7 +39,7 @@ export default async function cardCreateSubmit(
 
     if (response.status === 201) {
       const detailResponse = await cardDetailSubmit();
-      sessionStorage.setItem("cardsInfo", JSON.stringify(detailResponse.message));
+      sessionStorage.setItem("cardsData", JSON.stringify(detailResponse.message));
       return {
         success: true,
         message: response.data

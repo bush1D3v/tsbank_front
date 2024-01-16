@@ -45,7 +45,7 @@ export default function Withdraw(): ReactElement {
       setIsLoading(false);
       setIsModalOpen(!isModalOpen);
     } else {
-      const { user, token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+      const { user, token } = jsonUserParser(sessionStorage.getItem("userData"));
       balanceStringify({
         token,
         actualBalance: user.balance,

@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import type { Meta } from "@storybook/react";
 
 const meta: Meta<typeof Logo> = {
-  title: "Components/Header/Logo",
+  title: "Layout/Header/Logo",
   component: Logo,
   decorators: [
     withRouter,

@@ -15,7 +15,7 @@ export default async function cardTransactionSubmit(
 ): Promise<cardTransactionResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,
@@ -38,7 +38,7 @@ export default async function cardTransactionSubmit(
     if (response.status === 201) {
       if (userData.card_type.toLowerCase() === "credit") {
         const cardDetailResponse = await cardDetailSubmit();
-        sessionStorage.setItem("cardsInfo", JSON.stringify(cardDetailResponse.message));
+        sessionStorage.setItem("cardsData", JSON.stringify(cardDetailResponse.message));
 
         const transactionsDetailResponse = await getHistory();
         sessionStorage.setItem("historyData", JSON.stringify(transactionsDetailResponse.message));

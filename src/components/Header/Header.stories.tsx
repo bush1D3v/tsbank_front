@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Meta } from "@storybook/react";
 
 const meta: Meta<typeof Header> = {
-  title: "Components/Header",
+  title: "Layout/Header",
   component: Header,
   decorators: [
     withRouter,

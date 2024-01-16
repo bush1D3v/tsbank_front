@@ -13,7 +13,7 @@ export const Default = {};
 
 export const WithHeaderAndFooter = () =>
   <>
-    <Header></Header>
-    <AboutProject></AboutProject>
-    <Footer></Footer>
+    <Header />
+    <AboutProject />
+    <Footer />
   </>;

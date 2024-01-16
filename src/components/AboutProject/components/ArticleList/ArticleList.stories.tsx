@@ -1,7 +1,7 @@
 import ArticleList from "./ArticleList";
 
 export default {
-  title: "Pages/AboutProject/ArticleList",
+  title: "Pages/AboutProjectPage/ArticleList",
   component: ArticleList,
 };
 

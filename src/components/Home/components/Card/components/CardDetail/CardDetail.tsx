@@ -18,7 +18,7 @@ export default function CardDetail(): ReactElement {
         const response: CardDetailResponseProps = await cardDetailSubmit();
         setCardData(response.message as CardData[]);
         if (response.success) {
-          sessionStorage.setItem("cardsInfo", JSON.stringify(response.message));
+          sessionStorage.setItem("cardsData", JSON.stringify(response.message));
         } else {
           sessionStorage.setItem("cardsError", JSON.stringify(response.message));
         }
@@ -30,7 +30,7 @@ export default function CardDetail(): ReactElement {
       }
     };
 
-    const cachedData = sessionStorage.getItem("cardsInfo");
+    const cachedData = sessionStorage.getItem("cardsData");
     const errorData = sessionStorage.getItem("cardsError");
 
     if (cachedData) {

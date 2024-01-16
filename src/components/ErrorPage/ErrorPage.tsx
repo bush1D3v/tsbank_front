@@ -1,16 +1,16 @@
 import { type ReactElement } from "react";
 import { Link, useRouteError } from "react-router-dom";
 
-/* Interface criada para exibir componente na documentação, sem forçar um valor
+/* Interface criada para exibir componente na documentação Storybook, sem forçar um valor
 aleatório diretamente no componente, adicionando algo como "|| { status: 404 }" */
-type ErrorPageProps = {
+type ErrorPageStorybookProps = {
   error?: { status: number };
 };
 
-export default function ErrorPage({ error }: ErrorPageProps): ReactElement {
+export default function ErrorPage({ error }: ErrorPageStorybookProps): ReactElement {
   const routeError = useRouteError() as { status: number };
 
-  const { status } = error || routeError;
+  const { status } = routeError || error;
 
   const {
     VITE_REACT_APP_HOME

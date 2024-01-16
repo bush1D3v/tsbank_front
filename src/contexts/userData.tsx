@@ -1,8 +1,12 @@
-import { type ReactElement, createContext, useState } from "react";
+import {
+  type ReactElement,
+  createContext,
+  useState
+} from "react";
 
 import { type User } from "../types";
 
-const userInfo = sessionStorage.getItem("userInfo");
+const userInfo = sessionStorage.getItem("userData");
 
 interface ProviderProp {
   children: React.ReactNode;

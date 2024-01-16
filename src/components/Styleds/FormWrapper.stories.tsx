@@ -16,7 +16,7 @@ const meta: Meta<typeof FormWrapper> = {
 export default meta;
 
 export const Default = () =>
-  <FormWrapper>
+  <FormWrapper onSubmit={(e) => e.preventDefault()}>
     <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl">Form Example</h2>
     <InputField
       type="email"

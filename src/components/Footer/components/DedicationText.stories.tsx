@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import DedicationText from "./DedicationText";
 
 const meta: Meta<typeof DedicationText> = {
-  title: "Components/Footer/DedicationText",
+  title: "Layout/Footer/DedicationText",
   component: DedicationText,
   decorators: [
     (Story) => (

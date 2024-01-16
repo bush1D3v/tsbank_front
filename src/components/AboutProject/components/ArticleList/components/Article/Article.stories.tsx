@@ -3,7 +3,7 @@ import Article from "./Article";
 import { lpInterface } from "../../../../../../assets/images";
 
 const meta: Meta<typeof Article> = {
-  title: "Pages/AboutProject/ArticleList/Article",
+  title: "Pages/AboutProjectPage/ArticleList/Article",
   component: Article,
   decorators: [
     (Story) => (

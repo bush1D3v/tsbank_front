@@ -4,7 +4,7 @@ import { jsonUserParser } from "../../../../functions";
 import { CgProfile } from "react-icons/cg";
 
 export default function Table(): ReactElement {
-  const stringUserData = sessionStorage.getItem("userInfo");
+  const stringUserData = sessionStorage.getItem("userData");
   const jsonUserData = jsonUserParser(stringUserData);
 
   return (

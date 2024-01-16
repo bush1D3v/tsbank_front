@@ -3,7 +3,7 @@ import NavLinks from "./NavLinks";
 import { withRouter } from "storybook-addon-react-router-v6";
 
 const meta: Meta<typeof NavLinks> = {
-  title: "Components/Header/NavLinks",
+  title: "Layout/Header/NavLinks",
   component: NavLinks,
   decorators: [
     withRouter,

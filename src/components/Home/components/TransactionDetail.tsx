@@ -12,7 +12,13 @@ import {
   useState
 } from "react";
 
-export default function TransactionDetail(): ReactElement {
+/* Interface criada para exibir dados na documentação Storybook,
+sem forçar um valor aleatório diretamente no componente */
+interface TransactionDetailStorybookProps {
+  fakeData?: SummaryData
+}
+
+export default function TransactionDetail({ fakeData }: TransactionDetailStorybookProps): ReactElement {
   const [ isLoading, setIsLoading ] = useState(true);
   const [ transactionData, setTransactionData ] = useState<SummaryData>();
 
@@ -25,7 +31,11 @@ export default function TransactionDetail(): ReactElement {
           const response: SummaryResponseProps = await detailTransactionSubmit(decryptHash(id));
           setTransactionData(response.message as SummaryData);
         } else {
-          console.error("ID is not a valid string.");
+          if (fakeData !== undefined) {
+            setTransactionData(fakeData as SummaryData);
+          } else {
+            console.log(fakeData);
+          }
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
@@ -36,7 +46,7 @@ export default function TransactionDetail(): ReactElement {
     };
 
     fetchData();
-  }, [ id ]);
+  }, [ id, fakeData ]);
 
   return (
     <>

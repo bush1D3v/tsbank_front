@@ -4,7 +4,7 @@ import Header from "../Header";
 import AboutProject from "./AboutProject";
 
 export default {
-  title: "Pages/AboutProject",
+  title: "Pages/AboutProjectPage",
   component: AboutProject,
   decorators: [ withRouter ]
 };

@@ -13,7 +13,7 @@ export default function balanceStringify({
   inputBalance,
   arithmeticOperator
 }: balanceStringifyProps): void {
-  const { user } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { user } = jsonUserParser(sessionStorage.getItem("userData"));
 
   if (arithmeticOperator === "+") {
     user[ "balance" ] = actualBalance + parseFloat(inputBalance.replace(/,/g, "."));
@@ -26,5 +26,5 @@ export default function balanceStringify({
     token
   });
 
-  sessionStorage.setItem("userInfo", newUser);
+  sessionStorage.setItem("userData", newUser);
 }

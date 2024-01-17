@@ -9,6 +9,8 @@ export interface SummaryData {
   date: string;
   user_id: number;
   type: string;
+  input?: number;
+  output?: number;
 }
 
 export interface SummaryResponseProps {
@@ -16,7 +18,7 @@ export interface SummaryResponseProps {
   message: SummaryData | string;
 }
 
-export async function detailTransactionSubmit(id: string): Promise<SummaryResponseProps> {
+export async function transactionDetailSubmit(id: string): Promise<SummaryResponseProps> {
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {

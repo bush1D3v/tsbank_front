@@ -1,6 +1,8 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import CreditPayment from "./CreditPayment";
 import { Meta } from "@storybook/react";
+import Footer from "../../../../Footer";
+import Header from "../../../../Header";
 
 const meta: Meta<typeof CreditPayment> = {
   title: "Pages/InitialPage/CardPage/CreditPayment",
@@ -18,3 +20,12 @@ const meta: Meta<typeof CreditPayment> = {
 export default meta;
 
 export const Default = {};
+
+export const WithHeaderAndFooter = () =>
+  <div className="h-[100dvh] w-[100dvw] flex justify-between flex-col">
+    <Header />
+    <div className="flex justify-center">
+      <CreditPayment />
+    </div>
+    <Footer />
+  </div>;

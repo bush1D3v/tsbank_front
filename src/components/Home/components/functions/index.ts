@@ -7,10 +7,10 @@ import {
   type HistoryResponseProps
 } from "./getHistory";
 import {
-  detailTransactionSubmit,
+  transactionDetailSubmit,
   type SummaryData,
   type SummaryResponseProps
-} from "./detailTransactionSubmit";
+} from "./transactionDetailSubmit";
 
 export {
   depositSubmit,
@@ -19,7 +19,7 @@ export {
   getHistory,
   type HistoryData,
   type HistoryResponseProps,
-  detailTransactionSubmit,
+  transactionDetailSubmit,
   type SummaryData,
   type SummaryResponseProps
 };

@@ -2,6 +2,8 @@ import { withRouter } from "storybook-addon-react-router-v6";
 import TransactionDetail from "./TransactionDetail";
 import { Meta } from "@storybook/react";
 import { SummaryData } from "./functions";
+import Footer from "../../Footer";
+import Header from "../../Header";
 
 const meta: Meta<typeof TransactionDetail> = {
   title: "Pages/InitialPage/TransactionDetail",
@@ -30,4 +32,13 @@ const fakeData: SummaryData = {
 export const Default = () =>
   <div className="h-[100dvh] flex items-center justify-center">
     <TransactionDetail fakeData={fakeData} />
+  </div>;
+
+export const WithHeaderAndFooter = () =>
+  <div className="h-[100dvh] w-[100dvw] flex justify-between flex-col">
+    <Header />
+    <div className="flex justify-center">
+      <TransactionDetail fakeData={fakeData} />
+    </div>
+    <Footer />
   </div>;

@@ -12,7 +12,7 @@ export default async function changePasswordSubmit(
 ): Promise<changePasswordResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,

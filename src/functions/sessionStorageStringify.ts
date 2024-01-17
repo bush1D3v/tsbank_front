@@ -11,7 +11,7 @@ export default function sessionStorageStringify({
   token,
   newValue
 }: sessionStorageStringifyProps): void {
-  const { user } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { user } = jsonUserParser(sessionStorage.getItem("userData"));
   user[ param ] = newValue;
 
   const newUser = JSON.stringify({
@@ -19,5 +19,5 @@ export default function sessionStorageStringify({
     token
   });
 
-  sessionStorage.setItem("userInfo", newUser);
+  sessionStorage.setItem("userData", newUser);
 }

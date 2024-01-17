@@ -14,7 +14,7 @@ export default async function pixSubmit(
 ): Promise<pixResponseProps> {
   const { userData } = data;
 
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,

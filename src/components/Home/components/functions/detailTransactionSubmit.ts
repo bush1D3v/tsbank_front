@@ -17,7 +17,7 @@ export interface SummaryResponseProps {
 }
 
 export async function detailTransactionSubmit(id: string): Promise<SummaryResponseProps> {
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,

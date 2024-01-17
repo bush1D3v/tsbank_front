@@ -17,7 +17,7 @@ export interface HistoryResponseProps {
 }
 
 export async function getHistory(): Promise<HistoryResponseProps> {
-  const { token } = jsonUserParser(sessionStorage.getItem("userInfo"));
+  const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const {
     VITE_REACT_APP_API_BASE_URL,

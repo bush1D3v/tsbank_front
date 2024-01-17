@@ -1,8 +1,8 @@
 import Loading from "../../Loading";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { balanceFormat, decryptHash } from "../../../functions";
 import {
-  detailTransactionSubmit,
+  transactionDetailSubmit,
   type SummaryResponseProps,
   type SummaryData
 } from "./functions";
@@ -24,18 +24,19 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
 
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (typeof id === "string") {
-          const response: SummaryResponseProps = await detailTransactionSubmit(decryptHash(id));
-          setTransactionData(response.message as SummaryData);
-        } else {
-          if (fakeData !== undefined) {
-            setTransactionData(fakeData as SummaryData);
-          } else {
-            console.log(fakeData);
+          const response: SummaryResponseProps = await transactionDetailSubmit(decryptHash(id));
+          if (typeof response.message !== "string" && (response.message.input || response.message.output)) {
+            navigate("/home");
           }
+          setTransactionData(response.message as SummaryData);
+        } else if (fakeData !== undefined) {
+          setTransactionData(fakeData as SummaryData);
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
@@ -46,7 +47,7 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
     };
 
     fetchData();
-  }, [ id, fakeData ]);
+  }, [ id, fakeData, navigate ]);
 
   return (
     <>

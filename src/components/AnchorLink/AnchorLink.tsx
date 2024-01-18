@@ -17,7 +17,7 @@ export default function AnchorLink({ func, text, param, buttonBg }: AnchorLinkPr
     <a
       onClick={eventClick({ func, param })}
       className={className}
-    >
+      data-testid="AnchorLink">
       {text}
     </a >
   );

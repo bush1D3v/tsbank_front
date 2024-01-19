@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const InputField = styled.input`
+const InputField = styled.input`
   width: 100%;
   border-radius: 10px;
   padding: 1rem 1.5rem;
@@ -20,3 +20,5 @@ export const InputField = styled.input`
     opacity: 0.4;
   }
 `;
+
+export default InputField;

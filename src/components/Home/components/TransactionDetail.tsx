@@ -22,6 +22,10 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
   const [ isLoading, setIsLoading ] = useState(true);
   const [ transactionData, setTransactionData ] = useState<SummaryData>();
 
+  const {
+    VITE_REACT_APP_HOME
+  } = import.meta.env;
+
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -32,7 +36,7 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
         if (typeof id === "string") {
           const response: SummaryResponseProps = await transactionDetailSubmit(decryptHash(id));
           if (typeof response.message !== "string" && (response.message.input || response.message.output)) {
-            navigate("/home");
+            navigate(VITE_REACT_APP_HOME);
           }
           setTransactionData(response.message as SummaryData);
         } else if (fakeData !== undefined) {
@@ -47,7 +51,7 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
     };
 
     fetchData();
-  }, [ id, fakeData, navigate ]);
+  }, [ id, fakeData, navigate, VITE_REACT_APP_HOME ]);
 
   return (
     <>

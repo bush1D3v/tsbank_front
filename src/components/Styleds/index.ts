@@ -1,6 +1,6 @@
-import { FormWrapper } from "./FormWrapper";
-import { InputField } from "./InputField";
-import { Button } from "./Button";
+import FormWrapper from "./FormWrapper";
+import InputField from "./InputField";
+import Button from "./Button";
 
 export {
   FormWrapper,

@@ -4,8 +4,8 @@ export default function Loading(): ReactElement {
   return (
     <div
       className="fixed top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]
-        bg-blueBase w-full h-[82%] flex justify-center items-center"
-    >
+      bg-blueBase w-full h-[82%] flex justify-center items-center"
+      data-testid="Loading">
       <svg
         aria-hidden="true"
         className="w-1/6 h-1/6 animate-spin fill-whiteBlue"

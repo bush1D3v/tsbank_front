@@ -1,5 +1,9 @@
 import { Meta } from "@storybook/react";
-import { FormWrapper, Button, InputField } from "./index";
+import {
+  FormWrapper,
+  Button,
+  InputField
+} from "./index";
 
 const meta: Meta<typeof FormWrapper> = {
   title: "Components/Styleds/FormWrapper",

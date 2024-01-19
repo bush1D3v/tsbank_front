@@ -7,7 +7,7 @@
 
 ## 🔍 Sobre o Projeto
 
-O **TSBank** é uma aplicação **bancária**, possuindo todas as transações existentes de um banco, como **saque**, **depósito**, **pix**, cartões de **crédito** e **débito**, **gerenciamento** de transações, etc.
+O **TSBank** é uma aplicação **bancária**, possuindo todas as funcionalidades existentes de um banco, como **saque**, **depósito**, **pix**, cartões de **crédito** e **débito**, **gerenciamento** de transações e informações do seu usuário, etc.
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 
@@ -112,7 +112,7 @@ pnpm test
 
 ### 📝 Documentando
 
-Mantenha a documentação atualizada. Se você adicionou novos recursos, verifique se eles estão devidamente documentados no README.
+Mantenha a documentação atualizada. Se você adicionou novos recursos, adicione arquivos de documentação (caso necessário) e verifique se eles estão devidamente documentados no servidor StoryBook.
 
 ### 📊 Compromissos e Push
 

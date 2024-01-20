@@ -19,11 +19,7 @@ vi.mock("styled-components", async () => {
 
 describe("Styleds/FormWrapper component tests", () => {
   beforeEach(() => {
-    render(
-      <FormWrapper
-        data-testid={FormWrapperTestId}
-      />
-    );
+    render(<FormWrapper data-testid={FormWrapperTestId} />);
   });
   test("Should be able to render the component correctly", () => {
     expect(screen.getByTestId(FormWrapperTestId)).toBeInTheDocument();

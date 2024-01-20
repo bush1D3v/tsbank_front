@@ -1,5 +1,5 @@
 import TransactionModal from "./TransactionModal";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 
 const meta: Meta<typeof TransactionModal> = {
   title: "Pages/InitialPage/TransactionDetail/TransactionModal",

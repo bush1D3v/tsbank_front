@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import ArrowUp from "./ArrowUp";
 
 const meta: Meta<typeof ArrowUp> = {

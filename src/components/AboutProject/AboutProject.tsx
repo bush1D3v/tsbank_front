@@ -9,7 +9,12 @@ export default function AboutProject(): ReactElement {
       data-testid="AboutProject">
       <div className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto">
         <div className="lg:flex lg:items-center lg:w-full lg:justify-around">
-          <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl">Welcome to <br /> TSBank! 🏦💵</h1>
+          <h1
+            className="font-bold text-4xl md:text-6xl lg:text-8xl"
+            data-testid="AboutProjectTitle"
+          >
+            Welcome to <br /> TSBank! 🏦💵
+          </h1>
           <ImageSkeletonLoader
             src={lpWelcome}
             alt={"Welcome Image"}
@@ -20,7 +25,12 @@ export default function AboutProject(): ReactElement {
         <FirstSection />
         <hr className="p-[1px] bg-saturedBlue border-white border-2 w-10/12 rounded-2xl" />
         <section className="flex flex-col items-center gap-4 text-lg">
-          <h2 className="mb-4 lg:mt-4 font-bold text-xl md:text-4xl lg:text-5xl">Who developed it? 👨‍💻</h2>
+          <h2
+            className="mb-4 lg:mt-4 font-bold text-xl md:text-4xl lg:text-5xl"
+            data-testid="AboutProjectSubtitle"
+          >
+            Who developed it? 👨‍💻
+          </h2>
           <SummaryPresentation />
         </section>
       </div>

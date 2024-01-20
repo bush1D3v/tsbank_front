@@ -10,6 +10,10 @@ export default function ArrowUp(): ReactElement {
   }
 
   return (
-    <FaArrowUp className="my-auto text-4xl cursor-pointer hover:text-darkBlue transition-all delay-75" onClick={scrollToTop} />
+    <FaArrowUp
+      className="my-auto text-4xl cursor-pointer hover:text-darkBlue transition-all delay-75"
+      onClick={scrollToTop}
+      data-testid="ArrowUp"
+    />
   );
 }

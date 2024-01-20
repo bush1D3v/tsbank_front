@@ -8,7 +8,7 @@ import {
 
 export default function ArticleList(): ReactElement {
   return (
-    <ul>
+    <ul data-testid="ArticleList">
       <li>
         <Article
           text={`TSBank offers a seamless platform, allowing you to effortlessly navigate through your accounts,

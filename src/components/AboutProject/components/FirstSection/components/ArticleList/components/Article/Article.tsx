@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
 import { Paragraph } from "./components";
-import ImageSkeletonLoader from "../../../../../ImageSkeletonLoader";
+import ImageSkeletonLoader from "../../../../../../../ImageSkeletonLoader";
 
 interface ArticleProps {
   text: string;

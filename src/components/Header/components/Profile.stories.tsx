@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import Profile from "./Profile";
 import { withRouter } from "storybook-addon-react-router-v6";
 

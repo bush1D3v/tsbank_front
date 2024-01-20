@@ -12,9 +12,7 @@ const LoadingTestId: string = "Loading";
 
 describe("Loading component tests", () => {
   beforeEach(() => {
-    render(
-      <Loading />
-    );
+    render(<Loading />);
   });
   test("Should be able to render the component correctly", () => {
     expect(screen.getByTestId(LoadingTestId)).toBeInTheDocument();

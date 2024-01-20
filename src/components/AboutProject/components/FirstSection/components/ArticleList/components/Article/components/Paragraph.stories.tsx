@@ -1,8 +1,8 @@
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import Paragraph from "./Paragraph";
 
 const meta: Meta<typeof Paragraph> = {
-  title: "Pages/AboutProjectPage/ArticleList/Article/Paragraph",
+  title: "Pages/AboutProjectPage/FirstSection/ArticleList/Article/Paragraph",
   component: Paragraph,
   decorators: [
     (Story) => (

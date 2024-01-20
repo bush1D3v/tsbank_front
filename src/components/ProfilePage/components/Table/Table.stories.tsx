@@ -1,6 +1,6 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import Table from "./Table";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 
 const meta: Meta<typeof Table> = {
   title: "Pages/ProfilePage/Table",

@@ -1,6 +1,6 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import Login from "./Login";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 
 const meta: Meta<typeof Login> = {
   title: "Components/FormAuth/Login",

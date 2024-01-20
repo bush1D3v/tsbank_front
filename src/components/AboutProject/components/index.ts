@@ -1,7 +1,7 @@
-import Anchor from "./Anchor";
-import ArticleList from "./ArticleList";
+import FirstSection from "./FirstSection";
+import SummaryPresentation from "./SummaryPresentation";
 
 export {
-  Anchor,
-  ArticleList
+  SummaryPresentation,
+  FirstSection
 };

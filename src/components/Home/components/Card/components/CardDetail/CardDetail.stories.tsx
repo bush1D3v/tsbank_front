@@ -1,6 +1,6 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import CardDetail from "./CardDetail";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import Header from "../../../../../Header";
 import Footer from "../../../../../Footer";
 

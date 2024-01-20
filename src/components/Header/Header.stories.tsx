@@ -1,6 +1,6 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import Header from "./Header";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 
 const meta: Meta<typeof Header> = {
   title: "Layout/Header",

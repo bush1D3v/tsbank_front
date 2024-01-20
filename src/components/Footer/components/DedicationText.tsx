@@ -6,7 +6,7 @@ export default function DedicationText(): ReactElement {
       Made with 💖 <br /> by&nbsp;
       <a className="font-bold underline cursor-pointer hover:text-darkBlue transition-all"
         href="https://bushi-links.vercel.app/"
-        rel="noreferrer"
+        rel="noreferrer noopener"
         target="_blank"
         data-testid="DedicationTextLink">
         bush1D3v

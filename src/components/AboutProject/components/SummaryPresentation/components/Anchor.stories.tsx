@@ -1,9 +1,9 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import Anchor from "./Anchor";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Anchor> = {
-  title: "Pages/AboutProjectPage/Anchor",
+  title: "Pages/AboutProjectPage/SummaryPresentation/Anchor",
   component: Anchor,
   decorators: [
     withRouter,

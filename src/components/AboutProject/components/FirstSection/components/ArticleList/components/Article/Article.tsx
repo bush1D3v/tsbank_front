@@ -18,7 +18,7 @@ export default function Article({
   const className: string = `flex items-center gap-4 flex-col ${rowDirection}`;
 
   return (
-    <article className={className}>
+    <article className={className} data-testid="Article">
       <ImageSkeletonLoader
         src={image}
         alt={imageAlt}

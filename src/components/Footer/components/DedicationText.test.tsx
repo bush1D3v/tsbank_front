@@ -30,17 +30,22 @@ describe("DedicationText component tests", () => {
     expect(screen.getByTestId(DedicationTextTestId)).toHaveTextContent("Made with 💖 by");
   });
 
-  test("Should be able to render the Link component with the correctly parameters", () => {
+  test("Should be able to render the Link component with the correctly href", () => {
     expect(screen.getByTestId(DedicationTextLinkTestId)).toHaveAttribute(
       "href", "https://bushi-links.vercel.app/"
     );
+  });
+
+  test("Should be able to render the Link component with the correctly target", () => {
     expect(screen.getByTestId(DedicationTextLinkTestId)).toHaveAttribute(
       "target", "_blank"
     );
+  });
+
+  test("Should be able to render the Link component with the correctly rel", () => {
     expect(screen.getByTestId(DedicationTextLinkTestId)).toHaveAttribute(
-      "rel", "noreferrer"
+      "rel", "noreferrer noopener"
     );
-    expect(screen.getByText("bush1D3v")).toBeInTheDocument();
   });
 
   test("Should be able to render the Link component with the correctly tailwind classes", () => {

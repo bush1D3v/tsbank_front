@@ -9,9 +9,9 @@ export default function NavLinks(): ReactElement {
   } = import.meta.env;
 
   return (
-    <nav>
-      <ul className="flex gap-6 font-bold">
-        <li className="flex">
+    <nav data-testid="NavLinks">
+      <ul className="flex gap-6 font-bold" data-testid="NavLinksList">
+        <li className="flex" data-testid="NavLinksListItemHome">
           <AnchorLink
             func={handleLinkClick(VITE_REACT_APP_HOME)}
             param={VITE_REACT_APP_HOME}
@@ -19,7 +19,7 @@ export default function NavLinks(): ReactElement {
             buttonBg="bg-blueBase hover:bg-transparent"
           />
         </li>
-        <li className="flex">
+        <li className="flex" data-testid="NavLinksListItemAbout">
           <AnchorLink
             func={handleLinkClick(VITE_REACT_APP_ABOUT)}
             param={VITE_REACT_APP_ABOUT}

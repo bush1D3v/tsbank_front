@@ -1,6 +1,6 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import TransactionDetail from ".";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import { SummaryData } from "../functions";
 import Footer from "../../../Footer";
 import Header from "../../../Header";

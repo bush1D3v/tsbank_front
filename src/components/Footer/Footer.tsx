@@ -8,7 +8,8 @@ import {
 export default function Footer(): ReactElement {
   return (
     <footer className="text-sm bg-saturatedBlue flex h-[9dvh] justify-between py-2 px-4
-    relative animate-fade-down animate-duration-500 animate-ease-in-out">
+    relative animate-fade-down animate-duration-500 animate-ease-in-out"
+      data-testid="Footer">
       <CopyrightText />
       <DedicationText />
       <ArrowUp />

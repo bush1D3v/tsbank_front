@@ -25,11 +25,7 @@ const router = createMemoryRouter(
 
 describe("ErrorPage component tests", () => {
   beforeEach(() => {
-    render(
-      <RouterProvider
-        router={router}
-      />
-    );
+    render(<RouterProvider router={router} />);
   });
 
   test("Should be able to render the component correctly", () => {
@@ -42,13 +38,13 @@ describe("ErrorPage component tests", () => {
     `);
   });
 
-  test("Should be able to render teh component with the correctly error opcional parameter", () => {
+  test("Should be able to render the component with the correctly error opcional parameter", () => {
     expect(screen.getByTestId(ErrorPageTestId)).toHaveTextContent(status.toString());
   });
 
   test("Should be able to redirect the user", () => {
     fireEvent.click(screen.getByTestId(ErrorPageLinkTestId));
 
-    expect(screen.queryByTestId(ErrorPageLinkTestId)).toBeNull();
+    expect(screen.queryByTestId(ErrorPageTestId)).toBeNull();
   });
 });

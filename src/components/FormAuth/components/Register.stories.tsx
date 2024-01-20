@@ -1,6 +1,6 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import Register from "./Register";
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 
 const meta: Meta<typeof Register> = {
   title: "Components/FormAuth/Register",

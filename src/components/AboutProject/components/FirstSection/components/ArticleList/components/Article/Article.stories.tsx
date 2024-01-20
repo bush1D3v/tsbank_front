@@ -1,9 +1,9 @@
-import { Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react";
 import Article from "./Article";
-import { lpInterface } from "../../../../../../assets/images";
+import { lpInterface } from "../../../../../../../../assets/images";
 
 const meta: Meta<typeof Article> = {
-  title: "Pages/AboutProjectPage/ArticleList/Article",
+  title: "Pages/AboutProjectPage/FirstSection/ArticleList/Article",
   component: Article,
   decorators: [
     (Story) => (

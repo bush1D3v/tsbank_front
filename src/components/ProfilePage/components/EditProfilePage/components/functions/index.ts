@@ -1,13 +1,23 @@
-import changeEmailSubmit from "./changeEmailSubmit";
-import changePasswordSubmit from "./changePasswordSubmit";
-import changePhoneSubmit from "./changePhoneSubmit";
-import editAllAccInfSubmit from "./editAllAccInfoSubmit";
-import deleteAccSubmit from "./deleteAccSubmit";
+import changeEmailSubmit, { type changeEmailResponseProps } from "./changeEmailSubmit";
+import changePasswordSubmit, { type changePasswordResponseProps } from "./changePasswordSubmit";
+import changePhoneSubmit, { type changePhoneResponseProps } from "./changePhoneSubmit";
+import deleteAccSubmit, { type deleteAccResponseProps } from "./deleteAccSubmit";
+import editAllAccInfoSubmit,
+{
+  type editAllAccInfoUserResponseProps,
+  type editAllAccInfoResponseProps
+} from "./editAllAccInfoSubmit";
 
 export {
   changeEmailSubmit,
+  type changeEmailResponseProps,
   changePasswordSubmit,
+  type changePasswordResponseProps,
   changePhoneSubmit,
-  editAllAccInfSubmit,
-  deleteAccSubmit
+  type changePhoneResponseProps,
+  editAllAccInfoSubmit,
+  type editAllAccInfoResponseProps,
+  deleteAccSubmit,
+  type deleteAccResponseProps,
+  editAllAccInfoUserResponseProps
 };

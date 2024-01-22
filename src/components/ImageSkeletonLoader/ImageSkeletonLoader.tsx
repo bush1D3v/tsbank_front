@@ -41,7 +41,7 @@ export default function ImageSkeletonLoader({
   }, [ sessionStorageItem ]);
 
   return (
-    <div data-testid="ImageSkeletonLoader">
+    <>
       {isSkeletonNotLoading ? (
         <>
           <img src={src} alt={alt} loading={loading} onLoad={handleImageLoad} data-testid="Image" />
@@ -50,6 +50,6 @@ export default function ImageSkeletonLoader({
       ) : (
         <Skeleton />
       )}
-    </div>
+    </>
   );
 }

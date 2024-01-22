@@ -1,15 +1,15 @@
 import axios from "axios";
 import { type loginProps } from "../schemas";
-import { type User } from "../../../../types";
+import { type UserData } from "../../../../types";
 import { handleError } from "../../../../functions";
 
-interface loginResponseProps {
+export interface loginResponseProps {
   success: boolean;
   message: string;
-  user?: User;
+  userData?: UserData;
 }
 
-export default async function handleLoginSubmit(
+export default async function loginSubmit(
   data: loginProps,
 ): Promise<loginResponseProps> {
   const { userData } = data;
@@ -30,7 +30,7 @@ export default async function handleLoginSubmit(
       return {
         success: true,
         message: "Login completed!",
-        user: response.data,
+        userData: response.data,
       };
     } else {
       return {

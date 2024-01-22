@@ -52,6 +52,7 @@ export default function ChangePhone(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="ChangePhone"
     >
       <Modal
         isOpen={isModalOpen}
@@ -60,7 +61,10 @@ export default function ChangePhone(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="ChangePhoneSubtitle"
+      >
         Change Your Phone
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
@@ -72,6 +76,7 @@ export default function ChangePhone(): ReactElement {
         <S.InputField
           type="tel"
           placeholder="New Phone"
+          data-testid="ChangePhoneNewPhone"
           {...register("userData.new_phone")}
         />
         {errors.userData?.password?.message != null && (
@@ -82,9 +87,10 @@ export default function ChangePhone(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          data-testid="ChangePhonePassword"
           {...register("userData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="ChangePhoneButton">
           {isLoading ? "Changing..." : "Change"}
         </S.Button>
       </div>

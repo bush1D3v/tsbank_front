@@ -1,16 +1,21 @@
 import axios from "axios";
 import { type editAllAccInfoProps } from "../schemas";
-import { User } from "../../../../../../types";
 import {
   handleError,
   jsonUserParser,
   sessionStorageStringify
 } from "../../../../../../functions";
 
-interface editAllAccInfoResponseProps {
+export interface editAllAccInfoUserResponseProps {
+  id: number;
+  name: string;
+  email: string;
+}
+
+export interface editAllAccInfoResponseProps {
   success: boolean;
   message: string;
-  user?: User;
+  user?: editAllAccInfoUserResponseProps;
 }
 
 export default async function editAllAccInfoSubmit(

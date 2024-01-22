@@ -1,4 +1,4 @@
-import { User } from ".";
+import { type User } from ".";
 
 export interface UserData {
   user: User;

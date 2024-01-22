@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 
 import { type loginProps, schemaLoginForm } from "./schemas";
-import { handleLoginSubmit } from "./functions";
+import { loginSubmit } from "./functions";
 import { UserDataContext } from "../../../contexts";
 import * as S from "../../Styleds";
 import Modal from "../../Modal";
@@ -42,7 +42,7 @@ export default function Login(): ReactElement {
   const onSubmit = async (data: loginProps): Promise<void> => {
     setIsLoading(!isLoading);
 
-    const result = await handleLoginSubmit(data);
+    const result = await loginSubmit(data);
 
     if (!result.success) {
       setError(result.message);
@@ -51,10 +51,10 @@ export default function Login(): ReactElement {
       setIsModalOpen(!isModalOpen);
     }
 
-    if (result.success && result.user !== undefined) {
-      setUserData(result.user);
+    if (result.success && result.userData !== undefined) {
+      setUserData(result.userData.user);
       sessionStorage.setItem("isLoggedIn", "true");
-      sessionStorage.setItem("userData", JSON.stringify(result.user));
+      sessionStorage.setItem("userData", JSON.stringify(result.userData.user));
       setIsUserLoggedIn(true);
 
       setIsLoading(false);
@@ -64,7 +64,10 @@ export default function Login(): ReactElement {
   };
 
   return (
-    <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
+    <S.FormWrapper
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="Login"
+    >
       <Modal
         isOpen={isModalOpen}
         setOpen={setIsModalOpen}
@@ -72,7 +75,10 @@ export default function Login(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="SubtitleLogin"
+      >
         Sign in
       </h2>
       <div className="flex py-7 gap-7 flex-col w-11/12 lg:w-3/4">
@@ -84,6 +90,7 @@ export default function Login(): ReactElement {
         <S.InputField
           type="email"
           placeholder="Email"
+          data-testid="EmailLogin"
           {...register("userData.email")}
         />
         {errors.userData?.password?.message != null && (
@@ -94,13 +101,14 @@ export default function Login(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          data-testid="PasswordLogin"
           {...register("userData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="ButtonLogin">
           {isLoading ? "Logging in..." : "Login"}
         </S.Button>
       </div>
-      <span className="text-lg">
+      <span className="text-lg" data-testid="SpanLogin">
         Don't have an account? <Link to={VITE_REACT_APP_REGISTER}><u className="hover:text-darkBlue transition-colors">Sign up</u></Link>
       </span>
     </S.FormWrapper>

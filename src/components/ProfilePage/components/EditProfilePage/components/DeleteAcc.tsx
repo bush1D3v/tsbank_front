@@ -51,6 +51,7 @@ export default function DeleteAcc(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="DeleteAcc"
     >
       <Modal
         isOpen={isModalOpen}
@@ -59,7 +60,10 @@ export default function DeleteAcc(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="DeleteAccSubtitle"
+      >
         Delete Your Account
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
@@ -71,9 +75,10 @@ export default function DeleteAcc(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          data-testid="DeleteAccPassword"
           {...register("userData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="DeleteAccButton">
           {isLoading ? "Deleting..." : "Delete"}
         </S.Button>
       </div>

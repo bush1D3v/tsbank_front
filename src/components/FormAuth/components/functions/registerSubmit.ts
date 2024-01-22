@@ -2,12 +2,12 @@ import axios from "axios";
 import { type registerProps } from "../schemas";
 import { handleError } from "../../../../functions";
 
-interface registerResponseProps {
+export interface registerResponseProps {
   success: boolean;
   message: string;
 }
 
-export default async function handleRegisterSubmit(
+export default async function registerSubmit(
   data: registerProps,
 ): Promise<registerResponseProps> {
   const { userData } = data;

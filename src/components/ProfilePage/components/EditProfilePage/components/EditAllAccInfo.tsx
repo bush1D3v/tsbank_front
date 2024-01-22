@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
 import { type editAllAccInfoProps, editAllAccInfoSchema } from "./schemas";
-import { editAllAccInfSubmit } from "./functions";
+import { editAllAccInfoSubmit } from "./functions";
 import * as S from "../../../../Styleds";
 import Modal from "../../../../Modal";
 
@@ -38,7 +38,7 @@ export default function EditAllAccInfo(): ReactElement {
 
   const onSubmit = async (data: editAllAccInfoProps): Promise<void> => {
     setIsLoading(!isLoading);
-    const result = await editAllAccInfSubmit(data);
+    const result = await editAllAccInfoSubmit(data);
 
     if (!result.success) {
       setError(result.message);
@@ -53,6 +53,7 @@ export default function EditAllAccInfo(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="EditAllAccInfo"
     >
       <Modal
         isOpen={isModalOpen}
@@ -61,7 +62,10 @@ export default function EditAllAccInfo(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="EditAllAccInfoSubtitle"
+      >
         Edit All Info
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
@@ -73,6 +77,7 @@ export default function EditAllAccInfo(): ReactElement {
         <S.InputField
           type="email"
           placeholder="New Email"
+          data-testid="EditAllAccInfoNewEmail"
           {...register("userData.new_email")}
         />
         <div className="flex gap-7">
@@ -85,6 +90,7 @@ export default function EditAllAccInfo(): ReactElement {
             <S.InputField
               type="password"
               placeholder="New Password"
+              data-testid="EditAllAccInfoNewPassword"
               {...register("userData.new_password")}
             />
           </div>
@@ -97,6 +103,7 @@ export default function EditAllAccInfo(): ReactElement {
             <S.InputField
               type="tel"
               placeholder="New Phone"
+              data-testid="EditAllAccInfoNewPhone"
               {...register("userData.new_phone")}
             />
           </div>
@@ -109,9 +116,10 @@ export default function EditAllAccInfo(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          data-testid="EditAllAccInfoPassword"
           {...register("userData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="EditAllAccInfoButton">
           {isLoading ? "Changing..." : "Change"}
         </S.Button>
       </div>

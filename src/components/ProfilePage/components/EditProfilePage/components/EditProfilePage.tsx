@@ -12,8 +12,11 @@ export default function EditProfilePage(): ReactElement {
   } = import.meta.env;
 
   return (
-    <ul className="flex max-w-fit h-[82dvh] flex-col items-center justify-center gap-10 md:gap-14 lg:gap-20 p-2">
-      <li className="flex w-full">
+    <ul
+      className="flex max-w-fit h-[82dvh] flex-col items-center justify-center gap-10 md:gap-14 lg:gap-20 p-2"
+      data-testid="EditProfilePage"
+    >
+      <li className="flex w-full" data-testid="EditProfilePageListItemUpdateAll">
         <AnchorLink
           func={handleLinkClick(VITE_REACT_APP_UPDATE_ALL)}
           param={VITE_REACT_APP_UPDATE_ALL}
@@ -21,7 +24,7 @@ export default function EditProfilePage(): ReactElement {
           buttonBg="bg-saturatedBlue hover:bg-transparent"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="EditProfilePageListItemUpdateEmail">
         <AnchorLink
           func={handleLinkClick(VITE_REACT_APP_UPDATE_EMAIL)}
           param={VITE_REACT_APP_UPDATE_EMAIL}
@@ -29,7 +32,7 @@ export default function EditProfilePage(): ReactElement {
           buttonBg="bg-saturatedBlue hover:bg-transparent"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="EditProfilePageListItemUpdatePassword">
         <AnchorLink
           func={handleLinkClick(VITE_REACT_APP_UPDATE_PASSWORD)}
           param={VITE_REACT_APP_UPDATE_PASSWORD}
@@ -37,7 +40,7 @@ export default function EditProfilePage(): ReactElement {
           buttonBg="bg-saturatedBlue hover:bg-transparent"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="EditProfilePageListItemUpdatePhone">
         <AnchorLink
           func={handleLinkClick(VITE_REACT_APP_UPDATE_PHONE)}
           param={VITE_REACT_APP_UPDATE_PHONE}
@@ -45,7 +48,7 @@ export default function EditProfilePage(): ReactElement {
           buttonBg="bg-saturatedBlue hover:bg-transparent"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="EditProfilePageListItemDeleteUser">
         <AnchorLink
           func={handleLinkClick(VITE_REACT_APP_DELETE_USER)}
           param={VITE_REACT_APP_DELETE_USER}

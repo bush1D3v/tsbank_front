@@ -6,7 +6,7 @@ import {
   sessionStorageStringify
 } from "../../../../../../functions";
 
-interface changePhoneResponseProps {
+export interface changePhoneResponseProps {
   success: boolean;
   message: string;
 }

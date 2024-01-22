@@ -20,7 +20,7 @@ const emailData: string = "testAccount@gmail.com";
 const passwordData: string = "testAccount123";
 
 const LoginTestId: string = "Login";
-const LoginModalTestId: string = "Login";
+const ModalTestId: string = "Login";
 const LoginSubtitleTestId: string = "SubtitleLogin";
 const LoginEmailTestId: string = "EmailLogin";
 const LoginPasswordTestId: string = "PasswordLogin";
@@ -64,7 +64,7 @@ describe("Login component tests", () => {
   });
 
   test("Should be able to render the Modal correctly", () => {
-    expect(screen.getByTestId(LoginModalTestId)).toBeInTheDocument();
+    expect(screen.getByTestId(ModalTestId)).toBeInTheDocument();
   });
 
   test("Should be able to render the Subtitle correctly", () => {

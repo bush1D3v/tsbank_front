@@ -43,6 +43,7 @@ export default function InitialPage(): ReactElement {
 
     window.onbeforeunload = function () {
       sessionStorage.removeItem("historyData");
+      sessionStorage.removeItem("userData");
     };
 
     const cachedData = sessionStorage.getItem("historyData");

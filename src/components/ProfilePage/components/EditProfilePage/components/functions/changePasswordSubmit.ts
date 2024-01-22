@@ -2,7 +2,7 @@ import axios from "axios";
 import { type changePasswordProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
 
-interface changePasswordResponseProps {
+export interface changePasswordResponseProps {
   success: boolean;
   message: string;
 }

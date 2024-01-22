@@ -6,7 +6,7 @@ import {
   sessionStorageStringify
 } from "../../../../../../functions";
 
-interface changeEmailResponseProps {
+export interface changeEmailResponseProps {
   success: boolean;
   message: string;
 }

@@ -8,7 +8,6 @@ import {
 } from "vitest";
 import ImageSkeletonLoader from "./ImageSkeletonLoader";
 
-const ImageSkeletonLoaderTestId: string = "ImageSkeletonLoader";
 const SkeletonTestId: string = "Skeleton";
 const ImageSkeletonLoaderImageTestId: string = "Image";
 
@@ -32,12 +31,10 @@ describe("ImageSkeletonLoader component tests", () => {
   });
 
   test("Should be able to render the component correctly", () => {
-    expect(screen.getByTestId(ImageSkeletonLoaderTestId)).toBeInTheDocument();
-  });
-
-  test("Should be able to render the component with the correctly sessionStorageItem", () => {
+    expect(screen.getByTestId(SkeletonTestId)).toBeInTheDocument();
     setTimeout(() => {
-      expect(screen.getByTestId(ImageSkeletonLoaderTestId)).toHaveAttribute("sessionStorageItem", testSessionStorageItem);
+      expect(screen.getByTestId(ImageSkeletonLoaderImageTestId)).toBeInTheDocument();
+      expect(screen.getByTestId(SkeletonTestId)).not.toBeInTheDocument();
     }, 2000);
   });
 

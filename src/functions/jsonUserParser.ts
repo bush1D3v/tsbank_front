@@ -1,4 +1,4 @@
-import { UserData } from "../types";
+import { type UserData } from "../types";
 
 export default function jsonUserParser(sessionStorageItem: string | null): UserData {
   const jsonData: UserData = sessionStorageItem ? JSON.parse(sessionStorageItem) : {

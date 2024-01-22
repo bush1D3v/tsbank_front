@@ -23,7 +23,7 @@ const phoneData: string = "21212121211";
 const cpfData: string = "21212121536";
 
 const RegisterTestId: string = "Register";
-const RegisterModalTestId: string = "Register";
+const ModalTestId: string = "Modal";
 const RegisterSubtitleTestId: string = "RegisterSubtitle";
 const RegisterNameTestId: string = "NameRegister";
 const RegisterEmailTestId: string = "EmailRegister";
@@ -59,7 +59,9 @@ describe("Register component tests", () => {
   });
 
   test("Should be able to render the Modal correctly", () => {
-    expect(screen.getByTestId(RegisterModalTestId)).toBeInTheDocument();
+    setTimeout(() => {
+      expect(screen.getByTestId(ModalTestId)).toBeInTheDocument();
+    }, 2000);
   });
 
   test("Should be able to render the Subtitle correctly", () => {

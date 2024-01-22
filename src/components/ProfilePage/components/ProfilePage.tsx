@@ -10,10 +10,13 @@ export default function ProfilePage(): ReactElement {
   } = import.meta.env;
 
   return (
-    <div className="flex justify-center items-center h-[82dvh] flex-col gap-10 md:gap-14 lg:gap-20 p-2">
+    <div
+      className="flex justify-center items-center h-[82dvh] flex-col gap-10 md:gap-14 lg:gap-20 p-2"
+      data-testid="ProfilePage"
+    >
       <Table />
-      <ul className="flex gap-8 w-full px-2">
-        <li className="flex w-full">
+      <ul className="flex gap-8 w-full px-2" data-testid="ProfilePageList">
+        <li className="flex w-full" data-testid="ProfilePageListItemEditProfile">
           <AnchorLink
             func={handleLinkClick(VITE_REACT_APP_UPDATE)}
             param={VITE_REACT_APP_UPDATE}
@@ -21,7 +24,7 @@ export default function ProfilePage(): ReactElement {
             buttonBg="bg-saturatedBlue hover:bg-transparent"
           />
         </li>
-        <li className="flex w-full">
+        <li className="flex w-full" data-testid="ProfilePageListItemLogout">
           <AnchorLink
             func={logoutClick(VITE_REACT_APP_LOGIN)}
             param={VITE_REACT_APP_LOGIN}

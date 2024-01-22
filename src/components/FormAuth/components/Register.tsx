@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 
 import { type registerProps, schemaRegisterForm } from "./schemas";
-import { handleRegisterSubmit } from "./functions";
+import { registerSubmit } from "./functions";
 import * as S from "../../Styleds";
 import Modal from "../../Modal";
 
@@ -40,7 +40,7 @@ export default function Register(): ReactElement {
 
   const onSubmit = async (data: registerProps): Promise<void> => {
     setIsLoading(!isLoading);
-    const result = await handleRegisterSubmit(data);
+    const result = await registerSubmit(data);
 
     if (!result.success) {
       setError(result.message);
@@ -55,6 +55,7 @@ export default function Register(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="Register"
     >
       <Modal
         isOpen={isModalOpen}
@@ -63,7 +64,10 @@ export default function Register(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="RegisterSubtitle"
+      >
         Sign up
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
@@ -75,6 +79,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="text"
           placeholder="Name"
+          data-testid="NameRegister"
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
           {...register("userData.name")}
         />
@@ -86,6 +91,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="email"
           placeholder="Email"
+          data-testid="EmailRegister"
           {...register("userData.email")}
         />
         <div className="flex gap-7">
@@ -99,6 +105,7 @@ export default function Register(): ReactElement {
               type="text"
               placeholder="Cpf"
               pattern="^[0-9]+$"
+              data-testid="CpfRegister"
               {...register("userData.cpf")}
             />
           </div>
@@ -112,6 +119,7 @@ export default function Register(): ReactElement {
               type="text"
               placeholder="Phone"
               pattern="^[0-9]+$"
+              data-testid="PhoneRegister"
               {...register("userData.phone")}
             />
           </div>
@@ -124,13 +132,14 @@ export default function Register(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          data-testid="PasswordRegister"
           {...register("userData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="ButtonRegister">
           {isLoading ? "Creating..." : "Create Account"}
         </S.Button>
       </div>
-      <span className="text-lg">
+      <span className="text-lg" data-testid="SpanRegister">
         Already have an account? <Link to={VITE_REACT_APP_LOGIN}><u className="hover:text-darkBlue transition-colors">Sign in</u></Link>
       </span>
     </S.FormWrapper>

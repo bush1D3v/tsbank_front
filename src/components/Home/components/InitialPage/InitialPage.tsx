@@ -71,7 +71,7 @@ export default function InitialPage(): ReactElement {
   const balance = balanceFormat(user.balance);
 
   return (
-    <section className="flex flex-col items-center justify-center gap-8 md:gap-14 lg:w-7/12">
+    <section className="flex flex-col items-center justify-center gap-8 md:gap-14 lg:w-7/12" data-testid="InitialPage">
       {isLoading ? (
         <Loading />
       ) : (

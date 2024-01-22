@@ -1,4 +1,9 @@
-import handleLoginSubmit from "./loginSubmit";
-import handleRegisterSubmit from "./registerSubmit";
+import loginSubmit, { type loginResponseProps } from "./loginSubmit";
+import registerSubmit, { type registerResponseProps } from "./registerSubmit";
 
-export { handleLoginSubmit, handleRegisterSubmit };
+export {
+  loginSubmit,
+  type loginResponseProps,
+  registerSubmit,
+  type registerResponseProps
+};

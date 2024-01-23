@@ -10,6 +10,7 @@ import {
   balanceFormat,
   errorReplace,
   createHash,
+  balanceStringify,
 } from "../../../../functions";
 import {
   getHistory,
@@ -18,6 +19,7 @@ import {
 } from "../functions";
 import { useNavigate } from "react-router-dom";
 import { HooksList } from "./components";
+import { detailUserSubmit } from "./functions";
 
 export default function InitialPage(): ReactElement {
   const [ historyData, setHistoryData ] = useState<HistoryData[]>([]);
@@ -25,6 +27,17 @@ export default function InitialPage(): ReactElement {
 
   useEffect(() => {
     const fetchData = async () => {
+      const { user } = await detailUserSubmit();
+      const { token } = jsonUserParser(sessionStorage.getItem("userData"));
+      if (user) {
+        balanceStringify({
+          token: token,
+          actualBalance: user.balance,
+          inputBalance: "0",
+          arithmeticOperator: "+"
+        });
+      }
+
       try {
         const response: HistoryResponseProps = await getHistory();
         setHistoryData(response.message as HistoryData[]);
@@ -43,7 +56,6 @@ export default function InitialPage(): ReactElement {
 
     window.onbeforeunload = function () {
       sessionStorage.removeItem("historyData");
-      sessionStorage.removeItem("userData");
     };
 
     const cachedData = sessionStorage.getItem("historyData");

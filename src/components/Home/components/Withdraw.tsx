@@ -29,7 +29,7 @@ export default function Withdraw(): ReactElement {
     mode: "onSubmit",
     resolver: zodResolver(withdrawSchema),
     defaultValues: {
-      userData: {
+      transactionData: {
         password: "",
         value: ""
       },
@@ -49,7 +49,7 @@ export default function Withdraw(): ReactElement {
       balanceStringify({
         token,
         actualBalance: user.balance,
-        inputBalance: data.userData.value,
+        inputBalance: data.transactionData.value,
         arithmeticOperator: "-"
       });
       setIsLoading(false);
@@ -60,6 +60,7 @@ export default function Withdraw(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="Withdraw"
     >
       <Modal
         isOpen={isModalOpen}
@@ -68,36 +69,41 @@ export default function Withdraw(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="WithdrawSubtitle"
+      >
         Make Withdraw
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.value?.message != null && (
+        {errors.transactionData?.value?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.value?.message}
+            {errors.transactionData?.value?.message}
           </span>
         )}
         <S.InputField
           type="text"
           pattern="\d+([,.]\d{0,2})?"
           placeholder="Value"
-          {...register("userData.value", {
+          data-testid="WithdrawValue"
+          {...register("transactionData.value", {
             setValueAs: (value) => {
               return value.replace(/,/g, ".");
             },
           })}
         />
-        {errors.userData?.password?.message != null && (
+        {errors.transactionData?.password?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
+            {errors.transactionData?.password?.message}
           </span>
         )}
         <S.InputField
           type="password"
           placeholder="Password"
-          {...register("userData.password")}
+          data-testid="WithdrawPassword"
+          {...register("transactionData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="WithdrawButton">
           {isLoading ? "Withdrawing..." : "Withdraw"}
         </S.Button>
       </div>

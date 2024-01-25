@@ -8,7 +8,10 @@ export default function AboutProject(): ReactElement {
     <main className="min-h-[82dvh] flex flex-col gap-4 text-center animate-fade-down animate-duration-1000 animate-ease-in-out"
       data-testid="AboutProject">
       <div className="my-6 flex flex-col gap-4 items-center max-w-7xl m-auto">
-        <div className="lg:flex lg:items-center lg:w-full lg:justify-around">
+        <div
+          className="lg:flex lg:items-center lg:w-full lg:justify-around"
+          data-testid="AboutProjectImageSkeletonDivision"
+        >
           <h1
             className="font-bold text-4xl md:text-6xl lg:text-8xl"
             data-testid="AboutProjectTitle"

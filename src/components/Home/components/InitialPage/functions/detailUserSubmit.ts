@@ -2,7 +2,7 @@ import axios from "axios";
 import { handleError, jsonUserParser } from "../../../../../functions";
 import { type User } from "../../../../../types";
 
-interface detailUserResponseProps {
+export interface detailUserResponseProps {
   success: boolean;
   message: string;
   user?: User

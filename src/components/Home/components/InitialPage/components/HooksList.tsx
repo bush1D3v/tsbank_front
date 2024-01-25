@@ -11,8 +11,11 @@ export default function HooksList(): ReactElement {
   } = import.meta.env;
 
   return (
-    <ul className="flex flex-col lg:flex-row gap-5 md:gap-6 lg:gap-8 w-11/12 animate-fade-down animate-duration-700 animate-ease-in-out">
-      <li className="flex w-full">
+    <ul
+      className="flex flex-col lg:flex-row gap-5 md:gap-6 lg:gap-8 w-11/12 animate-fade-down animate-duration-700 animate-ease-in-out"
+      data-testid="HooksList"
+    >
+      <li className="flex w-full" data-testid="HooksListItemWithdraw">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
           func={handleLinkClick(VITE_REACT_APP_WITHDRAW)}
@@ -20,7 +23,7 @@ export default function HooksList(): ReactElement {
           text="WITHDRAW"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="HooksListItemDeposit">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
           func={handleLinkClick(VITE_REACT_APP_DEPOSIT)}
@@ -28,7 +31,7 @@ export default function HooksList(): ReactElement {
           text="DEPOSIT"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="HooksListItemCard">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
           func={handleLinkClick(VITE_REACT_APP_CARD)}
@@ -36,7 +39,7 @@ export default function HooksList(): ReactElement {
           text="CARD"
         />
       </li>
-      <li className="flex w-full">
+      <li className="flex w-full" data-testid="HooksListItemPix">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
           func={handleLinkClick(VITE_REACT_APP_PIX)}

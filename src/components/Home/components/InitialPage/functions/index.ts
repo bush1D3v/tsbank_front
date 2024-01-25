@@ -1,5 +1,6 @@
-import detailUserSubmit from "./detailUserSubmit";
+import detailUserSubmit, { type detailUserResponseProps } from "./detailUserSubmit";
 
 export {
-  detailUserSubmit
+  detailUserSubmit,
+  type detailUserResponseProps
 };

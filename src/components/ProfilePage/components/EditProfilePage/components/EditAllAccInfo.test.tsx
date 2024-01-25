@@ -58,7 +58,7 @@ vi.mock("./functions", async () => ({
   }),
 }));
 
-describe("Register component tests", () => {
+describe("EditAllAccInfo component tests", () => {
   beforeEach(() => {
     render(<RouterProvider router={router} />);
   });

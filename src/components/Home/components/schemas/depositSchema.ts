@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const depositSchema = z.object({
-  userData: z.object({
+  transactionData: z.object({
     value: z.string()
       .min(1, { message: "The value cannot be equal to or less than 0" }),
     email: z.string()

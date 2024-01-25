@@ -28,7 +28,7 @@ export default function CardCreate(): ReactElement {
     mode: "onSubmit",
     resolver: zodResolver(cardCreateSchema),
     defaultValues: {
-      userData: {
+      cardData: {
         card_number: "",
         card_type: "",
         cardholder_name: "",
@@ -56,6 +56,7 @@ export default function CardCreate(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="CardCreate"
     >
       <Modal
         isOpen={isModalOpen}
@@ -64,89 +65,98 @@ export default function CardCreate(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="CardCreateSubtitle"
+      >
         Create Your Card
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.cardholder_name?.message != null && (
+        {errors.cardData?.cardholder_name?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.cardholder_name?.message}
+            {errors.cardData?.cardholder_name?.message}
           </span>
         )}
         <S.InputField
           type="text"
           placeholder="Cardholder Name"
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
-          {...register("userData.cardholder_name")}
+          data-testid="CardCreateName"
+          {...register("cardData.cardholder_name")}
         />
         <div className="flex gap-7">
           <div className="flex w-[100%] flex-col">
-            {errors.userData?.card_number?.message != null && (
+            {errors.cardData?.card_number?.message != null && (
               <span className="text-error text-left">
-                {errors.userData?.card_number?.message}
+                {errors.cardData?.card_number?.message}
               </span>
             )}
             <S.InputField
               type="text"
               placeholder="Card Number"
               pattern="^[0-9]+$"
-              {...register("userData.card_number")}
+              data-testid="CardCreateNumber"
+              {...register("cardData.card_number")}
             />
           </div>
           <div className="flex w-[100%] flex-col">
-            {errors.userData?.cvv?.message != null && (
+            {errors.cardData?.cvv?.message != null && (
               <span className="text-error text-left">
-                {errors.userData?.cvv?.message}
+                {errors.cardData?.cvv?.message}
               </span>
             )}
             <S.InputField
               type="text"
               placeholder="CVV"
               pattern="^[0-9]+$"
-              {...register("userData.cvv")}
+              data-testid="CardCreateCvv"
+              {...register("cardData.cvv")}
             />
           </div>
         </div>
-        {errors.userData?.expiration_date?.message != null && (
+        {errors.cardData?.expiration_date?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.expiration_date?.message}
+            {errors.cardData?.expiration_date?.message}
           </span>
         )}
         <S.InputField
           type="text"
           placeholder="Expiration Date (mm/yy)"
           pattern="^(0[1-9]|1[0-2])/(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$"
-          {...register("userData.expiration_date")}
+          data-testid="CardCreateExpiration"
+          {...register("cardData.expiration_date")}
         />
         <div className="flex gap-7">
           <div className="flex w-[100%] flex-col">
-            {errors.userData?.password?.message != null && (
+            {errors.cardData?.password?.message != null && (
               <span className="text-error text-left">
-                {errors.userData?.password?.message}
+                {errors.cardData?.password?.message}
               </span>
             )}
             <S.InputField
               type="password"
               placeholder="Password"
               pattern="^[0-9]+$"
-              {...register("userData.password")}
+              data-testid="CardCreatePassword"
+              {...register("cardData.password")}
             />
           </div>
           <div className="flex w-[100%] flex-col">
-            {errors.userData?.card_type?.message != null && (
+            {errors.cardData?.card_type?.message != null && (
               <span className="text-error text-left">
-                {errors.userData?.card_type?.message}
+                {errors.cardData?.card_type?.message}
               </span>
             )}
             <S.InputField
               type="text"
               placeholder="Card Type"
+              data-testid="CardCreateType"
               pattern="^(credit|debit|Credit|Debit)$"
-              {...register("userData.card_type")}
+              {...register("cardData.card_type")}
             />
           </div>
         </div>
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="CardCreateButton">
           {isLoading ? "Creating..." : "Create"}
         </S.Button>
       </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { type cardUpdateProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
 
-interface cardUpdateResponseProps {
+export interface cardUpdateResponseProps {
   success: boolean;
   message: string;
 }
@@ -11,7 +11,7 @@ interface cardUpdateResponseProps {
 export default async function cardUpdateSubmit(
   data: cardUpdateProps
 ): Promise<cardUpdateResponseProps> {
-  const { userData } = data;
+  const { cardData } = data;
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
@@ -23,9 +23,9 @@ export default async function cardUpdateSubmit(
   try {
     const response = await axios.patch(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_CARD_UPDATE_ENDPOINT}`,
       {
-        new_password: userData.new_password,
-        password: userData.password,
-        card_type: userData.card_type
+        new_password: cardData.new_password,
+        password: cardData.password,
+        card_type: cardData.card_type
       },
       {
         headers: {

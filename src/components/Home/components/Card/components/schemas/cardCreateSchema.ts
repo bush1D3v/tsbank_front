@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const cardCreateSchema = z.object({
-  userData: z.object({
+  cardData: z.object({
     card_number: z.string()
       .min(16, { message: "Please enter a valid card number" })
       .max(16, { message: "Please enter a valid card number" }),

@@ -63,9 +63,17 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
           {typeof transactionData === "string" ? (
             <p className="text-xl md:text-2xl lg:text-3xl font-bold">{transactionData}</p>
           ) : (
-            <TransactionModal
-              transactionData={transactionData}
-            />
+            <>
+              <h1
+                className="text-xl md:text-2xl lg:text-3xl font-bold mb-14"
+                data-testid="TransactionDetailTitle"
+              >
+                TRANSACTION DETAILS
+              </h1>
+              <TransactionModal
+                transactionData={transactionData}
+              />
+            </>
           )}
         </>
       )}

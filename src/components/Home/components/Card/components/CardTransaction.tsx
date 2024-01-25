@@ -29,7 +29,7 @@ export default function CardTransaction(): ReactElement {
     mode: "onSubmit",
     resolver: zodResolver(cardTransactionSchema),
     defaultValues: {
-      userData: {
+      cardData: {
         password: "",
         card_type: "",
         value: ""
@@ -47,11 +47,11 @@ export default function CardTransaction(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       const { user, token } = jsonUserParser(sessionStorage.getItem("userData"));
-      if (data.userData.card_type === "debit") {
+      if (data.cardData.card_type === "debit") {
         balanceStringify({
           token,
           actualBalance: user.balance,
-          inputBalance: data.userData.value,
+          inputBalance: data.cardData.value,
           arithmeticOperator: "-"
         });
       }
@@ -63,6 +63,7 @@ export default function CardTransaction(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="CardTransaction"
     >
       <Modal
         isOpen={isModalOpen}
@@ -71,48 +72,54 @@ export default function CardTransaction(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="CardTransactionSubtitle"
+      >
         Card Transaction
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.card_type?.message != null && (
+        {errors.cardData?.card_type?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.card_type?.message}
+            {errors.cardData?.card_type?.message}
           </span>
         )}
         <S.InputField
           type="text"
           placeholder="Card Type"
+          data-testid="CardTransactionType"
           pattern="^(credit|debit|Credit|Debit)$"
-          {...register("userData.card_type")}
+          {...register("cardData.card_type")}
         />
-        {errors.userData?.password?.message != null && (
+        {errors.cardData?.password?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
+            {errors.cardData?.password?.message}
           </span>
         )}
         <S.InputField
           type="password"
           placeholder="Password"
           pattern="^[0-9]+$"
-          {...register("userData.password")}
+          data-testid="CardTransactionPassword"
+          {...register("cardData.password")}
         />
-        {errors.userData?.value?.message != null && (
+        {errors.cardData?.value?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.value?.message}
+            {errors.cardData?.value?.message}
           </span>
         )}
         <S.InputField
           type="text"
           pattern="\d+([,.]\d{0,2})?"
           placeholder="Value"
-          {...register("userData.value", {
+          data-testid="CardTransactionValue"
+          {...register("cardData.value", {
             setValueAs: (value) => {
               return value.replace(/,/g, ".");
             },
           })}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="CardTransactionButton">
           {isLoading ? "Making..." : "Make"}
         </S.Button>
       </div>

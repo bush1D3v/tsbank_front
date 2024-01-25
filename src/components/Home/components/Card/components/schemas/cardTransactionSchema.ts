@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const cardTransactionSchema = z.object({
-  userData: z.object({
+  cardData: z.object({
     value: z.string()
       .min(1, { message: "The value cannot be equal to or less than 0" }),
     password: z.string()

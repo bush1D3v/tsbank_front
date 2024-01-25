@@ -40,7 +40,7 @@ const router = createMemoryRouter(
   { initialEntries: [ "/profile/edit" ], }
 );
 
-describe("Logo component tests", () => {
+describe("EditProfilePage component tests", () => {
   beforeEach(() => {
     render(<RouterProvider router={router} />);
   });

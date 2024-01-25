@@ -3,16 +3,18 @@ import axios from "axios";
 import { pixProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../functions";
 import { getHistory } from ".";
+import { type TransactionData } from "../../../../types";
 
-interface pixResponseProps {
+export interface pixResponseProps {
   success: boolean;
   message: string;
+  transactionData?: TransactionData;
 }
 
 export default async function pixSubmit(
   data: pixProps
 ): Promise<pixResponseProps> {
-  const { userData } = data;
+  const { transactionData } = data;
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
@@ -24,9 +26,9 @@ export default async function pixSubmit(
   try {
     const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_PIX_ENDPOINT}`,
       {
-        cpf: userData.cpf,
-        value: userData.value,
-        password: userData.password,
+        cpf: transactionData.cpf,
+        value: transactionData.value,
+        password: transactionData.password,
       },
       {
         headers: {
@@ -39,7 +41,8 @@ export default async function pixSubmit(
       sessionStorage.setItem("historyData", JSON.stringify(transactionsDetailResponse.message));
       return {
         success: true,
-        message: response.data
+        message: "Pix successfully submitted!",
+        transactionData: response.data
       };
     } else {
       return {

@@ -29,7 +29,7 @@ export default function CreditPayment(): ReactElement {
     mode: "onSubmit",
     resolver: zodResolver(creditPaymentSchema),
     defaultValues: {
-      userData: {
+      cardData: {
         password: "",
         value: ""
       },
@@ -49,7 +49,7 @@ export default function CreditPayment(): ReactElement {
       balanceStringify({
         token,
         actualBalance: user.balance,
-        inputBalance: data.userData.value,
+        inputBalance: data.cardData.value,
         arithmeticOperator: "-"
       });
       setIsLoading(false);
@@ -60,6 +60,7 @@ export default function CreditPayment(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="CreditPayment"
     >
       <Modal
         isOpen={isModalOpen}
@@ -68,36 +69,41 @@ export default function CreditPayment(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="CreditPaymentSubtitle"
+      >
         Credit Payment
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.password?.message != null && (
+        {errors.cardData?.password?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
+            {errors.cardData?.password?.message}
           </span>
         )}
         <S.InputField
           type="password"
           placeholder="Password"
-          {...register("userData.password")}
+          data-testid="CreditPaymentPassword"
+          {...register("cardData.password")}
         />
-        {errors.userData?.value?.message != null && (
+        {errors.cardData?.value?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.value?.message}
+            {errors.cardData?.value?.message}
           </span>
         )}
         <S.InputField
           type="text"
           pattern="\d+([,.]\d{0,2})?"
           placeholder="Value"
-          {...register("userData.value", {
+          data-testid="CreditPaymentValue"
+          {...register("cardData.value", {
             setValueAs: (value) => {
               return value.replace(/,/g, ".");
             },
           })}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="CreditPaymentButton">
           {isLoading ? "Paying..." : "Pay"}
         </S.Button>
       </div>

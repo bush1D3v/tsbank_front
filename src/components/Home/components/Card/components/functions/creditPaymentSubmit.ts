@@ -4,16 +4,18 @@ import { type creditPaymentProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
 import { cardDetailSubmit } from ".";
 import { getHistory } from "../../../functions";
+import { type TransactionData } from "../../../../../../types";
 
-interface creditPaymentResponseProps {
+export interface creditPaymentResponseProps {
   success: boolean;
   message: string;
+  transactionData?: TransactionData;
 }
 
 export default async function creditPaymentSubmit(
   data: creditPaymentProps
 ): Promise<creditPaymentResponseProps> {
-  const { userData } = data;
+  const { cardData } = data;
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
@@ -25,8 +27,8 @@ export default async function creditPaymentSubmit(
   try {
     const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_CREDIT_PAYMENT_ENDPOINT}`,
       {
-        password: userData.password,
-        value: userData.value
+        password: cardData.password,
+        value: cardData.value
       },
       {
         headers: {
@@ -42,7 +44,8 @@ export default async function creditPaymentSubmit(
       sessionStorage.setItem("historyData", JSON.stringify(transactionsDetailResponse.message));
       return {
         success: true,
-        message: response.data
+        message: "Credit payment was successful.",
+        transactionData: response.data
       };
     } else {
       return {

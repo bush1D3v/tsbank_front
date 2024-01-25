@@ -1,6 +1,6 @@
-import depositSubmit from "./depositSubmit";
-import pixSubmit from "./pixSubmit";
-import withdrawSubmit from "./withdrawSubmit";
+import depositSubmit, { type depositResponseProps } from "./depositSubmit";
+import pixSubmit, { type pixResponseProps } from "./pixSubmit";
+import withdrawSubmit, { type withdrawResponseProps } from "./withdrawSubmit";
 import {
   getHistory,
   type HistoryData,
@@ -14,8 +14,11 @@ import {
 
 export {
   depositSubmit,
+  type depositResponseProps,
   pixSubmit,
+  type pixResponseProps,
   withdrawSubmit,
+  type withdrawResponseProps,
   getHistory,
   type HistoryData,
   type HistoryResponseProps,

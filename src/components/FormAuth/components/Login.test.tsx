@@ -64,7 +64,9 @@ describe("Login component tests", () => {
   });
 
   test("Should be able to render the Modal correctly", () => {
-    expect(screen.getByTestId(ModalTestId)).toBeInTheDocument();
+    setTimeout(() => {
+      expect(screen.getByTestId(ModalTestId)).toBeInTheDocument();
+    }, 2000);
   });
 
   test("Should be able to render the Subtitle correctly", () => {

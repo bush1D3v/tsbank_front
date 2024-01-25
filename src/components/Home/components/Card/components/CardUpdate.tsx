@@ -28,7 +28,7 @@ export default function CardUpdate(): ReactElement {
     mode: "onSubmit",
     resolver: zodResolver(cardUpdateSchema),
     defaultValues: {
-      userData: {
+      cardData: {
         new_password: "",
         password: "",
         card_type: ""
@@ -53,6 +53,7 @@ export default function CardUpdate(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="CardUpdate"
     >
       <Modal
         isOpen={isModalOpen}
@@ -61,44 +62,50 @@ export default function CardUpdate(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="CardUpdateSubtitle"
+      >
         Update Card Password
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.card_type?.message != null && (
+        {errors.cardData?.card_type?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.card_type?.message}
+            {errors.cardData?.card_type?.message}
           </span>
         )}
         <S.InputField
           type="text"
           placeholder="Card Type"
           pattern="^(credit|debit|Credit|Debit)$"
-          {...register("userData.card_type")}
+          data-testid="CardUpdateType"
+          {...register("cardData.card_type")}
         />
-        {errors.userData?.password?.message != null && (
+        {errors.cardData?.password?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
+            {errors.cardData?.password?.message}
           </span>
         )}
         <S.InputField
           type="password"
           placeholder="Password"
           pattern="^[0-9]+$"
-          {...register("userData.password")}
+          data-testid="CardUpdatePassword"
+          {...register("cardData.password")}
         />
-        {errors.userData?.new_password?.message != null && (
+        {errors.cardData?.new_password?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.new_password?.message}
+            {errors.cardData?.new_password?.message}
           </span>
         )}
         <S.InputField
           type="password"
           placeholder="New Password"
           pattern="^[0-9]+$"
-          {...register("userData.new_password")}
+          data-testid="CardUpdateNewPassword"
+          {...register("cardData.new_password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="CardUpdateButton">
           {isLoading ? "Updating..." : "Update"}
         </S.Button>
       </div>

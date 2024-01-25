@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const cardUpdateSchema = z.object({
-  userData: z.object({
+  cardData: z.object({
     new_password: z.string()
       .min(4, { message: "Password have at least 4 characters" })
       .max(6, { message: "Passwords limited to 6 characters" }),

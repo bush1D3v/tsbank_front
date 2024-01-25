@@ -67,7 +67,7 @@ describe("NavLinks component tests", () => {
     `);
   });
 
-  test("ListItemHome should be able to fire event", () => {
+  test("Should be able to fire event the ListItemHome", () => {
     fireEvent.click(screen.getByTestId(NavLinksListItemHomeTestId));
 
     expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_HOME);
@@ -87,7 +87,7 @@ describe("NavLinks component tests", () => {
     `);
   });
 
-  test("ListItemHome should be able to fire event", () => {
+  test("Should be able to fire event ListItemAbout", () => {
     fireEvent.click(screen.getByTestId(NavLinksListItemHomeTestId));
 
     expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_ABOUT);

@@ -3,16 +3,18 @@ import axios from "axios";
 import { depositProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../functions";
 import { getHistory } from ".";
+import { type TransactionData } from "../../../../types";
 
-interface depositResponseProps {
+export interface depositResponseProps {
   success: boolean;
   message: string;
+  transactionData?: TransactionData
 }
 
 export default async function depositSubmit(
   data: depositProps
 ): Promise<depositResponseProps> {
-  const { userData } = data;
+  const { transactionData } = data;
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
@@ -24,9 +26,9 @@ export default async function depositSubmit(
   try {
     const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_DEPOSIT_ENDPOINT}`,
       {
-        email: userData.email,
-        value: userData.value,
-        password: userData.password,
+        email: transactionData.email,
+        value: transactionData.value,
+        password: transactionData.password,
       },
       {
         headers: {
@@ -39,7 +41,8 @@ export default async function depositSubmit(
       sessionStorage.setItem("historyData", JSON.stringify(transactionsDetailResponse.message));
       return {
         success: true,
-        message: response.data
+        message: "Deposit successfully submitted!",
+        transactionData: response.data
       };
     } else {
       return {

@@ -4,7 +4,7 @@ import { type cardCreateProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../../../functions";
 import { cardDetailSubmit } from ".";
 
-interface cardCreateResponseProps {
+export interface cardCreateResponseProps {
   success: boolean;
   message: string;
 }
@@ -12,7 +12,7 @@ interface cardCreateResponseProps {
 export default async function cardCreateSubmit(
   data: cardCreateProps
 ): Promise<cardCreateResponseProps> {
-  const { userData } = data;
+  const { cardData } = data;
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
@@ -24,12 +24,12 @@ export default async function cardCreateSubmit(
   try {
     const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_CARD_CREATE_ENDPOINT}`,
       {
-        card_number: userData.card_number,
-        card_type: userData.card_type,
-        cardholder_name: userData.cardholder_name,
-        cvv: userData.cvv,
-        expiration_date: userData.expiration_date,
-        password: userData.password,
+        card_number: cardData.card_number,
+        card_type: cardData.card_type,
+        cardholder_name: cardData.cardholder_name,
+        cvv: cardData.cvv,
+        expiration_date: cardData.expiration_date,
+        password: cardData.password,
       },
       {
         headers: {

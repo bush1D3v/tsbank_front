@@ -29,7 +29,7 @@ export default function Deposit(): ReactElement {
     mode: "onSubmit",
     resolver: zodResolver(depositSchema),
     defaultValues: {
-      userData: {
+      transactionData: {
         email: "",
         password: "",
         value: ""
@@ -47,11 +47,11 @@ export default function Deposit(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       const { user, token } = jsonUserParser(sessionStorage.getItem("userData"));
-      if (data.userData.email === user.email) {
+      if (data.transactionData.email === user.email) {
         balanceStringify({
           token,
           actualBalance: user.balance,
-          inputBalance: data.userData.value,
+          inputBalance: data.transactionData.value,
           arithmeticOperator: "+"
         });
       }
@@ -63,6 +63,7 @@ export default function Deposit(): ReactElement {
   return (
     <S.FormWrapper
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="Deposit"
     >
       <Modal
         isOpen={isModalOpen}
@@ -71,46 +72,52 @@ export default function Deposit(): ReactElement {
         description={error}
         btnMessage="Try again"
       />
-      <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10">
+      <h2
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        data-testid="DepositSubtitle"
+      >
         Insert Deposit
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.email?.message != null && (
+        {errors.transactionData?.email?.message != null && (
           <span className="text-error -mb-7 -mt-5 text-left">
-            {errors.userData?.email?.message}
+            {errors.transactionData?.email?.message}
           </span>
         )}
         <S.InputField
           type="email"
           placeholder="Email"
-          {...register("userData.email")}
+          data-testid="DepositEmail"
+          {...register("transactionData.email")}
         />
-        {errors.userData?.value?.message != null && (
+        {errors.transactionData?.value?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.value?.message}
+            {errors.transactionData?.value?.message}
           </span>
         )}
         <S.InputField
           type="text"
           pattern="\d+([,.]\d{0,2})?"
           placeholder="Value"
-          {...register("userData.value", {
+          data-testid="DepositValue"
+          {...register("transactionData.value", {
             setValueAs: (value) => {
               return value.replace(/,/g, ".");
             },
           })}
         />
-        {errors.userData?.password?.message != null && (
+        {errors.transactionData?.password?.message != null && (
           <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
+            {errors.transactionData?.password?.message}
           </span>
         )}
         <S.InputField
           type="password"
           placeholder="Password"
-          {...register("userData.password")}
+          data-testid="DepositPassword"
+          {...register("transactionData.password")}
         />
-        <S.Button type="submit" disabled={!!isLoading}>
+        <S.Button type="submit" disabled={!!isLoading} data-testid="DepositButton">
           {isLoading ? "Depositing..." : "Deposit"}
         </S.Button>
       </div>

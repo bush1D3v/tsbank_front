@@ -1,15 +1,18 @@
-import cardCreateSubmit from "./cardCreateSubmit";
-import cardTransactionSubmit from "./cardTransactionSubmit";
-import cardUpdateSubmit from "./cardUpdateSubmit";
-import creditPaymentSubmit from "./creditPaymentSubmit";
-import { cardDetailSubmit, CardDetailResponseProps, CardData } from "./cardDetailSubmit";
+import cardCreateSubmit, { type cardCreateResponseProps } from "./cardCreateSubmit";
+import cardTransactionSubmit, { type cardTransactionResponseProps } from "./cardTransactionSubmit";
+import cardUpdateSubmit, { type cardUpdateResponseProps } from "./cardUpdateSubmit";
+import creditPaymentSubmit, { type creditPaymentResponseProps } from "./creditPaymentSubmit";
+import { cardDetailSubmit, type CardDetailResponseProps } from "./cardDetailSubmit";
 
 export {
   cardCreateSubmit,
+  type cardCreateResponseProps,
   cardUpdateSubmit,
+  type cardUpdateResponseProps,
   cardTransactionSubmit,
+  type cardTransactionResponseProps,
   creditPaymentSubmit,
+  type creditPaymentResponseProps,
   cardDetailSubmit,
   type CardDetailResponseProps,
-  type CardData
 };

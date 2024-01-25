@@ -3,16 +3,18 @@ import axios from "axios";
 import { withdrawProps } from "../schemas";
 import { handleError, jsonUserParser } from "../../../../functions";
 import { getHistory } from ".";
+import { type TransactionData } from "../../../../types";
 
-interface withdrawResponseProps {
+export interface withdrawResponseProps {
   success: boolean;
   message: string;
+  transactionData?: TransactionData;
 }
 
 export default async function withdrawSubmit(
   data: withdrawProps
 ): Promise<withdrawResponseProps> {
-  const { userData } = data;
+  const { transactionData } = data;
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
@@ -24,8 +26,8 @@ export default async function withdrawSubmit(
   try {
     const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_WITHDRAW_ENDPOINT}`,
       {
-        value: userData.value,
-        password: userData.password,
+        value: transactionData.value,
+        password: transactionData.password,
       },
       {
         headers: {
@@ -38,7 +40,8 @@ export default async function withdrawSubmit(
       sessionStorage.setItem("historyData", JSON.stringify(transactionsDetailResponse.message));
       return {
         success: true,
-        message: response.data
+        message: "Withdraw successfully submitted!",
+        transactionData: response.data
       };
     } else {
       return {

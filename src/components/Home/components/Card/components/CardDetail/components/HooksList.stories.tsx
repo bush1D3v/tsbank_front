@@ -3,7 +3,7 @@ import HooksList from "./HooksList";
 import { type Meta } from "@storybook/react";
 
 const meta: Meta<typeof HooksList> = {
-  title: "Pages/InitialPage/CardPage/HooksList",
+  title: "Pages/InitialPage/CardPage/CardDetail/HooksList",
   component: HooksList,
   decorators: [
     withRouter,

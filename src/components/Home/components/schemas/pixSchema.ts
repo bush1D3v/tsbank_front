@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const pixSchema = z.object({
-  userData: z.object({
+  transactionData: z.object({
     password: z.string()
       .min(8, { message: "Please enter a valid password" }),
     value: z.string()

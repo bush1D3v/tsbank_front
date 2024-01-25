@@ -42,7 +42,7 @@ vi.mock("./functions", async () => ({
   }),
 }));
 
-describe("Register component tests", () => {
+describe("ChangePassword component tests", () => {
   beforeEach(() => {
     render(<RouterProvider router={router} />);
   });

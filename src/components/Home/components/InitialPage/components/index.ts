@@ -1,5 +1,9 @@
 import HooksList from "./HooksList";
+import BalanceDivision from "./BalanceDivision";
+import HistoryList from "./HistoryList";
 
 export {
-  HooksList
+  HooksList,
+  BalanceDivision,
+  HistoryList
 };

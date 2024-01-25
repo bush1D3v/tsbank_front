@@ -40,7 +40,7 @@ vi.mock("./functions", async () => ({
   }),
 }));
 
-describe("Register component tests", () => {
+describe("DeteleAcc component tests", () => {
   beforeEach(() => {
     render(<RouterProvider router={router} />);
   });

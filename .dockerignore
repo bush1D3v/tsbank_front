@@ -1,0 +1,10 @@
+node_modules
+.dockerignore
+.editorconfig
+.env.example
+.eslintrc.cjs
+.gitignore
+.stylelintrc.json
+LICENSE
+README.md
+vercel.json

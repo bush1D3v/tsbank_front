@@ -28,7 +28,8 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as funcionalidade
    <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp; &nbsp;
    <img align='center' height='49' width='59' title='Zod' alt='zod' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/5a769805-23e2-4f8b-904d-034b25a982a6' /> &nbsp; &nbsp;
    <img align='center' height='49' width='49' title='Crypto-js' alt='crypto-js' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/303e55f6-c252-479d-9ce9-37cb33b07a12' /> &nbsp; &nbsp;
-   <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' />
+   <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' /> &nbsp;
+   <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' />
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -38,6 +39,14 @@ O projeto segue os princípios da **arquitetura limpa** e leva em consideração
 ## 📃 Documentação da Aplicação
 
 A seguir, temos o link da documentação Front-end feita a partir do Storybook: https://tsbank-storybook.vercel.app/
+
+## 🐳 Docker
+
+Com a adição do Docker, você agora pode utilizar dos scripts fornecidos em `package.json` para poder construir a imagem docker e rodar os containers da aplicação, dos testes e da documentação.
+
+Para isso, segue a lista de funções de cada script:
+
+> `docker-build`: Constrói a imagem docker do projeto <br> `docker`: Sobe e roda/só roda o container tsbank_front <br> `stop`: Para o container tsbank_front <br> `test`: Sobe um container alternativo chamado tsbank_front_tests, roda os testes e exclui o container após a execução dos mesmos <br> `docker-stb`: Sobe um container alternativo chamado tsbank_front_stb, e após a documentação ser fechada pelo seu terminal VSCode com <u>ctrl + c</u>, o container é excluído
 
 # 🖋️ Contribuindo para o TSBank
 

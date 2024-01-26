@@ -13,9 +13,21 @@ export default defineConfig({
   plugins: [ react() ],
   server: {
     port: 3000,
-    host: "localhost",
+    host: true,
+    strictPort: true,
+    origin: "http://0.0.0.0:3000",
+  },
+  preview: {
+    port: 3000,
+    host: true,
   },
   optimizeDeps: {
-    include: [ "react", "react-dom", "react-router-dom", "react-icons", "@storybook" ],
+    include: [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "react-icons",
+      "@storybook/theming"
+    ],
   },
 });

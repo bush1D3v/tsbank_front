@@ -1,7 +1,7 @@
 # 🏦 TSBANK
 
 ![License](https://img.shields.io/static/v1?label=license&message=MIT&color=orange) &nbsp;
-![Pnpm version](https://img.shields.io/static/v1?label=pnpm&message=v8.13.1&color=yellow) &nbsp;
+![Yarn version](https://img.shields.io/static/v1?label=yarn&message=v1.22.21&color=yellow) &nbsp;
 ![Repository size](https://img.shields.io/github/repo-size/bush1D3v/tsbank_front?color=green) &nbsp;
 ![Pull request](https://img.shields.io/static/v1?label=PR&message=welcome&color=blue)
 

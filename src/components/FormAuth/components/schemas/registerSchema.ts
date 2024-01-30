@@ -3,7 +3,7 @@ import { z } from "zod";
 export const schemaRegisterForm = z.object({
   userData: z.object({
     name: z.string()
-      .min(8, "Please enter a valid name"),
+      .min(8, "Please enter your complete name"),
     email: z.string()
       .min(1, { message: "This field has to be filled" })
       .email("This is not a valid email"),

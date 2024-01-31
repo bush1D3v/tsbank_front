@@ -81,6 +81,7 @@ export default function CardCreate(): ReactElement {
           type="text"
           placeholder="Cardholder Name"
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
+          minLength={10}
           data-testid="CardCreateName"
           {...register("cardData.cardholder_name")}
         />
@@ -94,6 +95,8 @@ export default function CardCreate(): ReactElement {
             <S.InputField
               type="text"
               placeholder="Card Number"
+              minLength={16}
+              maxLength={16}
               pattern="^[0-9]+$"
               data-testid="CardCreateNumber"
               {...register("cardData.card_number")}
@@ -108,7 +111,9 @@ export default function CardCreate(): ReactElement {
             <S.InputField
               type="text"
               placeholder="CVV"
-              pattern="^[0-9]+$"
+              maxLength={3}
+              minLength={3}
+              pattern="^[0-9]{1,3}$"
               data-testid="CardCreateCvv"
               {...register("cardData.cvv")}
             />
@@ -123,6 +128,8 @@ export default function CardCreate(): ReactElement {
           type="text"
           placeholder="Expiration Date (mm/yy)"
           pattern="^(0[1-9]|1[0-2])/(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$"
+          maxLength={5}
+          minLength={5}
           data-testid="CardCreateExpiration"
           {...register("cardData.expiration_date")}
         />
@@ -136,6 +143,8 @@ export default function CardCreate(): ReactElement {
             <S.InputField
               type="password"
               placeholder="Password"
+              maxLength={4}
+              minLength={6}
               pattern="^[0-9]+$"
               data-testid="CardCreatePassword"
               {...register("cardData.password")}
@@ -151,6 +160,8 @@ export default function CardCreate(): ReactElement {
               type="text"
               placeholder="Card Type"
               data-testid="CardCreateType"
+              maxLength={6}
+              minLength={5}
               pattern="^(credit|debit|Credit|Debit)$"
               {...register("cardData.card_type")}
             />

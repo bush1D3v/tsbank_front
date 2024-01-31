@@ -76,6 +76,7 @@ export default function ChangePassword(): ReactElement {
         <S.InputField
           type="text"
           placeholder="New Password"
+          maxLength={16}
           data-testid="ChangePasswordNewPassword"
           {...register("userData.new_password")}
         />
@@ -87,6 +88,7 @@ export default function ChangePassword(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="ChangePasswordPassword"
           {...register("userData.password")}
         />

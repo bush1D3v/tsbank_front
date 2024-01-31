@@ -87,6 +87,8 @@ export default function CardTransaction(): ReactElement {
         <S.InputField
           type="text"
           placeholder="Card Type"
+          maxLength={6}
+          minLength={5}
           data-testid="CardTransactionType"
           pattern="^(credit|debit|Credit|Debit)$"
           {...register("cardData.card_type")}
@@ -100,6 +102,8 @@ export default function CardTransaction(): ReactElement {
           type="password"
           placeholder="Password"
           pattern="^[0-9]+$"
+          maxLength={6}
+          minLength={4}
           data-testid="CardTransactionPassword"
           {...register("cardData.password")}
         />

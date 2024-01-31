@@ -113,6 +113,7 @@ export default function Pix(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="PixPassword"
           {...register("transactionData.password")}
         />

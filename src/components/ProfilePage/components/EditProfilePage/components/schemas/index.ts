@@ -1,22 +1,22 @@
 import {
   changeEmailSchema,
-  changeEmailProps
+  type changeEmailProps
 } from "./changeEmailSchema";
 import {
   changePasswordSchema,
-  changePasswordProps
+  type changePasswordProps
 } from "./changePasswordSchema";
 import {
-  changePhoneProps,
-  changePhoneSchema
+  changePhoneSchema,
+  type changePhoneProps
 } from "./changePhoneSchema";
 import {
   deleteAccSchema,
-  deleteAccProps
+  type deleteAccProps
 } from "./deleteAccSchema";
 import {
   editAllAccInfoSchema,
-  editAllAccInfoProps
+  type editAllAccInfoProps
 } from "./editAllAccInfoSchema";
 
 export {

@@ -76,6 +76,7 @@ export default function ChangePhone(): ReactElement {
         <S.InputField
           type="tel"
           placeholder="New Phone"
+          maxLength={11}
           data-testid="ChangePhoneNewPhone"
           {...register("userData.new_phone")}
         />
@@ -87,6 +88,7 @@ export default function ChangePhone(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="ChangePhonePassword"
           {...register("userData.password")}
         />

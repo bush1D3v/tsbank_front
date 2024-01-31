@@ -76,6 +76,7 @@ export default function ChangeEmail(): ReactElement {
         <S.InputField
           type="email"
           placeholder="New Email"
+          maxLength={70}
           data-testid="ChangeEmailNewEmail"
           {...register("userData.new_email")}
         />
@@ -87,6 +88,7 @@ export default function ChangeEmail(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="ChangeEmailPassword"
           {...register("userData.password")}
         />

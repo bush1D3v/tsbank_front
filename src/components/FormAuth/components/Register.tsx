@@ -80,6 +80,7 @@ export default function Register(): ReactElement {
           type="text"
           placeholder="Name"
           data-testid="NameRegister"
+          maxLength={50}
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
           {...register("userData.name")}
         />
@@ -91,6 +92,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="email"
           placeholder="Email"
+          maxLength={70}
           data-testid="EmailRegister"
           {...register("userData.email")}
         />
@@ -105,6 +107,7 @@ export default function Register(): ReactElement {
               type="text"
               placeholder="Cpf"
               pattern="^[0-9]+$"
+              maxLength={11}
               data-testid="CpfRegister"
               {...register("userData.cpf")}
             />
@@ -119,6 +122,7 @@ export default function Register(): ReactElement {
               type="text"
               placeholder="Phone"
               pattern="^[0-9]+$"
+              maxLength={11}
               data-testid="PhoneRegister"
               {...register("userData.phone")}
             />
@@ -132,6 +136,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="PasswordRegister"
           {...register("userData.password")}
         />

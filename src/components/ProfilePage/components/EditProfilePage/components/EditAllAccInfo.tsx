@@ -77,6 +77,7 @@ export default function EditAllAccInfo(): ReactElement {
         <S.InputField
           type="email"
           placeholder="New Email"
+          maxLength={70}
           data-testid="EditAllAccInfoNewEmail"
           {...register("userData.new_email")}
         />
@@ -90,6 +91,7 @@ export default function EditAllAccInfo(): ReactElement {
             <S.InputField
               type="password"
               placeholder="New Password"
+              maxLength={16}
               data-testid="EditAllAccInfoNewPassword"
               {...register("userData.new_password")}
             />
@@ -103,6 +105,7 @@ export default function EditAllAccInfo(): ReactElement {
             <S.InputField
               type="tel"
               placeholder="New Phone"
+              maxLength={11}
               data-testid="EditAllAccInfoNewPhone"
               {...register("userData.new_phone")}
             />
@@ -116,6 +119,7 @@ export default function EditAllAccInfo(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="EditAllAccInfoPassword"
           {...register("userData.password")}
         />

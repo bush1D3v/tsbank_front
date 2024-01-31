@@ -100,6 +100,7 @@ export default function Withdraw(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="WithdrawPassword"
           {...register("transactionData.password")}
         />

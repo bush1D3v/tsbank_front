@@ -84,6 +84,8 @@ export default function CreditPayment(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={6}
+          minLength={4}
           data-testid="CreditPaymentPassword"
           {...register("cardData.password")}
         />

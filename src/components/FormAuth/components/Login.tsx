@@ -90,6 +90,7 @@ export default function Login(): ReactElement {
         <S.InputField
           type="email"
           placeholder="Email"
+          maxLength={70}
           data-testid="EmailLogin"
           {...register("userData.email")}
         />
@@ -101,6 +102,7 @@ export default function Login(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="PasswordLogin"
           {...register("userData.password")}
         />

@@ -75,6 +75,7 @@ export default function DeleteAcc(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="DeleteAccPassword"
           {...register("userData.password")}
         />

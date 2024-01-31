@@ -87,6 +87,7 @@ export default function Deposit(): ReactElement {
         <S.InputField
           type="email"
           placeholder="Email"
+          maxLength={70}
           data-testid="DepositEmail"
           {...register("transactionData.email")}
         />
@@ -114,6 +115,7 @@ export default function Deposit(): ReactElement {
         <S.InputField
           type="password"
           placeholder="Password"
+          maxLength={16}
           data-testid="DepositPassword"
           {...register("transactionData.password")}
         />

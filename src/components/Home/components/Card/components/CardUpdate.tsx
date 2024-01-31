@@ -78,6 +78,8 @@ export default function CardUpdate(): ReactElement {
           type="text"
           placeholder="Card Type"
           pattern="^(credit|debit|Credit|Debit)$"
+          maxLength={6}
+          minLength={5}
           data-testid="CardUpdateType"
           {...register("cardData.card_type")}
         />
@@ -90,6 +92,8 @@ export default function CardUpdate(): ReactElement {
           type="password"
           placeholder="Password"
           pattern="^[0-9]+$"
+          maxLength={6}
+          minLength={4}
           data-testid="CardUpdatePassword"
           {...register("cardData.password")}
         />
@@ -102,6 +106,8 @@ export default function CardUpdate(): ReactElement {
           type="password"
           placeholder="New Password"
           pattern="^[0-9]+$"
+          maxLength={6}
+          minLength={4}
           data-testid="CardUpdateNewPassword"
           {...register("cardData.new_password")}
         />

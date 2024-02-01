@@ -12,6 +12,7 @@ import TransactionDetail from "./TransactionDetail";
 
 const TransactionDetailTitleTestId: string = "TransactionDetailTitle";
 const TransactionModalTestId: string = "TransactionModal";
+const TransactionDetailDivision: string = "TransactionDetailDivision";
 
 const transactionData: SummaryData = {
   id: 1,
@@ -37,6 +38,16 @@ const router = createMemoryRouter(
 describe("TransactionDetail component tests", () => {
   beforeEach(() => {
     render(<RouterProvider router={router} />);
+  });
+
+  test("Should be able to render the division correctly", () => {
+    expect(screen.getByTestId(TransactionDetailDivision)).toBeInTheDocument();
+  });
+
+  test("Should be able to render the division with the correctly tailwind classes", () => {
+    expect(screen.getByTestId(TransactionDetailDivision)).toHaveClass(
+      "flex flex-col items-center justify-center animate-fade duration-500"
+    );
   });
 
   test("Should be able to render the Title correctly", () => {

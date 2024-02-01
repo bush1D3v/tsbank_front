@@ -16,6 +16,7 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as funcionalidade
    <img align='center' height='54' width='68' title='React' alt='react' src='https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg' />
    <img align='center' height='54' width='68' title='Vite' alt='vite' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/46570ed3-6e92-4ad2-b09b-d235cd142b3f' />
    <img align='center' height='54' width='68' title='Tailwindcss' alt='tailwindcss' src='https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-plain.svg' />
+   <img align='center' height='54' width='68' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg' />
    <img align='center' height='64' width='68' title='Sass' alt='sass' src='https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg' />
    <img align='center' height='68' width='72' title='Potcss' alt='potcss' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/85b7c73b-e181-4c95-b9de-a8e0ba0523d3' />
    <img align='center' height='65' width='80' title='StyledComponents' alt='styledcomponents' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/5c78f0d4-45d6-407a-becc-fa25188d2491' />

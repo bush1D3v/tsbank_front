@@ -63,7 +63,10 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
           {typeof transactionData === "string" ? (
             <p className="text-xl md:text-2xl lg:text-3xl font-bold">{transactionData}</p>
           ) : (
-            <>
+            <div
+              className="flex flex-col items-center justify-center animate-fade duration-500"
+              data-testid="TransactionDetailDivision"
+            >
               <h1
                 className="text-xl md:text-2xl lg:text-3xl font-bold mb-14"
                 data-testid="TransactionDetailTitle"
@@ -73,7 +76,7 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
               <TransactionModal
                 transactionData={transactionData}
               />
-            </>
+            </div>
           )}
         </>
       )}

@@ -35,7 +35,7 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as funcionalidade
 
 ## 🏗 Estrutura e Arquitetura
 
-O projeto segue os princípios da **arquitetura limpa** e leva em consideração os princípios do **SOLID**. O código foi organizado de acordo com os princípios de **modularidade**, **reutilização** e **responsabilidade única**.
+O projeto segue os princípios da **arquitetura limpa** e o código foi organizado de acordo com os princípios de **modularidade**, **reutilização** e **responsabilidade única**.
 
 ## 📃 Documentação da Aplicação
 

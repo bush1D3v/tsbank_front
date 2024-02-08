@@ -1,8 +1,8 @@
 import { type ReactElement } from "react";
 import {
-  ArrowUp,
   CopyrightText,
-  DedicationText
+  DedicationText,
+  PolicyAndTerms
 } from "./components";
 
 export default function Footer(): ReactElement {
@@ -11,8 +11,8 @@ export default function Footer(): ReactElement {
     relative animate-fade-down animate-duration-500 animate-ease-in-out"
       data-testid="Footer">
       <CopyrightText />
+      <PolicyAndTerms />
       <DedicationText />
-      <ArrowUp />
     </footer>
   );
 }

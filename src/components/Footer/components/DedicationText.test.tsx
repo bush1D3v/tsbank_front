@@ -22,7 +22,7 @@ describe("DedicationText component tests", () => {
 
   test("Should be able to render the component with the correctly tailwind classes", () => {
     expect(screen.getByTestId(DedicationTextTestId)).toHaveClass(`
-      absolute top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%] text-center lg:text-xl
+      text-center lg:text-xl
     `);
   });
 

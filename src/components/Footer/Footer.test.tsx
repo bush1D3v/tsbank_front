@@ -9,7 +9,7 @@ import {
 import Footer from "./Footer";
 
 const FooterTestId: string = "Footer";
-const ArrowUpTestId: string = "ArrowUp";
+const PolicyAndTermsTestId: string = "PolicyAndTerms";
 const CopyrightTextTestId: string = "CopyrightText";
 const DedicationTextTestId: string = "DedicationText";
 
@@ -29,8 +29,8 @@ describe("Footer component tests", () => {
     `);
   });
 
-  test("Should be able to render the componente with the ArrowUp component", () => {
-    expect(screen.getByTestId(ArrowUpTestId)).toBeInTheDocument();
+  test("Should be able to render the componente with the PolicyAndTerms component", () => {
+    expect(screen.getByTestId(PolicyAndTermsTestId)).toBeInTheDocument();
   });
 
   test("Should be able to render the componente with the CopyrightText component", () => {

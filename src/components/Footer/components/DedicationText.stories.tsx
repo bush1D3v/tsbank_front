@@ -6,7 +6,7 @@ const meta: Meta<typeof DedicationText> = {
   component: DedicationText,
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center h-[100dvh]">
         <Story />
       </div>
     )

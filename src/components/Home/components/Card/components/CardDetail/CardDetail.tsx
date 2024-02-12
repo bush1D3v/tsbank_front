@@ -1,9 +1,9 @@
 import { useState, type ReactElement, useEffect } from "react";
-import { errorReplace } from "../../../../../../functions";
-import Loading from "../../../../../Loading";
+import { errorReplace } from "@/functions";
+import Loading from "@/components/Loading";
 import { cardDetailSubmit, type CardDetailResponseProps } from "../functions";
 import { CardModal, HooksList } from "./components";
-import { type CardData } from "../../../../../../types";
+import { type CardData } from "@/types";
 
 export default function CardDetail(): ReactElement {
   const [ cardData, setCardData ] = useState<CardData[]>([]);

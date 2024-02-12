@@ -1,8 +1,8 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import EditProfilePage from "./EditProfilePage";
 import { type Meta } from "@storybook/react";
-import Header from "../../../../Header";
-import Footer from "../../../../Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const meta: Meta<typeof EditProfilePage> = {
   title: "Pages/ProfilePage/EditProfilePage",

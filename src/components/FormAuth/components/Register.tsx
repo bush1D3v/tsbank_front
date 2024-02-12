@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { type registerProps, schemaRegisterForm } from "./schemas";
 import { registerSubmit } from "./functions";
-import * as S from "../../Styleds";
-import Modal from "../../Modal";
+import * as S from "@/components/Styleds";
+import Modal from "@/components/Modal";
 
 export default function Register(): ReactElement {
   const [ error, setError ] = useState<string>("");

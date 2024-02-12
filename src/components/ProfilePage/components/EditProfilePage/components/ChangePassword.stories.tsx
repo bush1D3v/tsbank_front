@@ -1,8 +1,8 @@
 import { withRouter } from "storybook-addon-react-router-v6";
 import ChangePassword from "./ChangePassword";
 import { type Meta } from "@storybook/react";
-import Header from "../../../../Header";
-import Footer from "../../../../Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const meta: Meta<typeof ChangePassword> = {
   title: "Pages/ProfilePage/EditProfilePage/ChangePassword",

@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import { type changePasswordProps, changePasswordSchema } from "./schemas";
 import { changePasswordSubmit } from "./functions";
-import * as S from "../../../../Styleds";
-import Modal from "../../../../Modal";
+import * as S from "@/components/Styleds";
+import Modal from "@/components/Modal";
 
 export default function ChangePassword(): ReactElement {
   const [ error, setError ] = useState<string>("");

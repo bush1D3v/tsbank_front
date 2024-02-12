@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
-import { logo } from "../../../assets/images";
-import { handleLinkClick } from "../../../functions";
+import { logo } from "@/assets/images";
+import { handleLinkClick } from "@/functions";
 
 export default function Logo(): ReactElement {
   const {

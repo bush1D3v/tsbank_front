@@ -21,7 +21,7 @@ const transactionData: SummaryData = {
 
 const formattedBalance: string = "$1,000.00";
 
-vi.mock("../../functions", () => ({
+vi.mock("@/functions", () => ({
   balanceFormat: vi.fn(() => {
     return formattedBalance;
   })

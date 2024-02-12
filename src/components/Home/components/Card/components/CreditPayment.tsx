@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
-import { balanceStringify, jsonUserParser } from "../../../../../functions";
+import { balanceStringify, jsonUserParser } from "@/functions";
 import { type creditPaymentProps, creditPaymentSchema } from "./schemas";
 import { creditPaymentSubmit } from "./functions";
-import * as S from "../../../../Styleds";
-import Modal from "../../../../Modal";
+import * as S from "@/components/Styleds";
+import Modal from "@/components/Modal";
 
 export default function CreditPayment(): ReactElement {
   const [ error, setError ] = useState<string>("");

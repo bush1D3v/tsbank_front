@@ -14,7 +14,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type creditPaymentResponseProps, creditPaymentSubmit } from "./functions";
-import { type TransactionData } from "../../../../../types";
+import { type TransactionData } from "@/types";
 import CreditPayment from "./CreditPayment";
 
 const valueData: number = 2000;

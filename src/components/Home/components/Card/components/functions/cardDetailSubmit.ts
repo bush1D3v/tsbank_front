@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { handleError, jsonUserParser } from "../../../../../../functions";
-import { CardData } from "../../../../../../types";
+import { handleError, jsonUserParser } from "@/functions";
+import { type CardData } from "@/types";
 
 export interface CardDetailResponseProps {
   success: boolean;

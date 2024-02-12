@@ -14,7 +14,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type withdrawResponseProps, withdrawSubmit } from "./functions";
-import { type TransactionData } from "../../../types";
+import { type TransactionData } from "@/types";
 import Withdraw from "./Withdraw";
 
 const valueData: number = 2000;

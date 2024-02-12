@@ -14,7 +14,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type cardTransactionResponseProps, cardTransactionSubmit } from "./functions";
-import { type TransactionData } from "../../../../../types";
+import { type TransactionData } from "@/types";
 import CardTransaction from "./CardTransaction";
 
 const typeData: string = "credit";

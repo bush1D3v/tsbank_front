@@ -4,7 +4,7 @@ import {
   lpInterface,
   lpResponsive,
   lpDevelopmentTeam
-} from "../../../../../../assets/images";
+} from "@/assets/images";
 
 export default function ArticleList(): ReactElement {
   return (

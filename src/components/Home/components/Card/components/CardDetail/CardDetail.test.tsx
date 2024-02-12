@@ -9,7 +9,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type CardDetailResponseProps } from "../functions";
-import { CardData } from "../../../../../../types";
+import { type CardData } from "@/types";
 import CardDetail from "./CardDetail";
 
 const numberData: string = "1234123412341234";

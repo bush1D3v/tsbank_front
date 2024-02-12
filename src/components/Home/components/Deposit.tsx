@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 import { depositSubmit } from "./functions";
 import { type depositProps, depositSchema } from "./schemas";
-import { balanceStringify, jsonUserParser } from "../../../functions";
-import * as S from "../../Styleds";
-import Modal from "../../Modal";
+import { balanceStringify, jsonUserParser } from "@/functions";
+import * as S from "@/components/Styleds";
+import Modal from "@/components/Modal";
 
 export default function Deposit(): ReactElement {
   const [ error, setError ] = useState<string>("");

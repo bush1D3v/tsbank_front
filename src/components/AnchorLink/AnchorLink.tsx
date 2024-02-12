@@ -1,5 +1,5 @@
 import { type ReactElement } from "react";
-import { eventClick } from "../../functions";
+import { eventClick } from "@/functions";
 
 interface AnchorLinkProps {
   func: (param: string) => void;

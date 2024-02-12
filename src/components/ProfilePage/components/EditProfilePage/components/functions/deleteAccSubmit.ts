@@ -1,6 +1,6 @@
 import axios from "axios";
 import { type deleteAccProps } from "../schemas";
-import { handleError, jsonUserParser } from "../../../../../../functions";
+import { handleError, jsonUserParser } from "@/functions";
 
 export interface deleteAccResponseProps {
   success: boolean;

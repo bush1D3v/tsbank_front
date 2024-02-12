@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
-import { handleLinkClick } from "../../../../../../../functions";
-import { type CardData } from "../../../../../../../types";
-import AnchorLink from "../../../../../../AnchorLink";
+import { handleLinkClick } from "@/functions";
+import { type CardData } from "@/types";
+import AnchorLink from "@/components/AnchorLink";
 
 export default function HooksList({ cardData }: { cardData: CardData[] }): ReactElement {
   const {

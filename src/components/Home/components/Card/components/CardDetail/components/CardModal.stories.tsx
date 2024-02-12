@@ -1,4 +1,4 @@
-import { CardData } from "../../../../../../../types";
+import { type CardData } from "@/types";
 import { withRouter } from "storybook-addon-react-router-v6";
 import { type Meta } from "@storybook/react";
 import CardModal from "./CardModal";

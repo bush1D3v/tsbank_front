@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
 import { TableRow } from "./components";
-import { jsonUserParser } from "../../../../functions";
+import { jsonUserParser } from "@/functions";
 import { CgProfile } from "react-icons/cg";
 
 export default function Table(): ReactElement {

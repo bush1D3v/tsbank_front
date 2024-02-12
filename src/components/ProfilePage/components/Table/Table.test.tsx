@@ -7,7 +7,7 @@ import {
   beforeEach
 } from "vitest";
 import Table from "./Table";
-import { type UserData } from "../../../../types";
+import { type UserData } from "@/types";
 
 const emailData: string = "testAccount@gmail.com";
 const phoneData: string = "21212121211";

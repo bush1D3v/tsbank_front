@@ -1,10 +1,10 @@
 import axios from "axios";
 
 import { type creditPaymentProps } from "../schemas";
-import { handleError, jsonUserParser } from "../../../../../../functions";
-import { cardDetailSubmit } from ".";
+import { handleError, jsonUserParser } from "@/functions";
+import { cardDetailSubmit } from "./cardDetailSubmit";
 import { getHistory } from "../../../functions";
-import { type TransactionData } from "../../../../../../types";
+import { type TransactionData } from "@/types";
 
 export interface creditPaymentResponseProps {
   success: boolean;

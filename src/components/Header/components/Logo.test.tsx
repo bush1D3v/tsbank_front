@@ -12,8 +12,8 @@ import {
   vi,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { logo } from "../../../assets/images";
-import { handleLinkClick } from "../../../functions";
+import { logo } from "@/assets/images";
+import { handleLinkClick } from "@/functions";
 import Logo from "./Logo";
 
 const {
@@ -23,7 +23,7 @@ const {
 const LogoTestId: string = "Logo";
 const LogoImageTestId: string = "LogoImage";
 
-vi.mock("../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
 }));
 

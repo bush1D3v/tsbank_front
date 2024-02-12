@@ -1,9 +1,9 @@
 import axios from "axios";
 
 import { pixProps } from "../schemas";
-import { handleError, jsonUserParser } from "../../../../functions";
-import { getHistory } from ".";
-import { type TransactionData } from "../../../../types";
+import { handleError, jsonUserParser } from "@/functions";
+import { getHistory } from "./getHistory";
+import { type TransactionData } from "@/types";
 
 export interface pixResponseProps {
   success: boolean;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { type registerProps } from "../schemas";
-import { handleError } from "../../../../functions";
+import { handleError } from "@/functions";
 
 export interface registerResponseProps {
   success: boolean;

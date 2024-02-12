@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
 import { CgProfile } from "react-icons/cg";
-import { handleLinkClick } from "../../../functions";
+import { handleLinkClick } from "@/functions";
 
 export default function Profile(): ReactElement {
   const {

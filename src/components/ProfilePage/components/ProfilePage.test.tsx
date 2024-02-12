@@ -11,10 +11,10 @@ import {
   beforeEach,
   vi,
 } from "vitest";
+import { type UserData } from "@/types";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { handleLinkClick, logoutClick } from "../../../functions";
+import { handleLinkClick, logoutClick } from "@/functions";
 import ProfilePage from "./ProfilePage";
-import { type UserData } from "../../../types";
 
 const emailData: string = "testAccount@gmail.com";
 const phoneData: string = "21212121211";
@@ -43,7 +43,7 @@ const ProfilePageListTestId: string = "ProfilePageList";
 const ProfilePageListItemEditProfile: string = "ProfilePageListItemEditProfile";
 const ProfilePageListItemLogout: string = "ProfilePageListItemLogout";
 
-vi.mock("../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
   eventClick: vi.fn(),
   logoutClick: vi.fn(),

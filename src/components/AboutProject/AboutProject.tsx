@@ -1,4 +1,4 @@
-import { lpWelcome } from "../../assets/images";
+import { lpWelcome } from "@/assets/images";
 import ImageSkeletonLoader from "../ImageSkeletonLoader";
 import { FirstSection, SummaryPresentation } from "./components";
 import { type ReactElement } from "react";

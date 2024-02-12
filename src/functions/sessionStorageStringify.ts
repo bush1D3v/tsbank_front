@@ -1,4 +1,4 @@
-import { jsonUserParser } from ".";
+import jsonUserParser from "./jsonUserParser";
 
 interface sessionStorageStringifyProps {
   param: "email" | "phone";

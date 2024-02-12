@@ -1,4 +1,4 @@
-import Loading from "../../../Loading";
+import Loading from "@/components/Loading";
 import {
   useState,
   type ReactElement,
@@ -9,7 +9,7 @@ import {
   balanceFormat,
   errorReplace,
   balanceStringify,
-} from "../../../../functions";
+} from "@/functions";
 import {
   getHistory,
   type HistoryData,

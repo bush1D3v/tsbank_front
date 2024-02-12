@@ -1,6 +1,6 @@
 import axios from "axios";
-import { handleError, jsonUserParser } from "../../../../../functions";
-import { type User } from "../../../../../types";
+import { handleError, jsonUserParser } from "@/functions";
+import { type User } from "@/types";
 
 export interface detailUserResponseProps {
   success: boolean;

@@ -1,5 +1,5 @@
 import { type ReactElement } from "react";
-import { type CardData } from "../../../../../../../types";
+import { type CardData } from "@/types";
 
 export default function CardModal({ cardData }: { cardData: CardData[] }): ReactElement {
   return (

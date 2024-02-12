@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { handleError, jsonUserParser } from "../../../../functions";
+import { handleError, jsonUserParser } from "@/functions";
 
 export interface HistoryData {
   id: number;

@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import { type cardCreateProps, cardCreateSchema } from "./schemas";
 import { cardCreateSubmit } from "./functions";
-import * as S from "../../../../Styleds";
-import Modal from "../../../../Modal";
+import * as S from "@/components/Styleds";
+import Modal from "@/components/Modal";
 
 export default function CardCreate(): ReactElement {
   const [ error, setError ] = useState<string>("");

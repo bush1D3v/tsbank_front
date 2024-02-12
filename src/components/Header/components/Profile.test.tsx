@@ -12,7 +12,7 @@ import {
   beforeEach,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { handleLinkClick } from "../../../functions";
+import { handleLinkClick } from "@/functions";
 import Profile from "./Profile";
 
 const {
@@ -22,7 +22,7 @@ const {
 const ProfileTestId: string = "Profile";
 const ProfileIconTestId: string = "ProfileIcon";
 
-vi.mock("../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
 }));
 

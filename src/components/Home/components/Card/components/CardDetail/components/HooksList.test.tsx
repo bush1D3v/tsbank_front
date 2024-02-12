@@ -12,8 +12,8 @@ import {
   vi,
 } from "vitest";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import { handleLinkClick } from "../../../../../../../functions";
-import { type CardData } from "../../../../../../../types";
+import { handleLinkClick } from "@/functions";
+import { type CardData } from "@/types";
 import HooksList from "./HooksList";
 
 const {
@@ -47,7 +47,7 @@ const router = createMemoryRouter(
   { initialEntries: [ "/" ], }
 );
 
-vi.mock("../../../../../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
   eventClick: vi.fn()
 }));

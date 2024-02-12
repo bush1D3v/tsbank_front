@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { type loginProps, schemaLoginForm } from "./schemas";
 import { loginSubmit } from "./functions";
-import { UserDataContext } from "../../../contexts";
-import * as S from "../../Styleds";
-import Modal from "../../Modal";
+import { UserDataContext } from "@/contexts";
+import * as S from "@/components/Styleds";
+import Modal from "@/components/Modal";
 
 export default function Login(): ReactElement {
   const [ error, setError ] = useState<string>("");

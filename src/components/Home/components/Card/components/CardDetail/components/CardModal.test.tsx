@@ -7,7 +7,7 @@ import {
   beforeEach,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { CardData } from "../../../../../../../types";
+import { type CardData } from "@/types";
 import CardModal from "./CardModal";
 
 const cardData: CardData[] = [ {

@@ -8,7 +8,7 @@ import {
   vi,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { type UserData } from "../../../../types";
+import { type UserData } from "@/types";
 import { type HistoryResponseProps } from "../functions";
 import { type detailUserResponseProps } from "./functions";
 import InitialPage from "./InitialPage";
@@ -70,7 +70,7 @@ vi.mock("../functions", () => ({
 
 const formattedBalance: string = "$2.500,00";
 
-vi.mock("../../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
   eventClick: vi.fn(),
   balanceFormat: vi.fn(() => {

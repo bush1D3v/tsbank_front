@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
 import { type SummaryData } from "../../functions";
-import { balanceFormat } from "../../../../../functions";
+import { balanceFormat } from "@/functions";
 
 interface TransactionModalProps {
   transactionData?: SummaryData

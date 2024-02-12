@@ -1,6 +1,6 @@
 import { type ReactElement, useState } from "react";
-import { HistoryData } from "../../../functions";
-import { createHash } from "../../../../../../functions";
+import { type HistoryData } from "../../../functions";
+import { createHash } from "@/functions";
 import { useNavigate } from "react-router-dom";
 import { LoadMoreButton } from "./components";
 

@@ -1,9 +1,9 @@
 import { withRouter } from "storybook-addon-react-router-v6";
-import TransactionDetail from ".";
+import TransactionDetail from "./TransactionDetail";
 import { type Meta } from "@storybook/react";
 import { SummaryData } from "../functions";
-import Footer from "../../../Footer";
-import Header from "../../../Header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const meta: Meta<typeof TransactionDetail> = {
   title: "Pages/InitialPage/TransactionDetail",

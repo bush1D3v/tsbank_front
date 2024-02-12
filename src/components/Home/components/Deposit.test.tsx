@@ -14,7 +14,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type depositResponseProps, depositSubmit } from "./functions";
-import { type TransactionData } from "../../../types";
+import { type TransactionData } from "@/types";
 import Deposit from "./Deposit";
 
 const emailData: string = "victor.teste@gmail.com";

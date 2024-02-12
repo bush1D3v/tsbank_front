@@ -14,7 +14,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type pixResponseProps, pixSubmit } from "./functions";
-import { type TransactionData } from "../../../types";
+import { type TransactionData } from "@/types";
 import Pix from "./Pix";
 
 const cpfData: string = "12121212121";

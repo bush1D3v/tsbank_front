@@ -12,7 +12,7 @@ import {
   vi,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { createHash } from "../../../../../../functions";
+import { createHash } from "@/functions";
 import { type HistoryData } from "../../../functions";
 import HistoryList from "./HistoryList";
 
@@ -33,7 +33,7 @@ const historyData: HistoryData[] = [
 
 const testHash: string = "testHash";
 
-vi.mock("../../../../../../functions", () => ({
+vi.mock("@/functions", () => ({
   createHash: vi.fn(() => {
     return testHash;
   }),

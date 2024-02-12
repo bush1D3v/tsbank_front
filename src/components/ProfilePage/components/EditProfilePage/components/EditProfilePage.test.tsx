@@ -12,7 +12,7 @@ import {
   vi,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { handleLinkClick } from "../../../../../functions";
+import { handleLinkClick } from "@/functions";
 import EditProfilePage from "./EditProfilePage";
 
 const {
@@ -30,7 +30,7 @@ const EditProfilePageListItemUpdatePassword: string = "EditProfilePageListItemUp
 const EditProfilePageListItemUpdatePhone: string = "EditProfilePageListItemUpdatePhone";
 const EditProfilePageListItemDeleteUser: string = "EditProfilePageListItemDeleteUser";
 
-vi.mock("../../../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
   eventClick: vi.fn(),
 }));

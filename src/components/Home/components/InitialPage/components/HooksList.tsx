@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
-import AnchorLink from "../../../../AnchorLink";
-import { handleLinkClick } from "../../../../../functions";
+import AnchorLink from "@/components/AnchorLink";
+import { handleLinkClick } from "@/functions";
 
 export default function HooksList(): ReactElement {
   const {

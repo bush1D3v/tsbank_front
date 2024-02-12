@@ -1,7 +1,7 @@
 import axios from "axios";
 import { type loginProps } from "../schemas";
-import { type UserData } from "../../../../types";
-import { handleError } from "../../../../functions";
+import { type UserData } from "@/types";
+import { handleError } from "@/functions";
 
 export interface loginResponseProps {
   success: boolean;

@@ -1,6 +1,6 @@
-import Loading from "../../../Loading";
+import Loading from "@/components/Loading";
 import { useNavigate, useParams } from "react-router-dom";
-import { decryptHash } from "../../../../functions";
+import { decryptHash } from "@/functions";
 import {
   transactionDetailSubmit,
   type SummaryResponseProps,

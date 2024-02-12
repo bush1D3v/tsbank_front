@@ -13,7 +13,7 @@ import {
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import { handleLinkClick } from "../../../functions";
+import { handleLinkClick } from "@/functions";
 
 const {
   VITE_REACT_APP_HOME,
@@ -28,7 +28,7 @@ const NavLinksListItemAboutTestId: string = "NavLinksListItemAbout";
 const testHomeText: string = "HOME";
 const testAboutText: string = "ABOUT";
 
-vi.mock("../../../functions", () => ({
+vi.mock("@/functions", () => ({
   handleLinkClick: vi.fn(),
   eventClick: vi.fn()
 }));

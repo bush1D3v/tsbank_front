@@ -4,7 +4,7 @@ import {
   handleError,
   jsonUserParser,
   sessionStorageStringify
-} from "../../../../../../functions";
+} from "@/functions";
 
 export interface editAllAccInfoUserResponseProps {
   id: number;

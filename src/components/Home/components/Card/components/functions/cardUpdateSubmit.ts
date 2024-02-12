@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { type cardUpdateProps } from "../schemas";
-import { handleError, jsonUserParser } from "../../../../../../functions";
+import { handleError, jsonUserParser } from "@/functions";
 
 export interface cardUpdateResponseProps {
   success: boolean;

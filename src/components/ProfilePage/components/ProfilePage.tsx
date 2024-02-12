@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
-import { handleLinkClick, logoutClick } from "../../../functions";
-import AnchorLink from "../../AnchorLink";
+import { handleLinkClick, logoutClick } from "@/functions";
+import AnchorLink from "@/components/AnchorLink";
 import Table from "./Table";
 
 export default function ProfilePage(): ReactElement {

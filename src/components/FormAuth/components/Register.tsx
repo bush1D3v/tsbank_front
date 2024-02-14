@@ -80,7 +80,7 @@ export default function Register(): ReactElement {
           type="text"
           placeholder="Name"
           data-testid="NameRegister"
-          maxLength={50}
+          maxLength={75}
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
           {...register("userData.name")}
         />
@@ -92,7 +92,7 @@ export default function Register(): ReactElement {
         <S.InputField
           type="email"
           placeholder="Email"
-          maxLength={70}
+          maxLength={75}
           data-testid="EmailRegister"
           {...register("userData.email")}
         />

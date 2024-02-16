@@ -4,7 +4,7 @@ import {
   useState
 } from "react";
 
-import { type User } from "../types";
+import { type User } from "@/types";
 
 const userInfo = sessionStorage.getItem("userData");
 

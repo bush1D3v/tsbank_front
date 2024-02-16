@@ -5,6 +5,7 @@ import {
   jsonUserParser,
   sessionStorageStringify
 } from "@/functions";
+import { API_BASE_URL, UPDATE_ALL_ENDPOINT } from "@/utils/apiPaths";
 
 export interface editAllAccInfoUserResponseProps {
   id: number;
@@ -25,13 +26,8 @@ export default async function editAllAccInfoSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_UPDATE_ALL_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.put(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_UPDATE_ALL_ENDPOINT}`,
+    const response = await axios.put(`${API_BASE_URL}${UPDATE_ALL_ENDPOINT}`,
       {
         new_email: userData.new_email,
         new_phone: userData.new_phone,

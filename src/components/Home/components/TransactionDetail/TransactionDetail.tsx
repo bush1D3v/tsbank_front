@@ -11,6 +11,7 @@ import {
   type ReactElement,
   useState
 } from "react";
+import { HOME } from "@/utils/routerPaths";
 import { TransactionModal } from "./components";
 
 /* Interface criada para exibir dados na documentação Storybook,
@@ -23,10 +24,6 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
   const [ isLoading, setIsLoading ] = useState(true);
   const [ transactionData, setTransactionData ] = useState<SummaryData>();
 
-  const {
-    VITE_REACT_APP_HOME
-  } = import.meta.env;
-
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -37,7 +34,7 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
         if (typeof id === "string") {
           const response: SummaryResponseProps = await transactionDetailSubmit(decryptHash(id));
           if (typeof response.message !== "string" && (response.message.input || response.message.output)) {
-            navigate(VITE_REACT_APP_HOME);
+            navigate(HOME);
           }
           setTransactionData(response.message as SummaryData);
         } else if (fakeData !== undefined) {
@@ -52,7 +49,7 @@ export default function TransactionDetail({ fakeData }: TransactionDetailStorybo
     };
 
     fetchData();
-  }, [ id, fakeData, navigate, VITE_REACT_APP_HOME ]);
+  }, [ id, fakeData, navigate ]);
 
   return (
     <>

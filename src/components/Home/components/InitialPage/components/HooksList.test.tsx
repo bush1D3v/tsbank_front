@@ -14,13 +14,12 @@ import {
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { handleLinkClick } from "@/functions";
 import HooksList from "./HooksList";
-
-const {
-  VITE_REACT_APP_WITHDRAW,
-  VITE_REACT_APP_DEPOSIT,
-  VITE_REACT_APP_CARD,
-  VITE_REACT_APP_PIX
-} = import.meta.env;
+import {
+  WITHDRAW,
+  DEPOSIT,
+  CARD,
+  PIX
+} from "@/utils/routerPaths";
 
 const HooksListTestId: string = "HooksList";
 const HooksListItemWithdrawTestId: string = "HooksListItemWithdraw";
@@ -71,7 +70,7 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemWithdraw", () => {
     fireEvent.click(screen.getByTestId(HooksListItemWithdrawTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_WITHDRAW);
+    expect(handleLinkClick).toHaveBeenCalledWith(WITHDRAW);
   });
 
   test("Should be able to render the ListItemDeposit correctly", () => {
@@ -92,7 +91,7 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemDeposit", () => {
     fireEvent.click(screen.getByTestId(HooksListItemDepositTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_DEPOSIT);
+    expect(handleLinkClick).toHaveBeenCalledWith(DEPOSIT);
   });
 
   test("Should be able to render the ListItemCard correctly", () => {
@@ -113,7 +112,7 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemCard", () => {
     fireEvent.click(screen.getByTestId(HooksListItemCardTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_CARD);
+    expect(handleLinkClick).toHaveBeenCalledWith(CARD);
   });
 
   test("Should be able to render the ListItemPix correctly", () => {
@@ -134,6 +133,6 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemPix", () => {
     fireEvent.click(screen.getByTestId(HooksListItemPixTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_PIX);
+    expect(handleLinkClick).toHaveBeenCalledWith(PIX);
   });
 });

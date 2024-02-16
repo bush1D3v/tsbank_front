@@ -11,17 +11,16 @@ import {
   beforeEach,
   vi,
 } from "vitest";
+import {
+  UPDATE_ALL,
+  UPDATE_EMAIL,
+  UPDATE_PASSWORD,
+  UPDATE_PHONE,
+  DELETE_USER
+} from "@/utils/routerPaths";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { handleLinkClick } from "@/functions";
 import EditProfilePage from "./EditProfilePage";
-
-const {
-  VITE_REACT_APP_UPDATE_ALL,
-  VITE_REACT_APP_UPDATE_EMAIL,
-  VITE_REACT_APP_UPDATE_PASSWORD,
-  VITE_REACT_APP_UPDATE_PHONE,
-  VITE_REACT_APP_DELETE_USER
-} = import.meta.env;
 
 const EditProfilePageTestId: string = "EditProfilePage";
 const EditProfilePageListItemUpdateAll: string = "EditProfilePageListItemUpdateAll";
@@ -62,7 +61,7 @@ describe("EditProfilePage component tests", () => {
   test("Should be able to fire event the UpdateAllListItem", () => {
     fireEvent.click(screen.getByTestId(EditProfilePageListItemUpdateAll));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_UPDATE_ALL);
+    expect(handleLinkClick).toHaveBeenCalledWith(UPDATE_ALL);
   });
 
   test("Should be able to render the UpdateAllListItem with the correctly text", () => {
@@ -76,7 +75,7 @@ describe("EditProfilePage component tests", () => {
   test("Should be able to fire event the UpdateEmailListItem", () => {
     fireEvent.click(screen.getByTestId(EditProfilePageListItemUpdateAll));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_UPDATE_EMAIL);
+    expect(handleLinkClick).toHaveBeenCalledWith(UPDATE_EMAIL);
   });
 
   test("Should be able to render the UpdateEmailListItem with the correctly text", () => {
@@ -90,7 +89,7 @@ describe("EditProfilePage component tests", () => {
   test("Should be able to fire event the UpdatePasswordListItem", () => {
     fireEvent.click(screen.getByTestId(EditProfilePageListItemUpdatePassword));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_UPDATE_PASSWORD);
+    expect(handleLinkClick).toHaveBeenCalledWith(UPDATE_PASSWORD);
   });
 
   test("Should be able to render the UpdatePasswordListItem with the correctly text", () => {
@@ -104,7 +103,7 @@ describe("EditProfilePage component tests", () => {
   test("Should be able to fire event the UpdatePhoneListItem", () => {
     fireEvent.click(screen.getByTestId(EditProfilePageListItemUpdatePhone));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_UPDATE_PHONE);
+    expect(handleLinkClick).toHaveBeenCalledWith(UPDATE_PHONE);
   });
 
   test("Should be able to render the UpdatePhoneListItem with the correctly text", () => {
@@ -118,7 +117,7 @@ describe("EditProfilePage component tests", () => {
   test("Should be able to fire event the DeleteUserListItem", () => {
     fireEvent.click(screen.getByTestId(EditProfilePageListItemDeleteUser));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_DELETE_USER);
+    expect(handleLinkClick).toHaveBeenCalledWith(DELETE_USER);
   });
 
   test("Should be able to render the DeleteUserListItem with the correctly text", () => {

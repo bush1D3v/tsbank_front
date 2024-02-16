@@ -1,9 +1,9 @@
 import axios from "axios";
-
 import { depositProps } from "../schemas";
 import { handleError, jsonUserParser } from "@/functions";
 import { getHistory } from "./getHistory";
 import { type TransactionData } from "@/types";
+import { API_BASE_URL, DEPOSIT_ENDPOINT } from "@/utils/apiPaths";
 
 export interface depositResponseProps {
   success: boolean;
@@ -18,13 +18,8 @@ export default async function depositSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_DEPOSIT_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_DEPOSIT_ENDPOINT}`,
+    const response = await axios.post(`${API_BASE_URL}${DEPOSIT_ENDPOINT}`,
       {
         email: transactionData.email,
         value: transactionData.value,

@@ -2,6 +2,7 @@ import axios from "axios";
 import { type loginProps } from "../schemas";
 import { type UserData } from "@/types";
 import { handleError } from "@/functions";
+import { API_BASE_URL, LOGIN_ENDPOINT } from "@/utils/apiPaths";
 
 export interface loginResponseProps {
   success: boolean;
@@ -14,13 +15,8 @@ export default async function loginSubmit(
 ): Promise<loginResponseProps> {
   const { userData } = data;
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_LOGIN_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_LOGIN_ENDPOINT}`,
+    const response = await axios.post(`${API_BASE_URL}${LOGIN_ENDPOINT}`,
       {
         email: userData.email,
         password: userData.password,

@@ -8,32 +8,31 @@ import {
   EditAllAccInfo,
   DeleteAcc
 } from "./components";
+import {
+  DELETE_USER,
+  UPDATE_PHONE,
+  UPDATE_EMAIL,
+  UPDATE_PASSWORD,
+  UPDATE_ALL,
+  UPDATE
+} from "@/utils/routerPaths";
 
 export default function MainEditProfile(): ReactElement {
   const { pathname } = useLocation();
 
-  const {
-    VITE_REACT_APP_DELETE_USER,
-    VITE_REACT_APP_UPDATE_PHONE,
-    VITE_REACT_APP_UPDATE_EMAIL,
-    VITE_REACT_APP_UPDATE_PASSWORD,
-    VITE_REACT_APP_UPDATE_ALL,
-    VITE_REACT_APP_UPDATE
-  } = import.meta.env;
-
   const handleFormType = (currPath: string): ReactElement => {
     switch (currPath) {
-      case VITE_REACT_APP_UPDATE:
+      case UPDATE:
         return <EditProfilePage />;
-      case VITE_REACT_APP_UPDATE_EMAIL:
+      case UPDATE_EMAIL:
         return <ChangeEmail />;
-      case VITE_REACT_APP_UPDATE_PASSWORD:
+      case UPDATE_PASSWORD:
         return <ChangePassword />;
-      case VITE_REACT_APP_UPDATE_PHONE:
+      case UPDATE_PHONE:
         return <ChangePhone />;
-      case VITE_REACT_APP_UPDATE_ALL:
+      case UPDATE_ALL:
         return <EditAllAccInfo />;
-      case VITE_REACT_APP_DELETE_USER:
+      case DELETE_USER:
         return <DeleteAcc />;
       default:
         return <EditProfilePage />;

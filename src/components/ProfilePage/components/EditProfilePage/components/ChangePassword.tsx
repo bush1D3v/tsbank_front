@@ -1,28 +1,32 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { type changePasswordProps, changePasswordSchema } from "./schemas";
 import { changePasswordSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { LOGIN } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function ChangePassword(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_LOGIN
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<changePasswordProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -45,7 +49,7 @@ export default function ChangePassword(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(VITE_REACT_APP_LOGIN);
+      navigate(LOGIN);
     }
   };
 
@@ -68,29 +72,33 @@ export default function ChangePassword(): ReactElement {
         Change Your Password
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.new_password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.new_password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
+        <FormInput
           placeholder="New Password"
-          maxLength={16}
+          inputLabel="new_password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<changePasswordProps>,
+            register: register as UseFormRegister<changePasswordProps>,
+            formState: formState as FormState<changePasswordProps>,
+            trigger: trigger as UseFormTrigger<changePasswordProps>
+          }}
           data-testid="ChangePasswordNewPassword"
-          {...register("userData.new_password")}
-        />
-        {errors.userData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
-          </span>
-        )}
-        <S.InputField
+          autoComplete="new-password"
           type="password"
-          placeholder="Password"
           maxLength={16}
+        />
+        <FormInput
+          placeholder="Password"
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<changePasswordProps>,
+            register: register as UseFormRegister<changePasswordProps>,
+            formState: formState as FormState<changePasswordProps>,
+            trigger: trigger as UseFormTrigger<changePasswordProps>
+          }}
           data-testid="ChangePasswordPassword"
-          {...register("userData.password")}
+          autoComplete="current-password"
+          type="password"
+          maxLength={16}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="ChangePasswordButton">
           {isLoading ? "Changing..." : "Change"}

@@ -14,11 +14,7 @@ import {
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { handleLinkClick } from "@/functions";
-
-const {
-  VITE_REACT_APP_HOME,
-  VITE_REACT_APP_ABOUT
-} = import.meta.env;
+import { HOME, ABOUT } from "@/utils/routerPaths";
 
 const NavLinksTestId: string = "NavLinks";
 const NavLinksListTestId: string = "NavLinksList";
@@ -70,7 +66,7 @@ describe("NavLinks component tests", () => {
   test("Should be able to fire event the ListItemHome", () => {
     fireEvent.click(screen.getByTestId(NavLinksListItemHomeTestId));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_HOME);
+    expect(handleLinkClick).toHaveBeenCalledWith(HOME);
   });
 
   test("Should be able to render the ListItemHome with the correctly text", () => {
@@ -90,7 +86,7 @@ describe("NavLinks component tests", () => {
   test("Should be able to fire event ListItemAbout", () => {
     fireEvent.click(screen.getByTestId(NavLinksListItemHomeTestId));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_ABOUT);
+    expect(handleLinkClick).toHaveBeenCalledWith(ABOUT);
   });
 
   test("Should be able to render the ListItemAbout with the correctly text", () => {

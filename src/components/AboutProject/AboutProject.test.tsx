@@ -6,7 +6,7 @@ import {
   expect,
   beforeEach
 } from "vitest";
-import { lpWelcome } from "../../assets/images";
+import { lpWelcome } from "@/assets/images";
 import AboutProject from "./AboutProject";
 
 const AboutProjectTestId: string = "AboutProject";

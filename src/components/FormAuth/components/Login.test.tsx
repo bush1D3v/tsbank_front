@@ -81,7 +81,7 @@ describe("Login component tests", () => {
 
   test("Should be able to render the Subtitle with correctly tailwind classes", () => {
     expect(screen.getByTestId(LoginSubtitleTestId)).toHaveClass(
-      "font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+      "font-bold text-2xl lg:text-3xl xl:text-4xl pt-10 -mb-2"
     );
   });
 

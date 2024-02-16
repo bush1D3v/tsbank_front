@@ -15,13 +15,12 @@ import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { handleLinkClick } from "@/functions";
 import { type CardData } from "@/types";
 import HooksList from "./HooksList";
-
-const {
-  VITE_REACT_APP_CARD_CREATE,
-  VITE_REACT_APP_CARD_UPDATE,
-  VITE_REACT_APP_CARD_TRANSACTION,
-  VITE_REACT_APP_CREDIT_PAYMENT
-} = import.meta.env;
+import {
+  CARD_CREATE,
+  CARD_UPDATE,
+  CARD_TRANSACTION,
+  CREDIT_PAYMENT
+} from "@/utils/routerPaths";
 
 const cardData: CardData[] = [ {
   credit: {
@@ -85,7 +84,7 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemCreate", () => {
     fireEvent.click(screen.getByTestId(HooksListItemCreateTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_CARD_CREATE);
+    expect(handleLinkClick).toHaveBeenCalledWith(CARD_CREATE);
   });
 
   test("Should be able to render the ListItemUpdate correctly", () => {
@@ -106,7 +105,7 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemUpdate", () => {
     fireEvent.click(screen.getByTestId(HooksListItemUpdateTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_CARD_UPDATE);
+    expect(handleLinkClick).toHaveBeenCalledWith(CARD_UPDATE);
   });
 
   test("Should be able to render the ListItemTransaction correctly", () => {
@@ -127,7 +126,7 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemTransaction", () => {
     fireEvent.click(screen.getByTestId(HooksListItemTransactionTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_CARD_TRANSACTION);
+    expect(handleLinkClick).toHaveBeenCalledWith(CARD_TRANSACTION);
   });
 
   test("Should be able to render the ListItemPayment correctly", () => {
@@ -148,6 +147,6 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemPayment", () => {
     fireEvent.click(screen.getByTestId(HooksListItemPaymentTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_CREDIT_PAYMENT);
+    expect(handleLinkClick).toHaveBeenCalledWith(CREDIT_PAYMENT);
   });
 });

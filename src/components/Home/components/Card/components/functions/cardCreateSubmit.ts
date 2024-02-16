@@ -3,6 +3,7 @@ import axios from "axios";
 import { type cardCreateProps } from "../schemas";
 import { handleError, jsonUserParser } from "@/functions";
 import { cardDetailSubmit } from "./cardDetailSubmit";
+import { API_BASE_URL, CARD_CREATE_ENDPOINT } from "@/utils/apiPaths";
 
 export interface cardCreateResponseProps {
   success: boolean;
@@ -16,13 +17,8 @@ export default async function cardCreateSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_CARD_CREATE_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_CARD_CREATE_ENDPOINT}`,
+    const response = await axios.post(`${API_BASE_URL}${CARD_CREATE_ENDPOINT}`,
       {
         card_number: cardData.card_number,
         card_type: cardData.card_type,

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { type registerProps } from "../schemas";
 import { handleError } from "@/functions";
+import { API_BASE_URL, REGISTER_ENDPOINT } from "@/utils/apiPaths";
 
 export interface registerResponseProps {
   success: boolean;
@@ -12,13 +13,8 @@ export default async function registerSubmit(
 ): Promise<registerResponseProps> {
   const { userData } = data;
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_REGISTER_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_REGISTER_ENDPOINT}`,
+    const response = await axios.post(`${API_BASE_URL}${REGISTER_ENDPOINT}`,
       {
         name: userData.name,
         email: userData.email,

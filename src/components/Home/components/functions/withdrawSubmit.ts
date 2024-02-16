@@ -1,9 +1,9 @@
 import axios from "axios";
-
 import { withdrawProps } from "../schemas";
 import { handleError, jsonUserParser } from "@/functions";
 import { getHistory } from "./getHistory";
 import { type TransactionData } from "@/types";
+import { API_BASE_URL, WITHDRAW_ENDPOINT } from "@/utils/apiPaths";
 
 export interface withdrawResponseProps {
   success: boolean;
@@ -18,13 +18,8 @@ export default async function withdrawSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_WITHDRAW_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_WITHDRAW_ENDPOINT}`,
+    const response = await axios.post(`${API_BASE_URL}${WITHDRAW_ENDPOINT}`,
       {
         value: transactionData.value,
         password: transactionData.password,

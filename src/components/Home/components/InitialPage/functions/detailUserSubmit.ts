@@ -1,6 +1,7 @@
 import axios from "axios";
 import { handleError, jsonUserParser } from "@/functions";
 import { type User } from "@/types";
+import { API_BASE_URL, DETAIL_ENDPOINT } from "@/utils/apiPaths";
 
 export interface detailUserResponseProps {
   success: boolean;
@@ -11,13 +12,8 @@ export interface detailUserResponseProps {
 export default async function detailUserSubmit(): Promise<detailUserResponseProps> {
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_DETAIL_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.get(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_DETAIL_ENDPOINT}`,
+    const response = await axios.get(`${API_BASE_URL}${DETAIL_ENDPOINT}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

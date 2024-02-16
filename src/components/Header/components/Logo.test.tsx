@@ -15,10 +15,7 @@ import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { logo } from "@/assets/images";
 import { handleLinkClick } from "@/functions";
 import Logo from "./Logo";
-
-const {
-  VITE_REACT_APP_HOME
-} = import.meta.env;
+import { HOME } from "@/utils/routerPaths";
 
 const LogoTestId: string = "Logo";
 const LogoImageTestId: string = "LogoImage";
@@ -59,6 +56,6 @@ describe("Logo component tests", () => {
   test("Should be able to fire event", () => {
     fireEvent.click(screen.getByTestId(LogoTestId));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_HOME);
+    expect(handleLinkClick).toHaveBeenCalledWith(HOME);
   });
 });

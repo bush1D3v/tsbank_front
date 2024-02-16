@@ -1,28 +1,32 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormRegister,
+  type UseFormHandleSubmit,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-
 import { type registerProps, schemaRegisterForm } from "./schemas";
 import { registerSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { LOGIN } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function Register(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_LOGIN
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<registerProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -48,7 +52,7 @@ export default function Register(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(VITE_REACT_APP_LOGIN);
+      navigate(LOGIN);
     }
   };
 
@@ -71,81 +75,91 @@ export default function Register(): ReactElement {
         Sign up
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.name?.message != null && (
-          <span className="text-error -mb-7 -mt-5 text-left">
-            {errors.userData?.name?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
+        <FormInput
           placeholder="Name"
+          inputLabel="name"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<registerProps>,
+            register: register as UseFormRegister<registerProps>,
+            formState: formState as FormState<registerProps>,
+            trigger: trigger as UseFormTrigger<registerProps>
+          }}
           data-testid="NameRegister"
-          maxLength={75}
+          type="text"
+          autoComplete="name"
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
-          {...register("userData.name")}
-        />
-        {errors.userData?.email?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.email?.message}
-          </span>
-        )}
-        <S.InputField
-          type="email"
-          placeholder="Email"
           maxLength={75}
+        />
+        <FormInput
+          placeholder="Email"
+          inputLabel="email"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<registerProps>,
+            register: register as UseFormRegister<registerProps>,
+            formState: formState as FormState<registerProps>,
+            trigger: trigger as UseFormTrigger<registerProps>
+          }}
           data-testid="EmailRegister"
-          {...register("userData.email")}
+          type="email"
+          autoComplete="email"
+          maxLength={75}
         />
         <div className="flex gap-7">
-          <div className="flex w-[100%] flex-col">
-            {errors.userData?.cpf?.message != null && (
-              <span className="text-error text-left">
-                {errors.userData?.cpf?.message}
-              </span>
-            )}
-            <S.InputField
-              type="text"
+          <div className="flex w-[100%] gap-7 flex-col">
+            <FormInput
               placeholder="Cpf"
+              inputLabel="cpf"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<registerProps>,
+                register: register as UseFormRegister<registerProps>,
+                formState: formState as FormState<registerProps>,
+                trigger: trigger as UseFormTrigger<registerProps>
+              }}
               pattern="^[0-9]+$"
-              maxLength={11}
               data-testid="CpfRegister"
-              {...register("userData.cpf")}
+              autoComplete="off"
+              type="text"
+              maxLength={11}
             />
           </div>
-          <div className="flex w-[100%] flex-col">
-            {errors.userData?.phone?.message != null && (
-              <span className="text-error text-left">
-                {errors.userData?.phone?.message}
-              </span>
-            )}
-            <S.InputField
-              type="text"
+          <div className="flex w-[100%] gap-7 flex-col">
+            <FormInput
               placeholder="Phone"
+              inputLabel="phone"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<registerProps>,
+                register: register as UseFormRegister<registerProps>,
+                formState: formState as FormState<registerProps>,
+                trigger: trigger as UseFormTrigger<registerProps>
+              }}
               pattern="^[0-9]+$"
-              maxLength={11}
               data-testid="PhoneRegister"
-              {...register("userData.phone")}
+              autoComplete="tel"
+              type="tel"
+              maxLength={11}
             />
           </div>
         </div>
-        {errors.userData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          maxLength={16}
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<registerProps>,
+            register: register as UseFormRegister<registerProps>,
+            formState: formState as FormState<registerProps>,
+            trigger: trigger as UseFormTrigger<registerProps>
+          }}
           data-testid="PasswordRegister"
-          {...register("userData.password")}
+          autoComplete="password"
+          type="password"
+          maxLength={16}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="ButtonRegister">
           {isLoading ? "Creating..." : "Create Account"}
         </S.Button>
       </div>
       <span className="text-lg" data-testid="SpanRegister">
-        Already have an account? <Link to={VITE_REACT_APP_LOGIN}><u className="hover:text-darkBlue transition-colors">Sign in</u></Link>
+        Already have an account? <Link to={LOGIN}><u className="hover:text-darkBlue transition-colors">Sign in</u></Link>
       </span>
     </S.FormWrapper>
   );

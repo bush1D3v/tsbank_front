@@ -1,12 +1,19 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { type editAllAccInfoProps, editAllAccInfoSchema } from "./schemas";
 import { editAllAccInfoSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { LOGIN } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function EditAllAccInfo(): ReactElement {
   const [ error, setError ] = useState<string>("");
@@ -15,13 +22,10 @@ export default function EditAllAccInfo(): ReactElement {
   const navigate = useNavigate();
 
   const {
-    VITE_REACT_APP_LOGIN
-  } = import.meta.env;
-
-  const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<editAllAccInfoProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -46,7 +50,7 @@ export default function EditAllAccInfo(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(VITE_REACT_APP_LOGIN);
+      navigate(LOGIN);
     }
   };
 
@@ -69,59 +73,67 @@ export default function EditAllAccInfo(): ReactElement {
         Edit All Info
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.new_email?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.new_email?.message}
-          </span>
-        )}
-        <S.InputField
-          type="email"
+        <FormInput
           placeholder="New Email"
-          maxLength={70}
+          inputLabel="new_email"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<editAllAccInfoProps>,
+            register: register as UseFormRegister<editAllAccInfoProps>,
+            formState: formState as FormState<editAllAccInfoProps>,
+            trigger: trigger as UseFormTrigger<editAllAccInfoProps>
+          }}
           data-testid="EditAllAccInfoNewEmail"
-          {...register("userData.new_email")}
+          type="email"
+          autoComplete="email"
+          maxLength={75}
         />
         <div className="flex gap-7">
           <div className="flex w-[100%] flex-col">
-            {errors.userData?.new_password?.message != null && (
-              <span className="text-error text-left">
-                {errors.userData?.new_password?.message}
-              </span>
-            )}
-            <S.InputField
-              type="password"
+            <FormInput
               placeholder="New Password"
-              maxLength={16}
+              inputLabel="new_password"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<editAllAccInfoProps>,
+                register: register as UseFormRegister<editAllAccInfoProps>,
+                formState: formState as FormState<editAllAccInfoProps>,
+                trigger: trigger as UseFormTrigger<editAllAccInfoProps>
+              }}
               data-testid="EditAllAccInfoNewPassword"
-              {...register("userData.new_password")}
+              autoComplete="new-password"
+              type="password"
+              maxLength={16}
             />
           </div>
           <div className="flex w-[100%] flex-col">
-            {errors.userData?.new_phone?.message != null && (
-              <span className="text-error text-left">
-                {errors.userData?.new_phone?.message}
-              </span>
-            )}
-            <S.InputField
-              type="tel"
+            <FormInput
               placeholder="New Phone"
-              maxLength={11}
+              inputLabel="new_phone"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<editAllAccInfoProps>,
+                register: register as UseFormRegister<editAllAccInfoProps>,
+                formState: formState as FormState<editAllAccInfoProps>,
+                trigger: trigger as UseFormTrigger<editAllAccInfoProps>
+              }}
               data-testid="EditAllAccInfoNewPhone"
-              {...register("userData.new_phone")}
+              type="tel"
+              pattern="^[0-9]+$"
+              maxLength={11}
             />
           </div>
         </div>
-        {errors.userData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          maxLength={16}
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<editAllAccInfoProps>,
+            register: register as UseFormRegister<editAllAccInfoProps>,
+            formState: formState as FormState<editAllAccInfoProps>,
+            trigger: trigger as UseFormTrigger<editAllAccInfoProps>
+          }}
           data-testid="EditAllAccInfoPassword"
-          {...register("userData.password")}
+          autoComplete="current-password"
+          type="password"
+          maxLength={16}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="EditAllAccInfoButton">
           {isLoading ? "Changing..." : "Change"}

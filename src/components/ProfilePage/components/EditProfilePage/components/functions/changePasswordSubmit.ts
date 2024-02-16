@@ -1,6 +1,7 @@
 import axios from "axios";
 import { type changePasswordProps } from "../schemas";
 import { handleError, jsonUserParser } from "@/functions";
+import { API_BASE_URL, UPDATE_PASSWORD_ENDPOINT } from "@/utils/apiPaths";
 
 export interface changePasswordResponseProps {
   success: boolean;
@@ -14,13 +15,8 @@ export default async function changePasswordSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_UPDATE_PASSWORD_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.patch(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_UPDATE_PASSWORD_ENDPOINT}`,
+    const response = await axios.patch(`${API_BASE_URL}${UPDATE_PASSWORD_ENDPOINT}`,
       {
         new_password: userData.new_password,
         password: userData.password,

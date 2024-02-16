@@ -1,45 +1,43 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-
-import { PrivateRoutes } from "../helpers";
+import { PrivateRoutes } from "@/helpers";
 import {
   ErrorPage,
   Layout
-} from "../components";
+} from "@/components";
 import {
   Home,
   Register,
   About,
   Profile
-} from "../pages";
-
-const {
-  VITE_REACT_APP_ROOT,
-  VITE_REACT_APP_LOGIN,
-  VITE_REACT_APP_REGISTER,
-  VITE_REACT_APP_HOME,
-  VITE_REACT_APP_WITHDRAW,
-  VITE_REACT_APP_DEPOSIT,
-  VITE_REACT_APP_PIX,
-  VITE_REACT_APP_PROFILE,
-  VITE_REACT_APP_CREDIT_PAYMENT,
-  VITE_REACT_APP_DETAIL_TRANSACTION,
-  VITE_REACT_APP_CARD_UPDATE,
-  VITE_REACT_APP_DELETE_USER,
-  VITE_REACT_APP_UPDATE_PHONE,
-  VITE_REACT_APP_UPDATE_EMAIL,
-  VITE_REACT_APP_ABOUT,
-  VITE_REACT_APP_UPDATE_PASSWORD,
-  VITE_REACT_APP_UPDATE_ALL,
-  VITE_REACT_APP_UPDATE,
-  VITE_REACT_APP_CARD,
-  VITE_REACT_APP_CARD_TRANSACTION,
-  VITE_REACT_APP_CARD_CREATE
-} = import.meta.env;
+} from "@/pages";
+import {
+  ROOT,
+  LOGIN,
+  REGISTER,
+  HOME,
+  WITHDRAW,
+  DEPOSIT,
+  PIX,
+  PROFILE,
+  CREDIT_PAYMENT,
+  DETAIL_TRANSACTION,
+  CARD_UPDATE,
+  DELETE_USER,
+  UPDATE_PHONE,
+  UPDATE_EMAIL,
+  ABOUT,
+  UPDATE_PASSWORD,
+  UPDATE_ALL,
+  UPDATE,
+  CARD,
+  CARD_TRANSACTION,
+  CARD_CREATE
+} from "@/utils/routerPaths";
 
 const router = createBrowserRouter([
   {
-    path: VITE_REACT_APP_ROOT,
-    element: <Navigate to={VITE_REACT_APP_LOGIN} replace />,
+    path: ROOT,
+    element: <Navigate to={LOGIN} replace />,
     errorElement: <ErrorPage />,
   },
   {
@@ -49,83 +47,83 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
           {
-            path: VITE_REACT_APP_HOME,
+            path: HOME,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_DETAIL_TRANSACTION,
+            path: DETAIL_TRANSACTION,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_WITHDRAW,
+            path: WITHDRAW,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_DEPOSIT,
+            path: DEPOSIT,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_CARD,
+            path: CARD,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_CARD_CREATE,
+            path: CARD_CREATE,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_CREDIT_PAYMENT,
+            path: CREDIT_PAYMENT,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_CARD_UPDATE,
+            path: CARD_UPDATE,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_CARD_TRANSACTION,
+            path: CARD_TRANSACTION,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_PIX,
+            path: PIX,
             element: <Home />
           },
           {
-            path: VITE_REACT_APP_ABOUT,
+            path: ABOUT,
             element: <About />
           },
           {
-            path: VITE_REACT_APP_PROFILE,
+            path: PROFILE,
             element: <Profile />,
           },
           {
-            path: VITE_REACT_APP_UPDATE,
+            path: UPDATE,
             element: <Profile />
           },
           {
-            path: VITE_REACT_APP_UPDATE_ALL,
+            path: UPDATE_ALL,
             element: <Profile />
           },
           {
-            path: VITE_REACT_APP_UPDATE_EMAIL,
+            path: UPDATE_EMAIL,
             element: <Profile />
           },
           {
-            path: VITE_REACT_APP_UPDATE_PASSWORD,
+            path: UPDATE_PASSWORD,
             element: <Profile />
           },
           {
-            path: VITE_REACT_APP_UPDATE_PHONE,
+            path: UPDATE_PHONE,
             element: <Profile />
           },
           {
-            path: VITE_REACT_APP_DELETE_USER,
+            path: DELETE_USER,
             element: <Profile />
           },
         ]
       },
     ]
   },
-  { path: VITE_REACT_APP_REGISTER, element: <Register /> },
-  { path: VITE_REACT_APP_LOGIN, element: <Register /> },
+  { path: REGISTER, element: <Register /> },
+  { path: LOGIN, element: <Register /> },
 ]);
 
 export default router;

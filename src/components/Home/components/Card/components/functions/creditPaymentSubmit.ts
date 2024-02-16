@@ -1,10 +1,10 @@
 import axios from "axios";
-
 import { type creditPaymentProps } from "../schemas";
 import { handleError, jsonUserParser } from "@/functions";
 import { cardDetailSubmit } from "./cardDetailSubmit";
 import { getHistory } from "../../../functions";
 import { type TransactionData } from "@/types";
+import { API_BASE_URL, CREDIT_PAYMENT_ENDPOINT } from "@/utils/apiPaths";
 
 export interface creditPaymentResponseProps {
   success: boolean;
@@ -19,13 +19,8 @@ export default async function creditPaymentSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_CREDIT_PAYMENT_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.post(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_CREDIT_PAYMENT_ENDPOINT}`,
+    const response = await axios.post(`${API_BASE_URL}${CREDIT_PAYMENT_ENDPOINT}`,
       {
         password: cardData.password,
         value: cardData.value

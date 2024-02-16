@@ -7,29 +7,28 @@ import {
   CardUpdate,
   CardCreate
 } from "./components";
+import {
+  CREDIT_PAYMENT,
+  CARD_UPDATE,
+  CARD,
+  CARD_TRANSACTION,
+  CARD_CREATE
+} from "@/utils/routerPaths";
 
 export default function MainCard(): ReactElement {
   const { pathname } = useLocation();
 
-  const {
-    VITE_REACT_APP_CREDIT_PAYMENT,
-    VITE_REACT_APP_CARD_UPDATE,
-    VITE_REACT_APP_CARD,
-    VITE_REACT_APP_CARD_TRANSACTION,
-    VITE_REACT_APP_CARD_CREATE
-  } = import.meta.env;
-
   const handleFormType = (currPath: string): ReactElement => {
     switch (currPath) {
-      case VITE_REACT_APP_CARD:
+      case CARD:
         return <CardDetail />;
-      case VITE_REACT_APP_CREDIT_PAYMENT:
+      case CREDIT_PAYMENT:
         return <CreditPayment />;
-      case VITE_REACT_APP_CARD_TRANSACTION:
+      case CARD_TRANSACTION:
         return <CardTransaction />;
-      case VITE_REACT_APP_CARD_UPDATE:
+      case CARD_UPDATE:
         return <CardUpdate />;
-      case VITE_REACT_APP_CARD_CREATE:
+      case CARD_CREATE:
         return <CardCreate />;
       default:
         return <CardDetail />;

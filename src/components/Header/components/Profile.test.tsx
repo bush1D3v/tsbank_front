@@ -14,10 +14,7 @@ import {
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { handleLinkClick } from "@/functions";
 import Profile from "./Profile";
-
-const {
-  VITE_REACT_APP_PROFILE
-} = import.meta.env;
+import { PROFILE } from "@/utils/routerPaths";
 
 const ProfileTestId: string = "Profile";
 const ProfileIconTestId: string = "ProfileIcon";
@@ -49,7 +46,7 @@ describe("Profile component tests", () => {
   test("Should be able to fire event", () => {
     fireEvent.click(screen.getByTestId(ProfileTestId));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_PROFILE);
+    expect(handleLinkClick).toHaveBeenCalledWith(PROFILE);
   });
 
   test("Should be able to render the component with the correctly Icon", () => {

@@ -1,29 +1,33 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { depositSubmit } from "./functions";
 import { type depositProps, depositSchema } from "./schemas";
 import { balanceStringify, jsonUserParser } from "@/functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { HOME } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function Deposit(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_HOME
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<depositProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -56,7 +60,7 @@ export default function Deposit(): ReactElement {
         });
       }
       setIsLoading(false);
-      navigate(VITE_REACT_APP_HOME);
+      navigate(HOME);
     }
   };
 
@@ -79,45 +83,48 @@ export default function Deposit(): ReactElement {
         Insert Deposit
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.transactionData?.email?.message != null && (
-          <span className="text-error -mb-7 -mt-5 text-left">
-            {errors.transactionData?.email?.message}
-          </span>
-        )}
-        <S.InputField
-          type="email"
+        <FormInput
           placeholder="Email"
-          maxLength={70}
+          inputLabel="email"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<depositProps>,
+            register: register as UseFormRegister<depositProps>,
+            formState: formState as FormState<depositProps>,
+            trigger: trigger as UseFormTrigger<depositProps>
+          }}
           data-testid="DepositEmail"
-          {...register("transactionData.email")}
+          type="email"
+          autoComplete="email"
+          maxLength={75}
         />
-        {errors.transactionData?.value?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.transactionData?.value?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
-          pattern="\d+([,.]\d{0,2})?"
+        <FormInput
           placeholder="Value"
+          inputLabel="value"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<depositProps>,
+            register: register as UseFormRegister<depositProps>,
+            formState: formState as FormState<depositProps>,
+            trigger: trigger as UseFormTrigger<depositProps>
+          }}
+          type="text"
+          minLength={1}
+          autoComplete="transaction-amount"
+          pattern="^[\d.]+$"
           data-testid="DepositValue"
-          {...register("transactionData.value", {
-            setValueAs: (value) => {
-              return value.replace(/,/g, ".");
-            },
-          })}
         />
-        {errors.transactionData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.transactionData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          maxLength={16}
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<depositProps>,
+            register: register as UseFormRegister<depositProps>,
+            formState: formState as FormState<depositProps>,
+            trigger: trigger as UseFormTrigger<depositProps>
+          }}
           data-testid="DepositPassword"
-          {...register("transactionData.password")}
+          autoComplete="current-password"
+          type="password"
+          maxLength={16}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="DepositButton">
           {isLoading ? "Depositing..." : "Deposit"}

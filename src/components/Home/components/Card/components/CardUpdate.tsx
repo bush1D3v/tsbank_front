@@ -1,28 +1,32 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { type cardUpdateProps, cardUpdateSchema } from "./schemas";
 import { cardUpdateSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { CARD } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function CardUpdate(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_CARD
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<cardUpdateProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -46,7 +50,7 @@ export default function CardUpdate(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(VITE_REACT_APP_CARD);
+      navigate(CARD);
     }
   };
 
@@ -69,47 +73,53 @@ export default function CardUpdate(): ReactElement {
         Update Card Password
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.cardData?.card_type?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.card_type?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
+        <FormInput
           placeholder="Card Type"
-          pattern="^(credit|debit|Credit|Debit)$"
+          inputLabel="card_type"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardUpdateProps>,
+            register: register as UseFormRegister<cardUpdateProps>,
+            formState: formState as FormState<cardUpdateProps>,
+            trigger: trigger as UseFormTrigger<cardUpdateProps>
+          }}
+          data-testid="CardUpdateType"
+          autoComplete="off"
+          type="text"
           maxLength={6}
           minLength={5}
-          data-testid="CardUpdateType"
-          {...register("cardData.card_type")}
+          pattern="^(credit|debit|Credit|Debit)$"
         />
-        {errors.cardData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          pattern="^[0-9]+$"
-          maxLength={6}
-          minLength={4}
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardUpdateProps>,
+            register: register as UseFormRegister<cardUpdateProps>,
+            formState: formState as FormState<cardUpdateProps>,
+            trigger: trigger as UseFormTrigger<cardUpdateProps>
+          }}
           data-testid="CardUpdatePassword"
-          {...register("cardData.password")}
-        />
-        {errors.cardData?.new_password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.new_password?.message}
-          </span>
-        )}
-        <S.InputField
+          autoComplete="current-password"
           type="password"
-          placeholder="New Password"
-          pattern="^[0-9]+$"
           maxLength={6}
           minLength={4}
+          pattern="^[0-9]+$"
+        />
+        <FormInput
+          placeholder="New Password"
+          inputLabel="new_password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardUpdateProps>,
+            register: register as UseFormRegister<cardUpdateProps>,
+            formState: formState as FormState<cardUpdateProps>,
+            trigger: trigger as UseFormTrigger<cardUpdateProps>
+          }}
           data-testid="CardUpdateNewPassword"
-          {...register("cardData.new_password")}
+          autoComplete="new-password"
+          type="password"
+          maxLength={6}
+          minLength={4}
+          pattern="^[0-9]+$"
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="CardUpdateButton">
           {isLoading ? "Updating..." : "Update"}

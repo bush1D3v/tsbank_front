@@ -7,7 +7,6 @@ const FormWrapper = styled.form`
   justify-content: space-evenly;
   width: 90%;
   text-align: center;
-  background-color: var(--background);
   border-radius: 40px;
   gap: 20px;
 

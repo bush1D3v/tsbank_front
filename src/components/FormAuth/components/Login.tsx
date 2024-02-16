@@ -1,13 +1,24 @@
-import { useState, type ReactElement, useContext } from "react";
-import { useForm } from "react-hook-form";
+import {
+  useState,
+  type ReactElement,
+  useContext
+} from "react";
+import {
+  type UseFormRegister,
+  type UseFormHandleSubmit,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-
 import { type loginProps, schemaLoginForm } from "./schemas";
 import { loginSubmit } from "./functions";
 import { UserDataContext } from "@/contexts";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import FormInput from "@/components/FormInput";
+import { REGISTER, HOME } from "@/utils/routerPaths";
 
 export default function Login(): ReactElement {
   const [ error, setError ] = useState<string>("");
@@ -16,17 +27,13 @@ export default function Login(): ReactElement {
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
   const [ isSuccess, setIsSuccess ] = useState<boolean>(true);
 
-  const {
-    VITE_REACT_APP_REGISTER,
-    VITE_REACT_APP_HOME
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<loginProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -56,10 +63,8 @@ export default function Login(): ReactElement {
       sessionStorage.setItem("isLoggedIn", "true");
       sessionStorage.setItem("userData", JSON.stringify(result.userData));
       setIsUserLoggedIn(true);
-
       setIsLoading(false);
-
-      navigate(VITE_REACT_APP_HOME);
+      navigate(HOME);
     }
   };
 
@@ -76,42 +81,46 @@ export default function Login(): ReactElement {
         btnMessage="Try again"
       />
       <h2
-        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10"
+        className="font-bold text-2xl lg:text-3xl xl:text-4xl pt-10 -mb-2"
         data-testid="SubtitleLogin"
       >
         Sign in
       </h2>
       <div className="flex py-7 gap-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.email?.message != null && (
-          <span className="text-error -mb-7 text-left -mt-5">
-            {errors.userData?.email?.message}
-          </span>
-        )}
-        <S.InputField
-          type="email"
+        <FormInput
           placeholder="Email"
-          maxLength={70}
+          inputLabel="email"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<loginProps>,
+            register: register as UseFormRegister<loginProps>,
+            formState: formState as FormState<loginProps>,
+            trigger: trigger as UseFormTrigger<loginProps>
+          }}
           data-testid="EmailLogin"
-          {...register("userData.email")}
+          type="email"
+          autoComplete="email"
+          maxLength={75}
         />
-        {errors.userData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-3 text-left">
-            {errors.userData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          maxLength={16}
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<loginProps>,
+            register: register as UseFormRegister<loginProps>,
+            formState: formState as FormState<loginProps>,
+            trigger: trigger as UseFormTrigger<loginProps>
+          }}
           data-testid="PasswordLogin"
-          {...register("userData.password")}
+          type="password"
+          autoComplete="current-password"
+          maxLength={16}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="ButtonLogin">
           {isLoading ? "Logging in..." : "Login"}
         </S.Button>
       </div>
       <span className="text-lg" data-testid="SpanLogin">
-        Don't have an account? <Link to={VITE_REACT_APP_REGISTER}><u className="hover:text-darkBlue transition-colors">Sign up</u></Link>
+        Don't have an account? <Link to={REGISTER}><u className="hover:text-darkBlue transition-colors">Sign up</u></Link>
       </span>
     </S.FormWrapper>
   );

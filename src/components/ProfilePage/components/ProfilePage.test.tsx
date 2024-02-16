@@ -14,6 +14,7 @@ import {
 import { type UserData } from "@/types";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { handleLinkClick, logoutClick } from "@/functions";
+import { UPDATE, LOGIN } from "@/utils/routerPaths";
 import ProfilePage from "./ProfilePage";
 
 const emailData: string = "testAccount@gmail.com";
@@ -31,11 +32,6 @@ const userData: UserData = {
   },
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzUsImlhdCI6MTcwNTg3NjUxNywiZXhwIjoxNzA1OTYyOTE3fQ.Ixaq8aiAQEKHYpAkpNXnw0WZebNAbU8_fIS1Z2pYEss"
 };
-
-const {
-  VITE_REACT_APP_UPDATE,
-  VITE_REACT_APP_LOGIN
-} = import.meta.env;
 
 const TableTestId: string = "Table";
 const ProfilePageTestId: string = "ProfilePage";
@@ -105,7 +101,7 @@ describe("ProfilePage component tests", () => {
   test("Should be able to fire event the UpdateProfileListItem", () => {
     fireEvent.click(screen.getByTestId(ProfilePageListItemEditProfile));
 
-    expect(handleLinkClick).toHaveBeenCalledWith(VITE_REACT_APP_UPDATE);
+    expect(handleLinkClick).toHaveBeenCalledWith(UPDATE);
   });
 
   test("Should be able to render the UpdateProfileListItem with the correctly text", () => {
@@ -119,7 +115,7 @@ describe("ProfilePage component tests", () => {
   test("Should be able to fire event the LogoutListItem", () => {
     fireEvent.click(screen.getByTestId(ProfilePageListItemLogout));
 
-    expect(logoutClick).toHaveBeenCalledWith(VITE_REACT_APP_LOGIN);
+    expect(logoutClick).toHaveBeenCalledWith(LOGIN);
   });
 
   test("Should be able to render the LogoutListItem with the correctly text", () => {

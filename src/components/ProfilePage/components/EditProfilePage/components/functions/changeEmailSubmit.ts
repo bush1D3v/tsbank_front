@@ -5,6 +5,7 @@ import {
   jsonUserParser,
   sessionStorageStringify
 } from "@/functions";
+import { API_BASE_URL, UPDATE_EMAIL_ENDPOINT } from "@/utils/apiPaths";
 
 export interface changeEmailResponseProps {
   success: boolean;
@@ -18,13 +19,8 @@ export default async function changeEmailSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_UPDATE_EMAIL_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.patch(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_UPDATE_EMAIL_ENDPOINT}`,
+    const response = await axios.patch(`${API_BASE_URL}${UPDATE_EMAIL_ENDPOINT}`,
       {
         new_email: userData.new_email,
         password: userData.password,

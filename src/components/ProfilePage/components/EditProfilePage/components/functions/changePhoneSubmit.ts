@@ -5,6 +5,7 @@ import {
   jsonUserParser,
   sessionStorageStringify
 } from "@/functions";
+import { API_BASE_URL, UPDATE_PHONE_ENDPOINT } from "@/utils/apiPaths";
 
 export interface changePhoneResponseProps {
   success: boolean;
@@ -18,13 +19,8 @@ export default async function changePhoneSubmit(
 
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_UPDATE_PHONE_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.patch(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_UPDATE_PHONE_ENDPOINT}`,
+    const response = await axios.patch(`${API_BASE_URL}${UPDATE_PHONE_ENDPOINT}`,
       {
         new_phone: userData.new_phone,
         password: userData.password,

@@ -1,5 +1,6 @@
 import { type ReactElement } from "react";
 import { Link, useRouteError } from "react-router-dom";
+import { HOME } from "@/utils/routerPaths";
 
 /* Interface criada para exibir componente na documentação Storybook, sem forçar um valor
 aleatório diretamente no componente, adicionando algo como "|| { status: 404 }" */
@@ -12,10 +13,6 @@ export default function ErrorPage({ error }: ErrorPageStorybookProps): ReactElem
 
   const { status } = routeError || error;
 
-  const {
-    VITE_REACT_APP_HOME
-  } = import.meta.env;
-
   return (
     <main className="w-screen h-screen flex flex-col items-center justify-center gap-8 text-center animate-fade animate-duration-500 animate-ease-in-out"
       data-testid="ErrorPage">
@@ -25,7 +22,7 @@ export default function ErrorPage({ error }: ErrorPageStorybookProps): ReactElem
         In the meantime, check out our amazing resources! 🚀🌟
       </p>
       <p className="text-6xl md:text-7xl lg:text-8xl font-bold">{status}</p>
-      <Link data-testid="ErrorPageLink" to={VITE_REACT_APP_HOME}>
+      <Link data-testid="ErrorPageLink" to={HOME}>
         <button className="rounded-3xl bg-whiteBlue text-lg md:text-xl py-4 md:py-5
         lg:py-6 px-8 md:px-10 lg:px-12 font-bold hover:text-purple transition-all"
           type="button">

@@ -1,29 +1,33 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { balanceStringify, jsonUserParser } from "@/functions";
 import { type cardTransactionProps, cardTransactionSchema } from "./schemas";
 import { cardTransactionSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { CARD } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function CardTransaction(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_CARD
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<cardTransactionProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -56,7 +60,7 @@ export default function CardTransaction(): ReactElement {
         });
       }
       setIsLoading(false);
-      navigate(VITE_REACT_APP_CARD);
+      navigate(CARD);
     }
   };
 
@@ -79,49 +83,52 @@ export default function CardTransaction(): ReactElement {
         Card Transaction
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.cardData?.card_type?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.card_type?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
+        <FormInput
           placeholder="Card Type"
+          inputLabel="card_type"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardTransactionProps>,
+            register: register as UseFormRegister<cardTransactionProps>,
+            formState: formState as FormState<cardTransactionProps>,
+            trigger: trigger as UseFormTrigger<cardTransactionProps>
+          }}
+          data-testid="CardTransactionType"
+          autoComplete="off"
+          type="text"
           maxLength={6}
           minLength={5}
-          data-testid="CardTransactionType"
           pattern="^(credit|debit|Credit|Debit)$"
-          {...register("cardData.card_type")}
         />
-        {errors.cardData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          pattern="^[0-9]+$"
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardTransactionProps>,
+            register: register as UseFormRegister<cardTransactionProps>,
+            formState: formState as FormState<cardTransactionProps>,
+            trigger: trigger as UseFormTrigger<cardTransactionProps>
+          }}
+          data-testid="CardTransactionPassword"
+          autoComplete="current-password"
+          type="password"
           maxLength={6}
           minLength={4}
-          data-testid="CardTransactionPassword"
-          {...register("cardData.password")}
+          pattern="^[0-9]+$"
         />
-        {errors.cardData?.value?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.value?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
-          pattern="\d+([,.]\d{0,2})?"
+        <FormInput
           placeholder="Value"
+          inputLabel="value"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardTransactionProps>,
+            register: register as UseFormRegister<cardTransactionProps>,
+            formState: formState as FormState<cardTransactionProps>,
+            trigger: trigger as UseFormTrigger<cardTransactionProps>
+          }}
           data-testid="CardTransactionValue"
-          {...register("cardData.value", {
-            setValueAs: (value) => {
-              return value.replace(/,/g, ".");
-            },
-          })}
+          autoComplete="transaction-amount"
+          type="text"
+          minLength={1}
+          pattern="^[0-9]+$"
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="CardTransactionButton">
           {isLoading ? "Making..." : "Make"}

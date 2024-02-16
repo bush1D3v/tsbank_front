@@ -1,7 +1,7 @@
 # 🏦 TSBANK
 
 ![License](https://img.shields.io/static/v1?label=license&message=MIT&color=orange) &nbsp;
-![Yarn version](https://img.shields.io/static/v1?label=yarn&message=v1.22.21&color=yellow) &nbsp;
+![Bun version](https://img.shields.io/static/v1?label=bun&message=v1.0.26&color=yellow) &nbsp;
 ![Repository size](https://img.shields.io/github/repo-size/bush1D3v/tsbank_front?color=green) &nbsp;
 ![Pull request](https://img.shields.io/static/v1?label=PR&message=welcome&color=blue)
 
@@ -40,7 +40,7 @@ O projeto segue os princípios da **arquitetura limpa** e o código foi organiza
 
 ## 📃 Documentação da Aplicação
 
-A seguir, temos o link da documentação Front-end feita a partir do Storybook: https://tsbank-storybook.vercel.app/
+A seguir, temos o link da documentação Front-end feita a partir do Storybook: <https://tsbank-storybook.vercel.app/>
 
 ## 🐳 Docker
 

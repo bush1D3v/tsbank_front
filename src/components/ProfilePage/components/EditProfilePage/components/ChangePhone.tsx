@@ -1,28 +1,32 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { type changePhoneProps, changePhoneSchema } from "./schemas";
 import { changePhoneSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { PROFILE } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function ChangePhone(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_PROFILE
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<changePhoneProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -45,7 +49,7 @@ export default function ChangePhone(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(VITE_REACT_APP_PROFILE);
+      navigate(PROFILE);
     }
   };
 
@@ -68,29 +72,33 @@ export default function ChangePhone(): ReactElement {
         Change Your Phone
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.userData?.new_phone?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.new_phone?.message}
-          </span>
-        )}
-        <S.InputField
-          type="tel"
+        <FormInput
           placeholder="New Phone"
-          maxLength={11}
+          inputLabel="new_phone"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<changePhoneProps>,
+            register: register as UseFormRegister<changePhoneProps>,
+            formState: formState as FormState<changePhoneProps>,
+            trigger: trigger as UseFormTrigger<changePhoneProps>
+          }}
           data-testid="ChangePhoneNewPhone"
-          {...register("userData.new_phone")}
+          autoComplete="tel"
+          type="tel"
+          maxLength={11}
         />
-        {errors.userData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.userData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
-          maxLength={16}
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<changePhoneProps>,
+            register: register as UseFormRegister<changePhoneProps>,
+            formState: formState as FormState<changePhoneProps>,
+            trigger: trigger as UseFormTrigger<changePhoneProps>
+          }}
           data-testid="ChangePhonePassword"
-          {...register("userData.password")}
+          autoComplete="current-password"
+          type="password"
+          maxLength={16}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="ChangePhoneButton">
           {isLoading ? "Changing..." : "Change"}

@@ -1,6 +1,6 @@
 import axios from "axios";
-
 import { handleError, jsonUserParser } from "@/functions";
+import { API_BASE_URL, DETAIL_TRANSACTION_ENDPOINT } from "@/utils/apiPaths";
 
 export interface SummaryData {
   id: number;
@@ -21,13 +21,8 @@ export interface SummaryResponseProps {
 export async function transactionDetailSubmit(id: string): Promise<SummaryResponseProps> {
   const { token } = jsonUserParser(sessionStorage.getItem("userData"));
 
-  const {
-    VITE_REACT_APP_API_BASE_URL,
-    VITE_REACT_APP_DETAIL_TRANSACTION_ENDPOINT
-  } = import.meta.env;
-
   try {
-    const response = await axios.get(`${VITE_REACT_APP_API_BASE_URL}${VITE_REACT_APP_DETAIL_TRANSACTION_ENDPOINT}/${id}`,
+    const response = await axios.get(`${API_BASE_URL}${DETAIL_TRANSACTION_ENDPOINT}/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

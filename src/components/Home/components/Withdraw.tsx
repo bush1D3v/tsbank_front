@@ -1,29 +1,33 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { withdrawSubmit } from "./functions";
 import { type withdrawProps, withdrawSchema } from "./schemas";
 import { balanceStringify, jsonUserParser } from "@/functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { HOME } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function Withdraw(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_HOME
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<withdrawProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -53,7 +57,7 @@ export default function Withdraw(): ReactElement {
         arithmeticOperator: "-"
       });
       setIsLoading(false);
-      navigate(VITE_REACT_APP_HOME);
+      navigate(HOME);
     }
   };
 
@@ -76,33 +80,33 @@ export default function Withdraw(): ReactElement {
         Make Withdraw
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.transactionData?.value?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.transactionData?.value?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
-          pattern="\d+([,.]\d{0,2})?"
+        <FormInput
           placeholder="Value"
+          inputLabel="value"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<withdrawProps>,
+            register: register as UseFormRegister<withdrawProps>,
+            formState: formState as FormState<withdrawProps>,
+            trigger: trigger as UseFormTrigger<withdrawProps>
+          }}
+          type="text"
+          minLength={1}
+          autoComplete="transaction-amount"
+          pattern="^[\d.]+$"
           data-testid="WithdrawValue"
-          {...register("transactionData.value", {
-            setValueAs: (value) => {
-              return value.replace(/,/g, ".");
-            },
-          })}
         />
-        {errors.transactionData?.password?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.transactionData?.password?.message}
-          </span>
-        )}
-        <S.InputField
-          type="password"
+        <FormInput
           placeholder="Password"
+          inputLabel="password"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<withdrawProps>,
+            register: register as UseFormRegister<withdrawProps>,
+            formState: formState as FormState<withdrawProps>,
+            trigger: trigger as UseFormTrigger<withdrawProps>
+          }}
           maxLength={16}
+          type="password"
           data-testid="WithdrawPassword"
-          {...register("transactionData.password")}
         />
         <S.Button type="submit" disabled={!!isLoading} data-testid="WithdrawButton">
           {isLoading ? "Withdrawing..." : "Withdraw"}

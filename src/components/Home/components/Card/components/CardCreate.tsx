@@ -1,28 +1,32 @@
 import { useState, type ReactElement } from "react";
-import { useForm } from "react-hook-form";
+import {
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormTrigger,
+  type FormState,
+  useForm
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
 import { type cardCreateProps, cardCreateSchema } from "./schemas";
 import { cardCreateSubmit } from "./functions";
 import * as S from "@/components/Styleds";
 import Modal from "@/components/Modal";
+import { CARD } from "@/utils/routerPaths";
+import FormInput from "@/components/FormInput";
 
 export default function CardCreate(): ReactElement {
   const [ error, setError ] = useState<string>("");
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false);
 
-  const {
-    VITE_REACT_APP_CARD
-  } = import.meta.env;
-
   const navigate = useNavigate();
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState,
+    trigger
   } = useForm<cardCreateProps>({
     criteriaMode: "all",
     mode: "onSubmit",
@@ -49,7 +53,7 @@ export default function CardCreate(): ReactElement {
       setIsModalOpen(!isModalOpen);
     } else {
       setIsLoading(false);
-      navigate(VITE_REACT_APP_CARD);
+      navigate(CARD);
     }
   };
 
@@ -72,98 +76,111 @@ export default function CardCreate(): ReactElement {
         Create Your Card
       </h2>
       <div className="flex gap-7 py-7 flex-col w-11/12 lg:w-3/4">
-        {errors.cardData?.cardholder_name?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.cardholder_name?.message}
-          </span>
-        )}
-        <S.InputField
+        <FormInput
+          placeholder="Cardholder name"
+          inputLabel="cardholder_name"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardCreateProps>,
+            register: register as UseFormRegister<cardCreateProps>,
+            formState: formState as FormState<cardCreateProps>,
+            trigger: trigger as UseFormTrigger<cardCreateProps>
+          }}
+          data-testid="CardCreateName"
+          autoComplete="cc-name"
           type="text"
-          placeholder="Cardholder Name"
           pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:\s[a-zA-ZÀ-ÖØ-öø-ÿ]+)*$"
           minLength={10}
-          data-testid="CardCreateName"
-          {...register("cardData.cardholder_name")}
+          maxLength={75}
         />
         <div className="flex gap-7">
           <div className="flex w-[100%] flex-col">
-            {errors.cardData?.card_number?.message != null && (
-              <span className="text-error text-left">
-                {errors.cardData?.card_number?.message}
-              </span>
-            )}
-            <S.InputField
-              type="text"
+            <FormInput
               placeholder="Card Number"
-              minLength={16}
-              maxLength={16}
-              pattern="^[0-9]+$"
+              inputLabel="card_number"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<cardCreateProps>,
+                register: register as UseFormRegister<cardCreateProps>,
+                formState: formState as FormState<cardCreateProps>,
+                trigger: trigger as UseFormTrigger<cardCreateProps>
+              }}
               data-testid="CardCreateNumber"
-              {...register("cardData.card_number")}
+              autoComplete="cc-number"
+              type="text"
+              pattern="^[0-9]+$"
+              maxLength={16}
+              minLength={16}
             />
           </div>
           <div className="flex w-[100%] flex-col">
-            {errors.cardData?.cvv?.message != null && (
-              <span className="text-error text-left">
-                {errors.cardData?.cvv?.message}
-              </span>
-            )}
-            <S.InputField
-              type="text"
+            <FormInput
               placeholder="CVV"
+              inputLabel="cvv"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<cardCreateProps>,
+                register: register as UseFormRegister<cardCreateProps>,
+                formState: formState as FormState<cardCreateProps>,
+                trigger: trigger as UseFormTrigger<cardCreateProps>
+              }}
+              data-testid="CardCreateCvv"
+              autoComplete="cc-csc"
+              type="text"
+              pattern="^[0-9]{1,3}$"
               maxLength={3}
               minLength={3}
-              pattern="^[0-9]{1,3}$"
-              data-testid="CardCreateCvv"
-              {...register("cardData.cvv")}
             />
           </div>
         </div>
-        {errors.cardData?.expiration_date?.message != null && (
-          <span className="text-error -mb-7 -mt-2 text-left">
-            {errors.cardData?.expiration_date?.message}
-          </span>
-        )}
-        <S.InputField
-          type="text"
+        <FormInput
           placeholder="Expiration Date (mm/yy)"
-          pattern="^(0[1-9]|1[0-2])/(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$"
-          maxLength={5}
-          minLength={5}
+          inputLabel="expiration_date"
+          formMethods={{
+            handleSubmit: handleSubmit as UseFormHandleSubmit<cardCreateProps>,
+            register: register as UseFormRegister<cardCreateProps>,
+            formState: formState as FormState<cardCreateProps>,
+            trigger: trigger as UseFormTrigger<cardCreateProps>
+          }}
           data-testid="CardCreateExpiration"
-          {...register("cardData.expiration_date")}
+          autoComplete="cc-exp"
+          type="text"
+          pattern="^(0[1-9]|1[0-2])/(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])$"
+          maxLength={6}
+          minLength={5}
         />
         <div className="flex gap-7">
           <div className="flex w-[100%] flex-col">
-            {errors.cardData?.password?.message != null && (
-              <span className="text-error text-left">
-                {errors.cardData?.password?.message}
-              </span>
-            )}
-            <S.InputField
-              type="password"
+            <FormInput
               placeholder="Password"
-              maxLength={4}
-              minLength={6}
-              pattern="^[0-9]+$"
+              inputLabel="password"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<cardCreateProps>,
+                register: register as UseFormRegister<cardCreateProps>,
+                formState: formState as FormState<cardCreateProps>,
+                trigger: trigger as UseFormTrigger<cardCreateProps>
+              }}
               data-testid="CardCreatePassword"
-              {...register("cardData.password")}
+              autoComplete="new-password"
+              type="password"
+              maxLength={6}
+              minLength={4}
+              pattern="^[0-9]+$"
             />
           </div>
           <div className="flex w-[100%] flex-col">
-            {errors.cardData?.card_type?.message != null && (
-              <span className="text-error text-left">
-                {errors.cardData?.card_type?.message}
-              </span>
-            )}
-            <S.InputField
-              type="text"
+            <FormInput
               placeholder="Card Type"
+              inputLabel="card_type"
+              formMethods={{
+                handleSubmit: handleSubmit as UseFormHandleSubmit<cardCreateProps>,
+                register: register as UseFormRegister<cardCreateProps>,
+                formState: formState as FormState<cardCreateProps>,
+                trigger: trigger as UseFormTrigger<cardCreateProps>
+              }}
               data-testid="CardCreateType"
+              autoComplete="off"
+              type="text"
               maxLength={6}
               minLength={5}
               pattern="^(credit|debit|Credit|Debit)$"
-              {...register("cardData.card_type")}
             />
           </div>
         </div>

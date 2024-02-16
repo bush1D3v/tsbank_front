@@ -11,13 +11,13 @@
     "storybook": "storybook dev -p 6006",
     "vitest": "vitest",
     "docker-build": "docker build -t tsbank_front .",
-    "docker-start": "docker run -d --name tsbank_front -p 3000:3000 tsbank_front || docker start tsbank_front",
+    "docker-start": "docker run --name tsbank_front -p 3000:3000 tsbank_front || docker start tsbank_front",
     "docker-stop": "docker stop tsbank_front",
-    "docker-test": "docker run --rm --name tsbank_front_tests -it tsbank_front yarn vitest",
-    "docker-stb": "docker run --rm --name tsbank_front_stb -p 6006:6006 -it tsbank_front yarn storybook"
+    "docker-test": "docker run --rm --name tsbank_front_tests -it tsbank_front bun vitest",
+    "docker-stb": "docker run --rm --name tsbank_front_stb -p 6006:6006 -it tsbank_front bun storybook"
   },
   "keywords": [
-    "yarn",
+    "bun",
     "react",
     "vite",
     "html",

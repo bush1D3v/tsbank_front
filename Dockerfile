@@ -1,16 +1,16 @@
-FROM node:21-alpine
+FROM oven/bun:1
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json bun.lockb ./
 
-RUN yarn install
+RUN bun install
 
 COPY . .
 
-RUN yarn build
-RUN yarn build-storybook
+RUN bun run build
+RUN bun run build-storybook
 
 EXPOSE 3000 6006
 
-CMD ["yarn", "dev"]
+CMD ["bun", "run", "dev"]

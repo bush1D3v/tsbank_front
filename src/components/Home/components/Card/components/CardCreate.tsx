@@ -93,7 +93,7 @@ export default function CardCreate(): ReactElement {
           maxLength={75}
         />
         <div className="flex gap-7">
-          <div className="flex w-[100%] flex-col">
+          <div className="flex w-[100%] flex-col gap-7">
             <FormInput
               placeholder="Card Number"
               inputLabel="card_number"
@@ -111,7 +111,7 @@ export default function CardCreate(): ReactElement {
               minLength={16}
             />
           </div>
-          <div className="flex w-[100%] flex-col">
+          <div className="flex w-[100%] flex-col gap-7">
             <FormInput
               placeholder="CVV"
               inputLabel="cvv"
@@ -147,7 +147,7 @@ export default function CardCreate(): ReactElement {
           minLength={5}
         />
         <div className="flex gap-7">
-          <div className="flex w-[100%] flex-col">
+          <div className="flex w-[100%] flex-col gap-7">
             <FormInput
               placeholder="Password"
               inputLabel="password"
@@ -165,7 +165,7 @@ export default function CardCreate(): ReactElement {
               pattern="^[0-9]+$"
             />
           </div>
-          <div className="flex w-[100%] flex-col">
+          <div className="flex w-[100%] flex-col gap-7">
             <FormInput
               placeholder="Card Type"
               inputLabel="card_type"

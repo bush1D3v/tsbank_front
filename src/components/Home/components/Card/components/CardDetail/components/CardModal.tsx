@@ -1,5 +1,6 @@
 import { type ReactElement } from "react";
 import { type CardData } from "@/types";
+import { balanceFormat } from "@/functions";
 
 export default function CardModal({ cardData }: { cardData: CardData[] }): ReactElement {
   return (
@@ -21,7 +22,7 @@ export default function CardModal({ cardData }: { cardData: CardData[] }): React
             {transaction.credit && (
               <>
                 <h2>Credit</h2>
-                <p>Credit: {transaction.credit.balance}</p>
+                <p>Balance: {balanceFormat(transaction.credit.balance)}</p>
                 <p>CVV: {transaction.credit.cvv}</p>
                 <p>Expiration Date: {transaction.credit.expiration_date}</p>
                 <p>Card Holder Name: {transaction.credit.cardholder_name}</p>

@@ -5,6 +5,7 @@ import {
   test,
   expect,
   beforeEach,
+  vi,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { type CardData } from "@/types";
@@ -39,6 +40,14 @@ const router = createMemoryRouter(
 
 const CardModalTestId: string = "CardModal";
 const CardModalListItemTestId: string = "CardModalListItem";
+
+const formattedBalance = "$2,000.00";
+
+vi.mock("@/functions", () => ({
+  balanceFormat: vi.fn(() => {
+    return formattedBalance;
+  }),
+}));
 
 sessionStorage.setItem("cardData", JSON.stringify(cardData));
 
@@ -75,7 +84,7 @@ describe("CardModal component tests", () => {
 
   test("Should be able to render the CreditListItem with the correctly balance", () => {
     expect(screen.getByTestId(CardModalListItemTestId)).toHaveTextContent(
-      `Credit: ${cardData[ 0 ].credit?.balance}`
+      `Balance: ${formattedBalance}`
     );
   });
 

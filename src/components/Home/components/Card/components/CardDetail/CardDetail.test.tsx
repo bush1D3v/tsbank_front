@@ -42,6 +42,8 @@ vi.mock("../functions", () => ({
   })
 }));
 
+const formattedBalance = "$2,000.00";
+
 const router = createMemoryRouter(
   [ { path: "/card", element: <CardDetail /> } ],
   { initialEntries: [ "/card" ], }
@@ -86,7 +88,7 @@ describe("CardDetail component tests", () => {
       cvvData
     );
     expect(screen.getByTestId(CardDetailModalTestId)).toHaveTextContent(
-      balanceData.toString()
+      formattedBalance
     );
   });
 

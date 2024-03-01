@@ -1,3 +1,4 @@
+export const ROUTER_BASE_URL: string = "http://localhost:3000";
 export const ROOT: string = "/";
 export const LOGIN: string = "/login";
 export const REGISTER: string = "/register";

@@ -9,16 +9,15 @@ import {
   test,
   expect,
   beforeEach,
-  vi,
 } from "vitest";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import { handleLinkClick } from "@/functions";
 import HooksList from "./HooksList";
 import {
   WITHDRAW,
   DEPOSIT,
   CARD,
-  PIX
+  PIX,
+  ROUTER_BASE_URL
 } from "@/utils/routerPaths";
 
 const HooksListTestId: string = "HooksList";
@@ -31,11 +30,6 @@ const router = createMemoryRouter(
   [ { path: "/", element: <HooksList /> } ],
   { initialEntries: [ "/" ], }
 );
-
-vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-  eventClick: vi.fn()
-}));
 
 describe("HooksList component tests", () => {
   beforeEach(() => {
@@ -70,7 +64,10 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemWithdraw", () => {
     fireEvent.click(screen.getByTestId(HooksListItemWithdrawTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(WITHDRAW);
+    expect(screen.getByTestId(HooksListItemWithdrawTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${WITHDRAW}`
+    );
   });
 
   test("Should be able to render the ListItemDeposit correctly", () => {
@@ -91,7 +88,10 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemDeposit", () => {
     fireEvent.click(screen.getByTestId(HooksListItemDepositTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(DEPOSIT);
+    expect(screen.getByTestId(HooksListItemDepositTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${DEPOSIT}`
+    );
   });
 
   test("Should be able to render the ListItemCard correctly", () => {
@@ -112,7 +112,10 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemCard", () => {
     fireEvent.click(screen.getByTestId(HooksListItemCardTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(CARD);
+    expect(screen.getByTestId(HooksListItemCardTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${CARD}`
+    );
   });
 
   test("Should be able to render the ListItemPix correctly", () => {
@@ -133,6 +136,9 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemPix", () => {
     fireEvent.click(screen.getByTestId(HooksListItemPixTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(PIX);
+    expect(screen.getByTestId(HooksListItemPixTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${PIX}`
+    );
   });
 });

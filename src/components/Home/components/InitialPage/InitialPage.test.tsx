@@ -71,8 +71,6 @@ vi.mock("../functions", () => ({
 const formattedBalance: string = "$2.500,00";
 
 vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-  eventClick: vi.fn(),
   balanceFormat: vi.fn(() => {
     return formattedBalance;
   }),
@@ -118,7 +116,7 @@ describe("InitialPage component tests", () => {
 
   test("Should be able to render the Title with the correctly text", () => {
     expect(screen.getByTestId(InitialPageTitleTestId)).toHaveTextContent(
-      `Hello ${nameData}👋`
+      `Hello ${nameData} 👋`
     );
   });
 

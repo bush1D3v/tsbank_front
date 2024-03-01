@@ -1,6 +1,5 @@
 import { type ReactElement } from "react";
 import AnchorLink from "@/components/AnchorLink";
-import { handleLinkClick } from "@/functions";
 import {
   WITHDRAW,
   DEPOSIT,
@@ -17,7 +16,6 @@ export default function HooksList(): ReactElement {
       <li className="flex w-full" data-testid="HooksListItemWithdraw">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(WITHDRAW)}
           param={WITHDRAW}
           text="WITHDRAW"
         />
@@ -25,7 +23,6 @@ export default function HooksList(): ReactElement {
       <li className="flex w-full" data-testid="HooksListItemDeposit">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(DEPOSIT)}
           param={DEPOSIT}
           text="DEPOSIT"
         />
@@ -33,7 +30,6 @@ export default function HooksList(): ReactElement {
       <li className="flex w-full" data-testid="HooksListItemCard">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(CARD)}
           param={CARD}
           text="CARD"
         />
@@ -41,7 +37,6 @@ export default function HooksList(): ReactElement {
       <li className="flex w-full" data-testid="HooksListItemPix">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(PIX)}
           param={PIX}
           text="PIX"
         />

@@ -47,13 +47,13 @@ describe("PolicyAndTerms component tests", () => {
   });
 
   test("Should be able to render the PolicyLink component with the correctly tailwind classes", () => {
-    expect(screen.getByTestId(PolicyLinkTestId)).toHaveClass(`
-      underline lg:text-xl hover:text-darkBlue transition-all
-    `);
+    expect(screen.getByTestId(PolicyLinkTestId)).toHaveClass(
+      "underline text-[18px] md:text-2xl lg:text-3xl hover:text-darkBlue transition-all"
+    );
   });
 
   test("Should be able to render the PolicyLink component with the correctly text", () => {
-    expect(screen.getByTestId(PolicyLinkTestId)).toHaveTextContent("Privacy Policy");
+    expect(screen.getByTestId(PolicyLinkTestId)).toHaveTextContent("Policy");
   });
 
   test("Should be able to render the TermsLink component with the correctly href", () => {
@@ -75,12 +75,12 @@ describe("PolicyAndTerms component tests", () => {
   });
 
   test("Should be able to render the TermsLink component with the correctly tailwind classes", () => {
-    expect(screen.getByTestId(TermsLinkTestId)).toHaveClass(`
-      underline lg:text-xl hover:text-darkBlue transition-all
-    `);
+    expect(screen.getByTestId(TermsLinkTestId)).toHaveClass(
+      "underline text-[18px] md:text-2xl lg:text-3xl hover:text-darkBlue transition-all"
+    );
   });
 
   test("Should be able to render the TermsLink component with the correctly text", () => {
-    expect(screen.getByTestId(TermsLinkTestId)).toHaveTextContent("Terms of use");
+    expect(screen.getByTestId(TermsLinkTestId)).toHaveTextContent("Terms");
   });
 });

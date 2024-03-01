@@ -13,8 +13,8 @@ import {
 } from "vitest";
 import { type UserData } from "@/types";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { handleLinkClick, logoutClick } from "@/functions";
-import { UPDATE, LOGIN } from "@/utils/routerPaths";
+import { logoutClick } from "@/functions";
+import { UPDATE, ROUTER_BASE_URL } from "@/utils/routerPaths";
 import ProfilePage from "./ProfilePage";
 
 const emailData: string = "testAccount@gmail.com";
@@ -40,8 +40,6 @@ const ProfilePageListItemEditProfile: string = "ProfilePageListItemEditProfile";
 const ProfilePageListItemLogout: string = "ProfilePageListItemLogout";
 
 vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-  eventClick: vi.fn(),
   logoutClick: vi.fn(),
   jsonUserParser: vi.fn(() => {
     return userData;
@@ -100,8 +98,10 @@ describe("ProfilePage component tests", () => {
 
   test("Should be able to fire event the UpdateProfileListItem", () => {
     fireEvent.click(screen.getByTestId(ProfilePageListItemEditProfile));
-
-    expect(handleLinkClick).toHaveBeenCalledWith(UPDATE);
+    expect(screen.getByTestId(ProfilePageListItemEditProfile).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${UPDATE}`
+    );
   });
 
   test("Should be able to render the UpdateProfileListItem with the correctly text", () => {
@@ -115,7 +115,7 @@ describe("ProfilePage component tests", () => {
   test("Should be able to fire event the LogoutListItem", () => {
     fireEvent.click(screen.getByTestId(ProfilePageListItemLogout));
 
-    expect(logoutClick).toHaveBeenCalledWith(LOGIN);
+    expect(logoutClick).toHaveBeenCalled();
   });
 
   test("Should be able to render the LogoutListItem with the correctly text", () => {

@@ -7,7 +7,6 @@ import {
 } from "@/utils/routerPaths";
 import { type ReactElement } from "react";
 import AnchorLink from "@/components/AnchorLink";
-import { handleLinkClick } from "@/functions";
 
 export default function EditProfilePage(): ReactElement {
   return (
@@ -17,7 +16,6 @@ export default function EditProfilePage(): ReactElement {
     >
       <li className="flex w-full" data-testid="EditProfilePageListItemUpdateAll">
         <AnchorLink
-          func={handleLinkClick(UPDATE_ALL)}
           param={UPDATE_ALL}
           text="UPDATE ALL ACCOUNT INFO"
           buttonBg="bg-saturatedBlue hover:bg-transparent"
@@ -25,7 +23,6 @@ export default function EditProfilePage(): ReactElement {
       </li>
       <li className="flex w-full" data-testid="EditProfilePageListItemUpdateEmail">
         <AnchorLink
-          func={handleLinkClick(UPDATE_EMAIL)}
           param={UPDATE_EMAIL}
           text="UPDATE YOUR EMAIL"
           buttonBg="bg-saturatedBlue hover:bg-transparent"
@@ -33,7 +30,6 @@ export default function EditProfilePage(): ReactElement {
       </li>
       <li className="flex w-full" data-testid="EditProfilePageListItemUpdatePassword">
         <AnchorLink
-          func={handleLinkClick(UPDATE_PASSWORD)}
           param={UPDATE_PASSWORD}
           text="UPDATE YOUR PASSWORD"
           buttonBg="bg-saturatedBlue hover:bg-transparent"
@@ -41,7 +37,6 @@ export default function EditProfilePage(): ReactElement {
       </li>
       <li className="flex w-full" data-testid="EditProfilePageListItemUpdatePhone">
         <AnchorLink
-          func={handleLinkClick(UPDATE_PHONE)}
           param={UPDATE_PHONE}
           text="UPDATE YOUR PHONE"
           buttonBg="bg-saturatedBlue hover:bg-transparent"
@@ -49,7 +44,6 @@ export default function EditProfilePage(): ReactElement {
       </li>
       <li className="flex w-full" data-testid="EditProfilePageListItemDeleteUser">
         <AnchorLink
-          func={handleLinkClick(DELETE_USER)}
           param={DELETE_USER}
           text="DELETE ACCOUNT"
           buttonBg="bg-blackBlue hover:bg-error"

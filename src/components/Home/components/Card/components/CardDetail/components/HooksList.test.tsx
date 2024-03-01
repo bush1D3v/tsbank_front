@@ -9,13 +9,12 @@ import {
   test,
   expect,
   beforeEach,
-  vi,
 } from "vitest";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import { handleLinkClick } from "@/functions";
 import { type CardData } from "@/types";
 import HooksList from "./HooksList";
 import {
+  ROUTER_BASE_URL,
   CARD_CREATE,
   CARD_UPDATE,
   CARD_TRANSACTION,
@@ -45,11 +44,6 @@ const router = createMemoryRouter(
   [ { path: "/", element: <HooksList cardData={cardData} /> } ],
   { initialEntries: [ "/" ], }
 );
-
-vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-  eventClick: vi.fn()
-}));
 
 describe("HooksList component tests", () => {
   beforeEach(() => {
@@ -84,7 +78,10 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemCreate", () => {
     fireEvent.click(screen.getByTestId(HooksListItemCreateTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(CARD_CREATE);
+    expect(screen.getByTestId(HooksListItemCreateTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${CARD_CREATE}`
+    );
   });
 
   test("Should be able to render the ListItemUpdate correctly", () => {
@@ -105,7 +102,10 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemUpdate", () => {
     fireEvent.click(screen.getByTestId(HooksListItemUpdateTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(CARD_UPDATE);
+    expect(screen.getByTestId(HooksListItemUpdateTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${CARD_UPDATE}`
+    );
   });
 
   test("Should be able to render the ListItemTransaction correctly", () => {
@@ -126,7 +126,10 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemTransaction", () => {
     fireEvent.click(screen.getByTestId(HooksListItemTransactionTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(CARD_TRANSACTION);
+    expect(screen.getByTestId(HooksListItemTransactionTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${CARD_TRANSACTION}`
+    );
   });
 
   test("Should be able to render the ListItemPayment correctly", () => {
@@ -147,6 +150,9 @@ describe("HooksList component tests", () => {
 
   test("Should be able to fire event the ListItemPayment", () => {
     fireEvent.click(screen.getByTestId(HooksListItemPaymentTestId));
-    expect(handleLinkClick).toHaveBeenCalledWith(CREDIT_PAYMENT);
+    expect(screen.getByTestId(HooksListItemPaymentTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${CREDIT_PAYMENT}`
+    );
   });
 });

@@ -22,7 +22,7 @@ describe("SummaryImage component tests", () => {
 
   test("Should be able to render the component with the correctly tailwind classes", () => {
     expect(screen.getByTestId(SummaryImageTestId)).toHaveClass(
-      "w-2/4 md:w-2/6 lg:w-8/12 rounded-full hover:scale-105 cursor-pointer transition-all delay-75"
+      "w-2/4 md:w-2/6 lg:w-8/12 hover:scale-105 cursor-pointer transition-all delay-75"
     );
   });
 

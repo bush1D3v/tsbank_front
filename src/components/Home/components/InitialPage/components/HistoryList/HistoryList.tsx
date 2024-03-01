@@ -18,7 +18,7 @@ export default function HistoryList({ historyData }: HistoryListProps): ReactEle
     setTimeout(() => {
       setVisibleTransactions((prevVisibleTransactions) => prevVisibleTransactions + 10);
       setLoading(false);
-    }, 1000);
+    }, 500);
   };
 
   const navigation = useNavigate();
@@ -28,7 +28,7 @@ export default function HistoryList({ historyData }: HistoryListProps): ReactEle
   };
 
   return (
-    <ul className="py-1 pl-[18px] pr-1 flex flex-col gap-4 md:gap-6 lg:gap-4 w-full max-h-[18dvh] md:max-h-[19dvh]
+    <ul className="p-1 flex flex-col gap-4 md:gap-6 lg:gap-4 w-full max-h-[18dvh] md:max-h-[19dvh]
       overflow-y-scroll lg:w-3/5 xl:w-2/4 animate-fade-down animate-duration-500 animate-ease-in-out"
       data-testid="HistoryList">
       {[ ...historyData ].reverse().slice(0, visibleTransactions).map((history, index) => (

@@ -20,6 +20,7 @@ import {
   HooksList,
   HistoryList
 } from "./components";
+import { TfiReload } from "react-icons/tfi";
 import { detailUserSubmit } from "./functions";
 
 export default function InitialPage(): ReactElement {
@@ -42,21 +43,13 @@ export default function InitialPage(): ReactElement {
       try {
         const response: HistoryResponseProps = await getHistory();
         setHistoryData(response.message as HistoryData[]);
-        if (response.success) {
-          sessionStorage.setItem("historyData", JSON.stringify(response.message));
-        } else {
-          sessionStorage.setItem("historyError", JSON.stringify(response.message));
-        }
+        sessionStorage.setItem("historyData", JSON.stringify(response.message));
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         console.error(error.message);
       } finally {
         setIsLoading(false);
       }
-    };
-
-    window.onbeforeunload = function () {
-      sessionStorage.removeItem("historyData");
     };
 
     const cachedData = sessionStorage.getItem("historyData");
@@ -74,6 +67,11 @@ export default function InitialPage(): ReactElement {
     }
   }, []);
 
+  function historyReload(): void {
+    sessionStorage.removeItem("historyData");
+    window.location.reload();
+  }
+
   const { user } = jsonUserParser(sessionStorage.getItem("userData"));
 
   const balance = balanceFormat(user.balance);
@@ -90,16 +88,23 @@ export default function InitialPage(): ReactElement {
           <h1 className="text-xl md:text-2xl lg:text-3l xl:text-4xl font-bold text-center
             animate-fade-down animate-duration-700 animate-ease-in-out"
             data-testid="InitialPageTitle">
-            Hello <br /> {user.name}👋
+            Hello <br /> {user.name} 👋
           </h1>
           <BalanceDivision balance={balance} />
           <HooksList />
-          <span
-            className="md:-mt-8 -mb-6 md:-mb-12 text-lg md:text-xl lg:text-2xl font-bold
-            animate-fade animate-duration-700 animate-ease-in-out"
-            data-testid="InitialPageHistorySpan">
-            &#x25BC; HISTORY &#x25BC;
-          </span>
+          <div className="flex items-center justify-center relative w-[320px]">
+            <span
+              className="md:-mt-8 -mb-6 md:-mb-12 text-lg md:text-xl lg:text-2xl font-bold
+                animate-fade animate-duration-700 animate-ease-in-out"
+              data-testid="InitialPageHistorySpan">
+              &#x25BC; HISTORY &#x25BC;
+            </span>
+            <TfiReload
+              onClick={() => historyReload()}
+              className="cursor-pointer font-bold hover:opacity-50 absolute mt-4
+              right-0 hover:animate-none animate-spin text-xl"
+            />
+          </div>
           {typeof historyData === "string" ? (
             <p className="px-4 text-center text-lg md:text-xl lg:text-2xl">
               {errorReplace(historyData)}

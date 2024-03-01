@@ -8,20 +8,14 @@ import {
   describe,
   test,
   expect,
-  vi,
   beforeEach,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { handleLinkClick } from "@/functions";
 import Profile from "./Profile";
-import { PROFILE } from "@/utils/routerPaths";
+import { PROFILE, ROUTER_BASE_URL } from "@/utils/routerPaths";
 
 const ProfileTestId: string = "Profile";
 const ProfileIconTestId: string = "ProfileIcon";
-
-vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-}));
 
 const router = createMemoryRouter(
   [ { path: "/", element: <Profile /> } ],
@@ -45,8 +39,10 @@ describe("Profile component tests", () => {
 
   test("Should be able to fire event", () => {
     fireEvent.click(screen.getByTestId(ProfileTestId));
-
-    expect(handleLinkClick).toHaveBeenCalledWith(PROFILE);
+    expect(screen.getByTestId(ProfileTestId)).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${PROFILE}`
+    );
   });
 
   test("Should be able to render the component with the correctly Icon", () => {

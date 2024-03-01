@@ -1,4 +1,5 @@
 import { type ReactElement } from "react";
+import { Button } from "@/components/Styleds";
 
 interface ModalProps {
   isOpen: boolean;
@@ -24,15 +25,13 @@ export default function Modal({
           h-3/6 md:h-[35%] lg:h-2/5 flex flex-col justify-evenly">
           <h2 className="text-4xl mb-2 font-bold text-white">{title}</h2>
           <p className="text-white mb-3 text-2xl">{description}</p>
-          <button
-            type="button"
-            className="text-white px-7 py-2 bg-whiteBlue font-bold rounded-[10px] text-xl hover:text-purple transition-colors"
+          <Button
             data-testid="ModalButton"
             onClick={() => {
               setOpen(!isOpen);
             }}>
             {btnMessage}
-          </button>
+          </Button>
         </div>
       </div>
     );

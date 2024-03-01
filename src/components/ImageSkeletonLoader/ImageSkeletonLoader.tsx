@@ -44,7 +44,7 @@ export default function ImageSkeletonLoader({
     <>
       {isSkeletonNotLoading ? (
         <>
-          <img src={src} alt={alt} loading={loading} onLoad={handleImageLoad} data-testid="Image" />
+          <img src={src} alt={alt} loading={loading} height={500} width={500} onLoad={handleImageLoad} data-testid="Image" />
           {isImageLoading ? null : <Skeleton />}
         </>
       ) : (

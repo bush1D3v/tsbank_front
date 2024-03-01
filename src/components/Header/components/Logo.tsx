@@ -1,15 +1,19 @@
 import { type ReactElement } from "react";
-import { logo } from "@/assets/images";
-import { handleLinkClick } from "@/functions";
+import {
+  smallLogo,
+  mediumLogo,
+  largeLogo
+} from "@/assets/images";
 import { HOME } from "@/utils/routerPaths";
 
 export default function Logo(): ReactElement {
   return (
     <a
-      onClick={handleLinkClick(HOME)}
-      className="cursor-pointer transition-all delay-75 relative h-full hover:opacity-50"
-      data-testid="Logo">
-      <img src={logo} alt="tsbank logo" className="h-full w-full" data-testid="LogoImage" />
+      className="cursor-pointer transition-all h-full delay-75 relative hover:opacity-50"
+      data-testid="Logo"
+      href={HOME}>
+      <img srcSet={`${smallLogo} 480w, ${mediumLogo} 768w, ${largeLogo} 1080w`}
+        alt="tsbank logo" width={"100%"} height={"100%"} className="h-full w-full" data-testid="LogoImage" />
     </a>
   );
 }

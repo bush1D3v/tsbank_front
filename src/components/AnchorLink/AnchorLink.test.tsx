@@ -8,24 +8,20 @@ import {
   describe,
   test,
   expect,
-  vi,
-  beforeEach,
-  type Mock
+  beforeEach
 } from "vitest";
 import AnchorLink from "./AnchorLink";
+import { ROUTER_BASE_URL } from "@/utils/routerPaths";
 
 const AnchorLinkTestId: string = "AnchorLink";
 
 const testText: string = "testText";
-const testParam: string = "testParam";
-
-const handleClick: Mock = vi.fn();
+const testParam: string = "/testParam";
 
 describe("AnchorLink component tests", () => {
   beforeEach(() => {
     render(
       <AnchorLink
-        func={handleClick}
         text={testText}
         param={testParam}
         buttonBg="bg-saturatedBlue hover:bg-transparent"
@@ -44,7 +40,10 @@ describe("AnchorLink component tests", () => {
   test("Should be able to render the component with the correctly param parameter", () => {
     fireEvent.click(screen.getByTestId(AnchorLinkTestId));
 
-    expect(handleClick).toHaveBeenCalledWith(testParam);
+    expect(screen.getByTestId(AnchorLinkTestId)).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${testParam}`
+    );
   });
 
   test("Should be able to render the component with the correctly button background", () => {
@@ -62,6 +61,9 @@ describe("AnchorLink component tests", () => {
   test("Should be able to fire event", () => {
     fireEvent.click(screen.getByTestId(AnchorLinkTestId));
 
-    expect(handleClick).toHaveBeenCalled();
+    expect(screen.getByTestId(AnchorLinkTestId)).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${testParam}`
+    );
   });
 });

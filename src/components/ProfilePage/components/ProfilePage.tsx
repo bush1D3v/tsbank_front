@@ -1,8 +1,8 @@
 import { type ReactElement } from "react";
-import { handleLinkClick, logoutClick } from "@/functions";
 import AnchorLink from "@/components/AnchorLink";
 import Table from "./Table";
 import { LOGIN, UPDATE } from "@/utils/routerPaths";
+import { logoutClick } from "@/functions";
 
 export default function ProfilePage(): ReactElement {
   return (
@@ -14,15 +14,13 @@ export default function ProfilePage(): ReactElement {
       <ul className="flex gap-8 w-full px-2" data-testid="ProfilePageList">
         <li className="flex w-full" data-testid="ProfilePageListItemEditProfile">
           <AnchorLink
-            func={handleLinkClick(UPDATE)}
             param={UPDATE}
             text="EDIT PROFILE"
             buttonBg="bg-saturatedBlue hover:bg-transparent"
           />
         </li>
-        <li className="flex w-full" data-testid="ProfilePageListItemLogout">
+        <li className="flex w-full" data-testid="ProfilePageListItemLogout" onClick={logoutClick}>
           <AnchorLink
-            func={logoutClick(LOGIN)}
             param={LOGIN}
             text="LOGOUT"
             buttonBg="bg-blackBlue hover:bg-error"

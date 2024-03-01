@@ -8,13 +8,11 @@ import {
   describe,
   test,
   expect,
-  vi,
   beforeEach,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import { handleLinkClick } from "@/functions";
-import { HOME, ABOUT } from "@/utils/routerPaths";
+import { HOME, ABOUT, ROUTER_BASE_URL } from "@/utils/routerPaths";
 
 const NavLinksTestId: string = "NavLinks";
 const NavLinksListTestId: string = "NavLinksList";
@@ -23,11 +21,6 @@ const NavLinksListItemAboutTestId: string = "NavLinksListItemAbout";
 
 const testHomeText: string = "HOME";
 const testAboutText: string = "ABOUT";
-
-vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-  eventClick: vi.fn()
-}));
 
 const router = createMemoryRouter(
   [ { path: "/", element: <NavLinks /> } ],
@@ -65,8 +58,10 @@ describe("NavLinks component tests", () => {
 
   test("Should be able to fire event the ListItemHome", () => {
     fireEvent.click(screen.getByTestId(NavLinksListItemHomeTestId));
-
-    expect(handleLinkClick).toHaveBeenCalledWith(HOME);
+    expect(screen.getByTestId(NavLinksListItemHomeTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${HOME}`
+    );
   });
 
   test("Should be able to render the ListItemHome with the correctly text", () => {
@@ -84,9 +79,11 @@ describe("NavLinks component tests", () => {
   });
 
   test("Should be able to fire event ListItemAbout", () => {
-    fireEvent.click(screen.getByTestId(NavLinksListItemHomeTestId));
-
-    expect(handleLinkClick).toHaveBeenCalledWith(ABOUT);
+    fireEvent.click(screen.getByTestId(NavLinksListItemAboutTestId));
+    expect(screen.getByTestId(NavLinksListItemAboutTestId).firstChild).toHaveProperty(
+      "href",
+      `${ROUTER_BASE_URL}${ABOUT}`
+    );
   });
 
   test("Should be able to render the ListItemAbout with the correctly text", () => {

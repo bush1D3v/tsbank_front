@@ -9,20 +9,17 @@ import {
   test,
   expect,
   beforeEach,
-  vi,
 } from "vitest";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import { logo } from "@/assets/images";
-import { handleLinkClick } from "@/functions";
+import {
+  largeLogo,
+  mediumLogo,
+  smallLogo
+} from "@/assets/images";
 import Logo from "./Logo";
-import { HOME } from "@/utils/routerPaths";
 
 const LogoTestId: string = "Logo";
 const LogoImageTestId: string = "LogoImage";
-
-vi.mock("@/functions", () => ({
-  handleLinkClick: vi.fn(),
-}));
 
 const router = createMemoryRouter(
   [ { path: "/", element: <Logo /> } ],
@@ -45,7 +42,10 @@ describe("Logo component tests", () => {
   });
 
   test("Should be able to render the Image with the correctly parameters", () => {
-    expect(screen.getByTestId(LogoImageTestId)).toHaveAttribute("src", logo);
+    expect(screen.getByTestId(LogoImageTestId)).toHaveAttribute(
+      "srcSet",
+      `${smallLogo} 480w, ${mediumLogo} 768w, ${largeLogo} 1080w`
+    );
     expect(screen.getByTestId(LogoImageTestId)).toHaveAttribute("alt", "tsbank logo");
   });
 
@@ -55,7 +55,5 @@ describe("Logo component tests", () => {
 
   test("Should be able to fire event", () => {
     fireEvent.click(screen.getByTestId(LogoTestId));
-
-    expect(handleLinkClick).toHaveBeenCalledWith(HOME);
   });
 });

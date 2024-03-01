@@ -19,7 +19,6 @@ type Story = StoryObj<typeof AnchorLink>;
 
 export const Default: Story = {
   args: {
-    func: () => { },
     text: "Button",
     param: "test",
     buttonBg: "bg-saturatedBlue hover:bg-transparent"

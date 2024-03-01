@@ -1,5 +1,4 @@
 import { type ReactElement } from "react";
-import { handleLinkClick } from "@/functions";
 import { type CardData } from "@/types";
 import AnchorLink from "@/components/AnchorLink";
 import {
@@ -22,7 +21,6 @@ export default function HooksList({ cardData }: { cardData: CardData[] }): React
         <li className="flex w-full" data-testid="HooksListItemCreate">
           <AnchorLink
             buttonBg="bg-saturatedBlue hover:bg-transparent"
-            func={handleLinkClick(CARD_CREATE)}
             param={CARD_CREATE}
             text="CREATE CARD"
           />
@@ -31,7 +29,6 @@ export default function HooksList({ cardData }: { cardData: CardData[] }): React
       <li className="flex w-full" data-testid="HooksListItemUpdate">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(CARD_UPDATE)}
           param={CARD_UPDATE}
           text="UPDATE PASSWORD"
         />
@@ -39,7 +36,6 @@ export default function HooksList({ cardData }: { cardData: CardData[] }): React
       <li className="flex w-full" data-testid="HooksListItemTransaction">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(CARD_TRANSACTION)}
           param={CARD_TRANSACTION}
           text="CARD TRANSACTION"
         />
@@ -47,7 +43,6 @@ export default function HooksList({ cardData }: { cardData: CardData[] }): React
       <li className="flex w-full" data-testid="HooksListItemPayment">
         <AnchorLink
           buttonBg="bg-saturatedBlue hover:bg-transparent"
-          func={handleLinkClick(CREDIT_PAYMENT)}
           param={CREDIT_PAYMENT}
           text="CREDIT PAYMENT"
         />

@@ -1,0 +1,11 @@
+{
+  "symbols.folders.associations": {
+    "pages": "folder-orange",
+    "routes": "folder-green",
+    "helpers": "folder-purple",
+    "utils": "folder-target",
+    "crypto": "folder-utils",
+    "functions": "folder-sky",
+    "schemas": "folder-red"
+  }
+}

@@ -23,7 +23,7 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as funcionalidade
    <img align='center' height='54' width='68' title='Jest' alt='jest' src='https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg' />
    <img align='center' height='70' width='50' title='Axios' alt='axios' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/b9ff307f-3582-4635-ae6e-361215efc742' /> &nbsp;
    <img align='center' height='54' width='44' title='Vitest' alt='vitest' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/74803ee6-3f6e-4335-9f56-cb887a4285ff' />  &nbsp;
-   <img align='center' height='54' width='54' title='React Hook Form' alt='react hook form' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/65a90eb9-1188-4197-a902-6b055464cc76' />
+   <img align='center' height='54' width='54' title='React Hook Form' alt='react hook form' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/65a90eb9-1188-4197-a902-6b055464cc76' /> &nbsp;
    <img align='center' height='54' width='68' title='Html5' alt='html5' src='https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg' />
    <img align='center' height='50' width='70' title='JavaScript' alt='javascript' src='https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg' />
    <img align='center' height='58' width='80' title='Tailwindcss-animated' alt='tailwindcss-animated' src='https://github.com/bush1D3v/my_portfolio_html/assets/133554156/364156ca-f265-4478-bcc3-4a12830c46a7' /> &nbsp;
@@ -31,7 +31,8 @@ O **TSBank** é uma aplicação **bancária**, possuindo todas as funcionalidade
    <img align='center' height='49' width='59' title='Zod' alt='zod' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/5a769805-23e2-4f8b-904d-034b25a982a6' /> &nbsp; &nbsp;
    <img align='center' height='49' width='49' title='Crypto-js' alt='crypto-js' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/303e55f6-c252-479d-9ce9-37cb33b07a12' /> &nbsp; &nbsp;
    <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' /> &nbsp;
-   <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' />
+   <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' /> &nbsp;
+   <img align='center' height='60' width='60' title='Miro' alt='miro' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/a13c4c2a-892e-4f34-911d-71630ce7a35d' />
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -49,6 +50,10 @@ Com a adição do Docker, você agora pode utilizar dos scripts fornecidos em `p
 Para isso, segue a lista de funções de cada script:
 
 > `docker-build`: Constrói a imagem docker do projeto <br> `docker-start`: Sobe e roda/só roda o container tsbank_front <br> `docker-stop`: Para o container tsbank_front <br> `docker-test`: Sobe um container alternativo chamado tsbank_front_tests, roda os testes e exclui o container após a execução dos mesmos <br> `docker-stb`: Sobe um container alternativo chamado tsbank_front_stb, e após a documentação ser fechada pelo seu terminal VSCode com <u>ctrl + c</u>, o container é excluído
+
+## 🎨 Miro
+
+Com a adição do Miro, foi criado o **fluxograma** do TSBank. Abaixo, segue o link de visualização: <a src="https://miro.com/welcomeonboard/UHBRbUhxMGZoYjVxbllUN25iMnQ1VHlzZWZHMDFZNTJNZVI1UmNGT0pOSHhUZXdPcHQ4TzlHSTlwY1doZUl0eXwzNDU4NzY0NTgwNTE3NDU2OTEyfDI=?share_link_id=943514210286">https://miro.com/welcomeonboard/</a>
 
 # 🖋️ Contribuindo para o TSBank
 

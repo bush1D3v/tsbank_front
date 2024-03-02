@@ -53,7 +53,7 @@ Para isso, segue a lista de funções de cada script:
 
 ## 🎨 Miro
 
-Com a adição do Miro, foi criado o **fluxograma** do TSBank. Abaixo, segue o link de visualização: <a src="https://miro.com/welcomeonboard/UHBRbUhxMGZoYjVxbllUN25iMnQ1VHlzZWZHMDFZNTJNZVI1UmNGT0pOSHhUZXdPcHQ4TzlHSTlwY1doZUl0eXwzNDU4NzY0NTgwNTE3NDU2OTEyfDI=?share_link_id=943514210286">https://miro.com/welcomeonboard/</a>
+Com a adição do Miro, foi criado o **fluxograma** do TSBank. Abaixo, segue o link de visualização: <https://miro.com/miroverse/-diagrama-de-fluxo-wyi78jqp6ef96pui/?social=copy-link>
 
 # 🖋️ Contribuindo para o TSBank
 

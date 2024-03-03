@@ -6,6 +6,7 @@
     "utils": "folder-target",
     "crypto": "folder-utils",
     "functions": "folder-sky",
-    "schemas": "folder-red"
+    "schemas": "folder-red",
+    ".storybook": "folder-database"
   }
 }
